@@ -42,6 +42,7 @@ echo -e "\n--- Setting document root to public directory ---\n"
 rm -rf /var/www/html
 ln -fs /vagrant/itutor/web /var/www/html
 ln -fs /vagrant/itutor/lib/vendor/symfony/data/web/sf /vagrant/itutor/web/sf
+rm -rf /vagrant/itutor/cache/*
 
 echo -e "\n--- We definitly need to see the PHP errors, turning them on ---\n"
 sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
