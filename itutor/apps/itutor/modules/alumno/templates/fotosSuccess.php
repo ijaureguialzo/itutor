@@ -79,7 +79,7 @@ if ($y % 5 == 0)
 ?>
       <td>
       <div class="foto">
-      <?php $ruta="/itutor/images/grupos/".$alumno->getGrupoId()."/".$alumno->getId().".jpg";?>
+      <?php $ruta="/images/grupos/".$alumno->getGrupoId()."/".$alumno->getId().".jpg";?>
       <img src="<?php echo $ruta?>" style="width:100px;" />
       </div>
       <div class="nombre">

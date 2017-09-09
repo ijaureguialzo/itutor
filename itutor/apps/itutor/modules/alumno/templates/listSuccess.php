@@ -104,9 +104,9 @@ else
    $oc = "imagen".$alumno->getId()."('hidden')";
    ?>
       <td><?php echo $alumno->getCodigo() ?></td>
-      <td><img src="/itutor/images/iconos/camera_small.png" onmouseover="<?php echo $vis; ?>" onmouseout="<?php echo $oc; ?>" /><?php echo $alumno->getNombre() ?>
+      <td><img src="/images/iconos/camera_small.png" onmouseover="<?php echo $vis; ?>" onmouseout="<?php echo $oc; ?>" /><?php echo $alumno->getNombre() ?>
        <div id="im<?php echo $alumno->getId();?>" style="visibility:hidden;position:absolute;">
-           <?php $ruta="/itutor/images/grupos/".$alumno->getGrupoId()."/".$alumno->getId().".jpg";?>
+           <?php $ruta="/images/grupos/".$alumno->getGrupoId()."/".$alumno->getId().".jpg";?>
            <img src="<?php echo $ruta?>" style="width:100px;" />
        </div>
       </td>
