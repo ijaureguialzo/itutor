@@ -32,9 +32,9 @@
 
 
 
-<link rel="shortcut icon" href="/itutor/favicon.ico" />
+<link rel="shortcut icon" href="/favicon.ico" />
 
-<link rel="stylesheet" type="text/css" media="print" href="/itutor/css/imprimir.css" />
+<link rel="stylesheet" type="text/css" media="print" href="/css/imprimir.css" />
 
 </head>
 <body>
