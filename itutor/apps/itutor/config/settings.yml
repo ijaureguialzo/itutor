@@ -114,7 +114,6 @@ all:
   .settings:
     enabled_modules: [ sfGuardAuth, sfGuardGroup, sfGuardPermission, sfGuardUser, sfTCPDF ]
     i18n: on
-    relative_url_root:   /itutor
   .actions:    
     login_module:           sfGuardAuth
     login_action:           signin

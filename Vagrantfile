@@ -10,9 +10,9 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777", "fmode=666"]
 
     config.vm.provider "virtualbox" do |v|
-      v.memory = 1024
+      v.memory = 2048
       v.gui = false
-      v.cpus = 1
+      v.cpus = 2
     end
 
     config.vm.provision "shell", path: "install_mysql.sh"
