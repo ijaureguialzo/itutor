@@ -1,0 +1,199 @@
+/*
+  This file is part of iTutor.
+  Copyright (C) 2008 Oihane Garcia Bolumburu <oihaneg@gmail.com>
+  Copyright (C) 2008 Ion Jaureguialzo Sarasola <widemos@gmail.com>
+
+  iTutor is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  iTutor is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with iTutor. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#contenedor {
+    font-family: Arial;
+}
+
+#nav {
+    display: none;
+}
+
+#logo {
+    border: 0;
+}
+
+a {
+    border: 0;
+}
+
+img {
+    border: 0;
+    width: 25%;
+}
+
+#menu_principal {
+    display: none;
+}
+
+#footer {
+    display: none;
+}
+
+.imprimir {
+    display: none;
+}
+
+.exit {
+    display: none;
+}
+
+#titulo h1{
+    font-size: 14pt;
+}
+
+#titulo h2{
+    font-size: 12pt;
+}
+
+.subtitulo1 {
+   background-color: #ccd;
+}
+
+.subtitulo1 h2{
+   font-size: 12pt;
+}
+
+.falta_titulo{
+    page-break-before: always;
+    background-color: #ccd;
+}
+
+.subtitulo2_faltas {
+   color: #1e3987;
+   margin-bottom: 0px;
+}
+
+.subtitulo2_faltas h3{
+   font-size: 11pt;
+   margin-bottom: 0px;
+}
+
+.subtitulo2 {
+   color: #1e3987;
+}
+
+.subtitulo2 h3{
+   font-size: 11pt;
+}
+
+.subtitulo3 {
+   color: #000;
+   border-bottom: 1px solid #bbb;
+}
+.subtitulo3 h3 {
+   font-size: 9pt;
+}
+
+.subtitulo3_faltas {
+   color: #000;
+   border-bottom: 1px solid #bbb;
+   margin-bottom: 0px;
+}
+
+.subtitulo3_faltas h3 {
+   font-size: 9pt;
+   margin-bottom: 0px;
+}
+
+#contenedor {
+    font-family: Arial;
+    font-size: 10pt;
+}
+
+#listado .imprimir {
+    display: none;
+}
+
+#listado .volvercal {
+    display: none;
+}
+
+#listado table {
+    font-size: 8pt;
+    width: 100%;
+}
+
+#listado thead th {
+    border: 1px solid #aaa;
+}
+
+#listado thead tr {
+    background-color: #bbb;
+}
+
+#listado tbody tr.i { background-color: #fff; }
+
+#listado tbody tr.p { background-color: #eee; }
+
+#listado tbody td {
+    border: 1px solid #aaa;
+    text-align: center;
+    padding: 5px;
+}
+
+#listado tbody td.faltas {
+    padding: 0;
+}
+
+#listado tbody td.datos_diario {
+    text-align: left;
+}
+
+#listado tbody td.alum {
+    text-align: left;
+}
+
+#listado .guarda_nota {
+    display: none;
+}
+
+#listado .foto_alum{
+   display: none;
+}
+
+#listado input {
+    height: 8pt;
+    border: none;
+    font-size: 8pt;
+    font-family: Arial;
+}
+
+#listado input.i { background-color: #fff; }
+#listado input.p { background-color: #eee; }
+
+
+
+#listado_fotos { margin-left: 1em; }
+
+#listado_fotos table {}
+
+#listado_fotos tbody {}
+
+#listado_fotos tbody tr { }
+
+#listado_fotos tbody td { border: 1px solid #aaa; }
+
+#listado_fotos .nombre { background-color: #eee; padding: 5px; width: 150px; height: 35px;}
+
+#listado_fotos .foto { margin: 5px; margin-bottom: 0; text-align: center; height: 155px; }
+
+#listado_fotos img { width: 100px;}
+
+

@@ -1,0 +1,15 @@
+Asignatura:
+  Asignatura_1:
+    profesor_id: 'Profesor_1'
+    
+    nombre: 'PLE'
+    descripcion: 'Programacion'
+    aula: '222'
+    
+  Asignatura_2:
+    profesor_id: 'Profesor_1'
+    
+    nombre: 'ADIS'
+    descripcion: 'Bases de Datos'
+    aula: '222'
+

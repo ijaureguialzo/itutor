@@ -1,0 +1,40 @@
+Horaperfil:
+  Horaperfil_1:
+    hora_id: 'Hora_1'
+    perfil_id: 'Perfil_1'
+    orden: 1
+    
+  Horaperfil_2:
+    hora_id: 'Hora_2'
+    perfil_id: 'Perfil_1'
+    orden: 2
+    
+  Horaperfil_3:
+    hora_id: 'Hora_3'
+    perfil_id: 'Perfil_1'
+    orden: 3
+    
+  Horaperfil_4:
+    hora_id: 'Hora_4'
+    perfil_id: 'Perfil_1'
+    orden: 4
+    
+  Horaperfil_5:
+    hora_id: 'Hora_5'
+    perfil_id: 'Perfil_1'
+    orden: 5
+    
+  Horaperfil_6:
+    hora_id: 'Hora_6'
+    perfil_id: 'Perfil_1'
+    orden: 6
+    
+  Horaperfil_7:
+    hora_id: 'Hora_7'
+    perfil_id: 'Perfil_1'
+    orden: 7
+    
+  Horaperfil_8:
+    hora_id: 'Hora_8'
+    perfil_id: 'Perfil_1'
+    orden: 8

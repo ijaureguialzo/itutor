@@ -1,0 +1,12 @@
+Profesor:
+  Profesor_1:
+    perfil_id: 'Perfil_1'
+    nombre: 'Yolanda Perez de San Roman'
+    codigo: '111'
+    email: 'yolanda'
+    
+  Profesor_2:
+    perfil_id: 'Perfil_2'
+    nombre: 'Silvia Perez'
+    codigo: '222'
+    email: 'silvia'

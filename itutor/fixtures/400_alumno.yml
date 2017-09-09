@@ -1,0 +1,15 @@
+Alumno:
+  Alumno_1:
+    grupo_id: 'Grupo_1'
+    
+    nombre: 'Gonzalo Barrena'
+    
+  Alumno_2:
+    grupo_id: 'Grupo_1'
+    
+    nombre: 'Mireia Calvo'
+
+  Alumno_3:
+    grupo_id: 'Grupo_2'
+    
+    nombre: 'Imanol Mora'

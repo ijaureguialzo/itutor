@@ -1,0 +1,221 @@
+/*
+  This file is part of iTutor.
+  Copyright (C) 2008 Oihane Garcia Bolumburu <oihaneg@gmail.com>
+  Copyright (C) 2008 Ion Jaureguialzo Sarasola <widemos@gmail.com>
+
+  iTutor is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  iTutor is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with iTutor. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/*
+  This file is part of iTutor.
+  Copyright (C) 2008 Oihane Garcia Bolumburu <oihaneg@gmail.com>
+  Copyright (C) 2008 Ion Jaureguialzo Sarasola <widemos@gmail.com>
+
+  iTutor is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  iTutor is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with iTutor. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input
+{ margin: 0; padding: 0; }
+a img,:link img,:visited img { border: none; }
+
+a
+{
+  text-decoration: none;
+}
+
+a:hover
+{
+  text-decoration: underline;
+}
+
+body, td
+{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 11px;
+}
+
+body
+{
+  padding-top: 15px;
+}
+
+.cancel{
+float: left;
+width: 50px;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+background-image: url(/images/iconos/cancel.png); 
+}
+
+.exit{
+float: left;
+width: 50px;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+background-image: url(/images/iconos/exit.png); 
+} 
+
+.delete{
+float: left;
+width: 50px;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+background-image: url(/images/iconos/delete.png); 
+} 
+
+.save{
+float: left;
+width: 50px;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+background-image: url(/images/iconos/save.png);  
+}
+
+.guardar{
+float: left;
+width: 100px;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+color: red;
+background-image: url(/images/iconos/guardar.png); 
+}
+
+.imprimir{
+float: left;
+width: 100px;
+height: 15px;
+padding-left: 18px;
+padding-top: 2px;
+background: url(/images/iconos/printer.png) left top no-repeat;
+}
+
+.add{
+float: left;
+width: 50px;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+background-image: url(/images/iconos/add.png); 
+}
+
+.list{
+float: left;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+padding-right: 8px;
+background: url(/images/iconos/list.png) left top no-repeat; 
+}
+
+
+.list_alum{
+float: left;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+padding-right: 8px;
+background: url(/images/iconos/list.png) left top no-repeat; 
+}
+
+.edit{
+float: left;
+width: 50px;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+background-image: url(/images/iconos/edit.png); 
+}
+
+
+
+#sf_admin_container { margin-left: 1em; margin-top: 1em; }
+
+#sf_admin_container h1 
+{  
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #0033cc;
+}
+
+#sf_admin_container .sf_admin_list { width: 100% }
+
+#sf_admin_container .sf_admin_list thead { }
+#sf_admin_container .sf_admin_list thead tr { }
+#sf_admin_container .sf_admin_list thead th { background-color: #b7bccc; text-align: left; padding-left: 5px; color: #555}
+#sf_admin_container .sf_admin_list tbody {}
+
+#sf_admin_container .sf_admin_list tbody tr { } 
+#sf_admin_container .sf_admin_list .sf_admin_row_0 { background-color: #eee; }
+#sf_admin_container .sf_admin_list .sf_admin_row_1 { background-color: #bbb; }
+
+#sf_admin_container .sf_admin_list tbody td {padding-left: 5px;}
+
+#sf_admin_container .sf_admin_list tfoot th { background-color: #b7bccc; text-align: left; padding-left: 5px;}
+
+
+
+
+#sf_admin_container .sf_admin_filters h2 { background-color: #b7bccc; text-align: left; padding-left: 5px;}
+
+#sf_guard_auth_form {
+ margin-top: 2em;
+}
+
+.sf_admin_actions {
+margin-top: 1em;
+}
+
+.sf_admin_actions li {
+list-style: none;
+display: inline;
+}
+
+.form-row {
+padding: 2px;
+text-align: left;
+padding-left: 5px;
+padding-bottom: 5px;
+background-color: #ffffcc;
+}
+
+.form-row label {
+font-weight: bold;
+}
+
+#sf_admin_content h2 {
+background-color: #b7bccc; text-align: left; padding-left: 5px;
+}
+
+#sf_admin_content li {
+list-style: none;
+}
+

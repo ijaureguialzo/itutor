@@ -1,0 +1,15 @@
+sfGuardUser: 
+  sfGuardUser_2: 
+    username: profe
+    password: profe
+    codigo: '111'
+    nombre: Yolanda Perez de San Roman
+    is_active: 1
+    is_super_admin: 0
+  sfGuardUser_3: 
+    username: profe1
+    password: profe1
+    codigo: '222'
+    nombre: Silvia Perez
+    is_active: 1
+    is_super_admin: 0

@@ -1,0 +1,60 @@
+/*
+  This file is part of iTutor.
+  Copyright (C) 2008 Oihane Garcia Bolumburu <oihaneg@gmail.com>
+  Copyright (C) 2008 Ion Jaureguialzo Sarasola <widemos@gmail.com>
+
+  iTutor is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  iTutor is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with iTutor. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#calendario { margin-left: 1em; text-align: center;}
+
+#calendario thead th { background-color: #b7bccc; border: 1px solid #ddd; }
+#calendario table { width: 300px; margin: 0 auto; text-align: center;}
+
+
+#calendario tbody { text-align: center;}
+
+#calendario tbody td { background-color: #fff; border: 1px solid #ddd; font-size: 10px; width: 15px;}
+
+#calendario .blanco { background-color: #ddd; }
+
+#calendario .completo { background-color: #35cf17; }
+#calendario .ocupado { background-color: #ffffcc; }
+#calendario .festivo { background-color: red; }
+
+.calendar {
+float: left;
+width: 50px;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+background-image: url(/images/iconos/calendar.png); 
+}
+
+.volvercal {
+float: left;
+width: 125px;
+height: 15px;
+padding-left: 18px; 
+padding-top: 2px;
+background-image: url(/images/iconos/volver_calendar.png); 
+}
+
+#leyenda { width: 300px; margin: 0 auto; text-align: center; }
+
+#leyenda tbody { text-align: left; }
+
+#leyenda tbody td { background-color: #fff; border: 0px; font-size: 10px; width: 15px;}
+
+

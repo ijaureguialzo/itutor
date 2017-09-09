@@ -1,0 +1,5 @@
+all:
+  sf_guard_plugin:
+    success_signin_url: principal/index
+    success_signout_url: principal/index
+    

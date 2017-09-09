@@ -1,0 +1,18 @@
+Evaluacion:
+  Evaluacion_1:
+    titulo: 'Primera Evaluación'
+    fechaini: '2007-09-08'
+    fechafin: '2007-11-28'
+    observaciones: 'Evaluacion 1'
+        
+  Evaluacion_2:
+    titulo: 'Segunda Evaluación'
+    fechaini: '2007-11-29'
+    fechafin: '2008-02-28'
+    observaciones: 'Evaluacion 2'
+    
+  Evaluacion_3:
+    titulo: 'Tercera Evaluación'
+    fechaini: '2008-02-29'
+    fechafin: '2008-07-03'
+    observaciones: 'Evaluacion 3'

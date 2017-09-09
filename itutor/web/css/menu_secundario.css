@@ -1,0 +1,41 @@
+/*
+  This file is part of iTutor.
+  Copyright (C) 2008 Oihane Garcia Bolumburu <oihaneg@gmail.com>
+  Copyright (C) 2008 Ion Jaureguialzo Sarasola <widemos@gmail.com>
+
+  iTutor is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  iTutor is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with iTutor. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#menu_secundario {
+  background-color: #002e59;
+  height: 1.5em;
+  line-height: 1.5em;
+  width: 100%; 
+  margin: 0;
+  margin-bottom: 1em; 
+  text-align:left;
+}
+
+#menu_secundario_lista { position: relative; margin-left: 1em; }
+
+#menu_secundario_lista li { display: inline; margin: 0 0 0 0.5em; color: #fff; }
+
+#menu_secundario_lista li a {
+  font-size: 1em; 
+  font-weight: bold; 
+  color: #fff; 
+  text-decoration: none;  
+}
+
+#menu_secundario_lista li a:hover{ text-decoration: underline; }

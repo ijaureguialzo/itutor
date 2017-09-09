@@ -1,0 +1,986 @@
+<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file orginal="global" source-language="es_ES" datatype="plaintext">
+    <body>
+      <trans-unit id="1">
+        <source>username:</source>
+        <target>Usuario: </target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>password:</source>
+        <target>Contraseña: </target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>sign in</source>
+        <target>Aceptar</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Forgot your password?</source>
+        <target>¿Has olvidado la contraseña?</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Remember me?</source>
+        <target>Recordar contraseña </target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>create</source>
+        <target>Nuevo</target>
+      </trans-unit>
+      <trans-unit id="7"> 
+        <source>reset</source>
+        <target>Limpiar</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>filter</source>
+        <target>Filtrar</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Username</source>
+        <target>Usuario</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Created at</source>
+        <target>Creado</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Last login</source>
+        <target>Último acceso</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>filters</source>
+        <target>Filtros</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Username:</source>
+        <target>Usuario: </target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Password:</source>
+        <target>Contraseña: </target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Password bis:</source>
+        <target>Repetir contraseña: </target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Last login:</source>
+        <target>Último acceso: </target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>list</source>
+        <target>Listado</target>
+      </trans-unit>
+       <trans-unit id="18">
+        <source>save</source>
+        <target>Guardar</target>
+      </trans-unit>
+       <trans-unit id="19">
+        <source>save and add</source>
+        <target>Guardar y añadir</target>
+      </trans-unit>
+       <trans-unit id="20">
+        <source>delete</source>
+        <target>Eliminar</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Username or password is not valid.</source>
+        <target>El usuario o la contraseña no son válidos.</target>
+      </trans-unit> 
+      <trans-unit id="22">
+        <source>User list</source>
+        <target>Listado de usuarios</target>
+      </trans-unit>   
+      <trans-unit id="23">
+        <source>results</source>
+        <target>resultados</target>
+      </trans-unit> 
+      <trans-unit id="24">
+        <source>You don't have the requested permission to access this page.</source>
+        <target>No tienes permiso para entrar en esta página.</target>
+      </trans-unit> 
+      <trans-unit id="25">
+        <source>Your modifications have been saved</source>
+        <target>Las modificaciones han sido guardadas</target>
+      </trans-unit>   
+      <trans-unit id="26">
+        <source>Your password is required</source>
+        <target>La contraseña es necesaria</target>
+      </trans-unit> 
+      <trans-unit id="27">
+        <source>Are you sure?</source>
+        <target>¿Estás seguro?</target>
+      </trans-unit>   
+      <trans-unit id="28">
+        <source>Editar alumno</source>
+        <target>Editar alumno</target>
+      </trans-unit>   
+      <trans-unit id="29">
+        <source>Datos alumno</source>
+        <target>Datos alumno</target>
+      </trans-unit> 
+      <trans-unit id="30">
+        <source>Grupo</source>
+        <target>Grupo</target>
+      </trans-unit> 
+      <trans-unit id="31">
+        <source>Codigo</source>
+        <target>Codigo</target>
+      </trans-unit> 
+      <trans-unit id="32">
+        <source>Nombre</source>
+        <target>Nombre</target>
+      </trans-unit> 
+      <trans-unit id="33">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit> 
+      <trans-unit id="34">
+        <source>Código</source>
+        <target>Código</target>
+      </trans-unit> 
+      <trans-unit id="35">
+        <source>Observaciones</source>
+        <target>Observaciones</target>
+      </trans-unit> 
+      <trans-unit id="36">
+        <source>Guardar</source>
+        <target>Guardar</target>
+      </trans-unit> 
+      <trans-unit id="37">
+        <source>Eliminar</source>
+        <target>Eliminar</target>
+      </trans-unit> 
+      <trans-unit id="38">
+        <source>Cancelar</source>
+        <target>Cancelar</target>
+      </trans-unit> 
+      <trans-unit id="39">
+        <source>Alumnos</source>
+        <target>Alumnos</target>
+      </trans-unit> 
+      <trans-unit id="40">
+        <source>Listado por grupos</source>
+        <target>Listado por grupos</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source>Alumnos</source>
+        <target>Alumnos</target>
+      </trans-unit> 
+      <trans-unit id="42">
+        <source>Listado de alumnos</source>
+        <target>Listado de alumnos</target>
+      </trans-unit> 
+      <trans-unit id="43">
+        <source>Escoge grupo</source>
+        <target>Escoge grupo</target>
+      </trans-unit> 
+      <trans-unit id="44">
+        <source>Listado</source>
+        <target>Listado</target>
+      </trans-unit> 
+      <trans-unit id="45">
+        <source>Todos los alumnos</source>
+        <target>Todos los alumnos</target>
+      </trans-unit> 
+      <trans-unit id="46">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit> 
+      <trans-unit id="47">
+        <source>Volver</source>
+        <target>Volver</target>
+      </trans-unit> 
+      <trans-unit id="48">
+        <source>Nuevo</source>
+        <target>Nuevo</target>
+      </trans-unit> 
+      <trans-unit id="49">
+        <source>Visualizar alumno</source>
+        <target>Visualizar alumno</target>
+      </trans-unit> 
+      <trans-unit id="50">
+        <source>Datos alumno</source>
+        <target>Datos alumno</target>
+      </trans-unit> 
+      <trans-unit id="51">
+        <source>Actualizado</source>
+        <target>Actualizado</target>
+      </trans-unit> 
+      <trans-unit id="52">
+        <source>Editar</source>
+        <target>Editar</target>
+      </trans-unit> 
+      <trans-unit id="53">
+        <source>Editar asignatura</source>
+        <target>Editar asignatura</target>
+      </trans-unit> 
+      <trans-unit id="54">
+        <source>Datos asignatura</source>
+        <target>Datos asignatura</target>
+      </trans-unit>  
+      <trans-unit id="55">
+        <source>Profesor</source>
+        <target>Profesor</target>
+      </trans-unit> 
+      <trans-unit id="56">
+        <source>Descripcion</source>
+        <target>Descripcion</target>
+      </trans-unit> 
+      <trans-unit id="57">
+        <source>Aula</source>
+        <target>Aula</target>
+      </trans-unit> 
+      <trans-unit id="58">
+        <source>Asignaturas</source>
+        <target>Asignaturas</target>
+      </trans-unit> 
+      <trans-unit id="59">
+        <source>Nombre asignatura</source>
+        <target>Nombre asignatura</target>
+      </trans-unit>
+      <trans-unit id="60">
+        <source>Visualizar asignatura</source>
+        <target>Visualizar asignatura</target>
+      </trans-unit> 
+     
+      <trans-unit id="62">
+        <source>Editar comportamiento</source>
+        <target>Editar comportamiento</target>
+      </trans-unit> 
+      <trans-unit id="63">
+        <source>Datos comportamiento</source>
+        <target>Datos comportamiento</target>
+      </trans-unit> 
+      <trans-unit id="64">
+        <source>Asignatura</source>
+        <target>Asignatura</target>
+      </trans-unit> 
+      <trans-unit id="65">
+        <source>Nota</source>
+        <target>Nota</target>
+      </trans-unit> 
+      <trans-unit id="66">
+        <source>Porcentaje</source>
+        <target>Porcentaje</target>
+      </trans-unit> 
+      <trans-unit id="67">
+        <source>Listado por grupos</source>
+        <target>Listado por grupos</target>
+      </trans-unit> 
+      <trans-unit id="68">
+        <source>Comportamientos de alumnos</source>
+        <target>Comportamientos de alumnos</target>
+      </trans-unit> 
+      <trans-unit id="69">
+        <source>Escoge grupo</source>
+        <target>Escoge grupo</target>
+      </trans-unit> 
+      <trans-unit id="70">
+        <source>Escoge asignatura</source>
+        <target>Escoge asignatura</target>
+      </trans-unit> 
+      <trans-unit id="71">
+        <source>Escoge evaluación</source>
+        <target>Escoge evaluación</target>
+      </trans-unit> 
+      <trans-unit id="72">
+        <source>Comportamientos del grupo</source>
+        <target>Comportamientos del grupo</target>
+      </trans-unit> 
+      <trans-unit id="73">
+        <source>Evaluacion</source>
+        <target>Evaluacion</target>
+      </trans-unit> 
+      <trans-unit id="74">
+        <source>Escoge un alumno</source>
+        <target>Escoge un alumno</target>
+      </trans-unit> 
+      <trans-unit id="75">
+        <source>Visualizar comportamiento</source>
+        <target>Visualizar comportamiento</target>
+      </trans-unit> 
+      <trans-unit id="76">
+        <source>Datos comportamiento</source>
+        <target>Datos comportamiento</target>
+      </trans-unit> 
+      <trans-unit id="77">
+        <source>Editar evaluación</source>
+        <target>Editar evaluación</target>
+      </trans-unit>
+      <trans-unit id="78">
+        <source>Datos evaluación</source>
+        <target>Datos evaluación</target>
+      </trans-unit>
+      <trans-unit id="79">
+        <source>Titulo</source>
+        <target>Titulo</target>
+      </trans-unit>
+      <trans-unit id="80">
+        <source>Evaluaciones</source>
+        <target>Evaluaciones</target>
+      </trans-unit>
+      <trans-unit id="81">
+        <source>Visualizar evaluación</source>
+        <target>Visualizar evaluación</target>
+      </trans-unit>
+      <trans-unit id="83">
+        <source>Faltas del grupo</source>
+        <target>Faltas del grupo</target>
+      </trans-unit>
+      <trans-unit id="84">
+        <source>Faltas del alumno</source>
+        <target>Faltas del alumno</target>
+      </trans-unit>
+      <trans-unit id="85">
+        <source>Dia</source>
+        <target>Dia</target>
+      </trans-unit>
+      <trans-unit id="86">
+        <source>Hora</source>
+        <target>Hora</target>
+      </trans-unit>
+      <trans-unit id="87">
+        <source>Fecha</source>
+        <target>Fecha</target>
+      </trans-unit>
+      <trans-unit id="88">
+        <source>Justificado</source>
+        <target>Justificado</target>
+      </trans-unit>
+      <trans-unit id="89">
+        <source>Faltas justificadas</source>
+        <target>Faltas justificadas</target>
+      </trans-unit>
+      <trans-unit id="90">
+        <source>Faltas sin justificar</source>
+        <target>Faltas sin justificar</target>
+      </trans-unit>
+      <trans-unit id="91">
+        <source>Total de faltas</source>
+        <target>Total de faltas</target>
+      </trans-unit>
+      <trans-unit id="92">
+        <source>Editar falta</source>
+        <target>Editar falta</target>
+      </trans-unit>
+      <trans-unit id="93">
+        <source>Datos falta</source>
+        <target>Datos falta</target>
+      </trans-unit>
+      <trans-unit id="94">
+        <source>Faltas del alumno</source>
+        <target>Faltas del alumno</target>
+      </trans-unit>
+      <trans-unit id="95">
+        <source>SI</source>
+        <target>SI</target>
+      </trans-unit>
+      <trans-unit id="96">
+        <source>NO</source>
+        <target>NO</target>
+      </trans-unit>
+      <trans-unit id="97">
+        <source>Faltas de alumnos</source>
+        <target>Faltas de alumnos</target>
+      </trans-unit>
+      <trans-unit id="98">
+        <source>ordutegia</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="99">
+        <source>Escoge grupo</source>
+        <target>Escoge grupo</target>
+      </trans-unit>
+      <trans-unit id="100">
+        <source>Listado recuento</source>
+        <target>Listado recuento</target>
+      </trans-unit>
+      <trans-unit id="101">
+        <source>Horario de</source>
+        <target>Horario de</target>
+      </trans-unit>
+      <trans-unit id="102">
+        <source>Horas</source>
+        <target>Horas</target>
+      </trans-unit>
+      <trans-unit id="103">
+        <source>Lunes</source>
+        <target>Lunes</target>
+      </trans-unit>
+      <trans-unit id="104">
+        <source>Martes</source>
+        <target>Martes</target>
+      </trans-unit>
+      <trans-unit id="105">
+        <source>Miércoles</source>
+        <target>Miércoles</target>
+      </trans-unit>
+      <trans-unit id="106">
+        <source>Jueves</source>
+        <target>Jueves</target>
+      </trans-unit>
+      <trans-unit id="107">
+        <source>Viernes</source>
+        <target>Viernes</target>
+      </trans-unit>
+      <trans-unit id="108">
+        <source>Crear falta</source>
+        <target>Crear falta</target>
+      </trans-unit>
+      <trans-unit id="109">
+        <source> Ver faltas</source>
+        <target> Ver faltas</target>
+      </trans-unit>
+      <trans-unit id="110">
+        <source>Listado total de faltas</source>
+        <target>Listado total de faltas</target>
+      </trans-unit>
+      <trans-unit id="111">
+        <source>Faltas de alumnos</source>
+        <target>Faltas de alumnos</target>
+      </trans-unit>
+      <trans-unit id="112">
+        <source>Alumno</source>
+        <target>Alumno</target>
+      </trans-unit>
+      <trans-unit id="113">
+        <source>Faltas del grupo</source>
+        <target>Faltas del grupo</target>
+      </trans-unit>
+      <trans-unit id="114">
+        <source>Faltas</source>
+        <target>Faltas</target>
+      </trans-unit>
+      <trans-unit id="115">
+        <source>Visualizar falta</source>
+        <target>Visualizar falta</target>
+      </trans-unit>
+      <trans-unit id="116">
+        <source>Datos falta</source>
+        <target>Datos falta</target>
+      </trans-unit>
+      <trans-unit id="117">
+        <source>Editar grupo</source>
+        <target>Editar grupo</target>
+      </trans-unit>
+      <trans-unit id="118">
+        <source>Datos grupo</source>
+        <target>Datos grupo</target>
+      </trans-unit>
+      <trans-unit id="119">
+        <source>Descripción</source>
+        <target>Descripción</target>
+      </trans-unit>
+      <trans-unit id="120">
+        <source>Grupos</source>
+        <target>Grupos</target>
+      </trans-unit>
+      <trans-unit id="121">
+        <source>Visualizar grupo</source>
+        <target>Visualizar grupo</target>
+      </trans-unit>
+      <trans-unit id="122">
+        <source>Datos grupo</source>
+        <target>Datos grupo</target>
+      </trans-unit>
+      <trans-unit id="123">
+        <source>Horario de</source>
+        <target>Horario de</target>
+      </trans-unit>
+      <trans-unit id="124">
+        <source>Editar horario</source>
+        <target>Editar horario</target>
+      </trans-unit>
+      <trans-unit id="125">
+        <source>Datos horario</source>
+        <target>Datos horario</target>
+      </trans-unit>
+      <trans-unit id="126">
+        <source>Profesor</source>
+        <target>Profesor</target>
+      </trans-unit>
+      <trans-unit id="127">
+        <source>Horario</source>
+        <target>Horario</target>
+      </trans-unit>
+      <trans-unit id="128">
+        <source>Visualizar horario</source>
+        <target>Visualizar horario</target>
+      </trans-unit>
+      <trans-unit id="129">
+        <source>Datos horario</source>
+        <target>Datos horario</target>
+      </trans-unit>
+      <trans-unit id="130">
+        <source>Editar usuarios</source>
+        <target>Editar usuarios</target>
+      </trans-unit>
+      <trans-unit id="131">
+        <source>Editar profesor</source>
+        <target>Editar profesor</target>
+      </trans-unit>
+      <trans-unit id="132">
+        <source>Editar grupo</source>
+        <target>Editar grupo</target>
+      </trans-unit>
+     
+      <trans-unit id="134">
+        <source>Editar profesor</source>
+        <target>Editar profesor</target>
+      </trans-unit>
+      <trans-unit id="135">
+        <source>Datos profesor</source>
+        <target>Datos profesor</target>
+      </trans-unit>
+      <trans-unit id="136">
+        <source>Activo</source>
+        <target>Activo</target>
+      </trans-unit>
+      <trans-unit id="137">
+        <source>Profesores</source>
+        <target>Profesores</target>
+      </trans-unit>
+      <trans-unit id="138">
+        <source>Visualizar profesor</source>
+        <target>Visualizar profesor</target>
+      </trans-unit>
+      <trans-unit id="139">
+        <source>taldeko ikesleen notak</source>
+        <target>taldeko ikesleen notak</target>
+      </trans-unit>
+      <trans-unit id="140">
+        <source>Notas de alumnos de</source>
+        <target>Notas de alumnos de</target>
+      </trans-unit>
+      <trans-unit id="141">
+        <source>Editar prueba</source>
+        <target>Editar prueba</target>
+      </trans-unit>
+      <trans-unit id="142">
+        <source>Datos prueba</source>
+        <target>Datos prueba</target>
+      </trans-unit>
+      <trans-unit id="143">
+        <source>Evaluación</source>
+        <target>Evaluación</target>
+      </trans-unit>
+      <trans-unit id="144">
+        <source>Duración</source>
+        <target>Duración</target>
+      </trans-unit>
+      <trans-unit id="145">
+        <source>Pruebas</source>
+        <target>Pruebas</target>
+      </trans-unit>
+      <trans-unit id="146">
+        <source>Notas</source>
+        <target>Notas</target>
+      </trans-unit>
+      <trans-unit id="147">
+        <source>Pruebas realizadas los</source>
+        <target>Pruebas realizadas los</target>
+      </trans-unit>
+      <trans-unit id="148">
+        <source>a</source>
+        <target>a</target>
+      </trans-unit>
+      <trans-unit id="149">
+        <source>hora</source>
+        <target>hora</target>
+      </trans-unit>
+      <trans-unit id="150">
+        <source>Introducir Notas</source>
+        <target>Introducir Notas</target>
+      </trans-unit>
+      <trans-unit id="151">
+        <source>Notas de alumnos de</source>
+        <target>Notas de alumnos de</target>
+      </trans-unit>
+      <trans-unit id="152">
+        <source>Visualizar prueba</source>
+        <target>Visualizar prueba</target>
+      </trans-unit>
+     
+      <trans-unit id="154">
+        <source>Comportamiento</source>
+        <target>Comportamiento</target>
+      </trans-unit>  
+      <trans-unit id="155">
+        <source>Notas Evaluación</source>
+        <target>Notas Evaluación</target>
+      </trans-unit> 
+      <trans-unit id="156">
+        <source>Salir</source>
+        <target>Salir</target>
+      </trans-unit> 
+      <trans-unit id="157">
+        <source>Your username is required</source>
+        <target>El usuario es obligatorio</target>
+      </trans-unit>  
+      <trans-unit id="158">
+        <source>Diario</source>
+        <target>Diario</target>
+      </trans-unit> 
+       <trans-unit id="159">
+        <source>Porcentaje pruebas</source>
+        <target>Porcentaje pruebas</target>
+      </trans-unit>    
+      <trans-unit id="159">
+        <source>Porcentaje faltas</source>
+        <target>Porcentaje faltas</target>
+      </trans-unit>    
+      <trans-unit id="160">
+        <source>Porcentaje comportamiento</source>
+        <target>Porcentaje comportamiento</target>
+      </trans-unit>    
+      <trans-unit id="161">
+        <source>Máximo de faltas</source>
+        <target>Máximo de faltas</target>
+      </trans-unit>    
+      <trans-unit id="162">
+        <source>Porcentaje de pruebas</source>
+        <target>Porcentaje de pruebas</target>
+      </trans-unit>    
+      <trans-unit id="163">
+        <source>Porcentaje de faltas</source>
+        <target>Porcentaje de faltas</target>
+      </trans-unit>    
+      <trans-unit id="164">
+        <source>Porcentaje de comportamiento</source>
+        <target>Porcentaje de comportamientoa</target>
+      </trans-unit>    
+      <trans-unit id="165">
+        <source>Listado por alumno</source>
+        <target>Listado por alumno</target>
+      </trans-unit>    
+      <trans-unit id="166">
+        <source>Ver faltas</source>
+        <target>Ver faltas</target>
+      </trans-unit>    
+      <trans-unit id="167">
+        <source>en la</source>
+        <target>en la</target>
+      </trans-unit>    
+      <trans-unit id="168">
+        <source>Enero</source>
+        <target>Enero</target>
+      </trans-unit> 
+      <trans-unit id="169">
+        <source>Febrero</source>
+        <target>Febrero</target>
+      </trans-unit> 
+      <trans-unit id="170">
+        <source>Marzo</source>
+        <target>Marzo</target>
+      </trans-unit> 
+      <trans-unit id="171">
+        <source>Abril</source>
+        <target>Abril</target>
+      </trans-unit> 
+      <trans-unit id="172">
+        <source>Mayo</source>
+        <target>Mayo</target>
+      </trans-unit> 
+      <trans-unit id="173">
+        <source>Junio</source>
+        <target>Junio</target>
+      </trans-unit> 
+      <trans-unit id="174">
+        <source>Julio</source>
+        <target>Julio</target>
+      </trans-unit> 
+      <trans-unit id="175">
+        <source>Agosto</source>
+        <target>Agosto</target>
+      </trans-unit> 
+      <trans-unit id="176">
+        <source>Septiembre</source>
+        <target>Septiembre</target>
+      </trans-unit> 
+      <trans-unit id="177">
+        <source>Octubre</source>
+        <target>Octubre</target>
+      </trans-unit> 
+      <trans-unit id="178">
+        <source>Noviembre</source>
+        <target>Noviembre</target>
+      </trans-unit>  
+      <trans-unit id="179">
+        <source>Diciembre</source>
+        <target>Diciembre</target>
+      </trans-unit> 
+      <trans-unit id="180">
+        <source>Calendario para editar el diario</source>
+        <target>Calendario para editar el diario</target>
+      </trans-unit>
+      <trans-unit id="181">
+        <source>Listado del diario</source>
+        <target>Listado del diario</target>
+      </trans-unit>
+      <trans-unit id="182">
+        <source>Listado por grupo y asignatura</source>
+        <target>Listado por grupo y asignatura</target>
+      </trans-unit>
+      <trans-unit id="183">
+        <source>Escoge una opción</source>
+        <target>Escoge una opción</target>
+      </trans-unit>
+      <trans-unit id="184">
+        <source>Aceptar</source>
+        <target>Aceptar</target>
+      </trans-unit>
+      <trans-unit id="185">
+        <source>Actividad</source>
+        <target>Actividad</target>
+      </trans-unit>
+      <trans-unit id="186">
+        <source>Calendario</source>
+        <target>Calendario</target>
+      </trans-unit>   
+      <trans-unit id="187">
+        <source>Listado de diarios</source>
+        <target>Listado de diarios</target>
+      </trans-unit>   
+      <trans-unit id="188">
+        <source>Listado por grupo, asignatura y evaluación</source>
+        <target>Listado por grupo, asignatura y evaluación</target>
+      </trans-unit>   
+      <trans-unit id="189">
+        <source>Diario del grupo</source>
+        <target>Diario del grupo</target>
+      </trans-unit>  
+      <trans-unit id="190">
+        <source>en la asignatura de</source>
+        <target>en la asignatura de</target>
+      </trans-unit>  
+      <trans-unit id="191">
+        <source>Número de horas</source>
+        <target>Número de horas</target>
+      </trans-unit>  
+      <trans-unit id="192">
+        <source>Visualizar diario</source>
+        <target>Visualizar diario</target>
+      </trans-unit> 
+      <trans-unit id="193">
+        <source>Datos diario</source>
+        <target>Datos diario</target>
+      </trans-unit>  
+      <trans-unit id="194">
+        <source>Editar diario</source>
+        <target>Editar diario</target>
+      </trans-unit> 
+      <trans-unit id="195">
+        <source>Listados de evaluación</source>
+        <target>Listados de evaluación</target>
+      </trans-unit> 
+      <trans-unit id="196">
+        <source>Listado por grupos y evaluación</source>
+        <target>Listado por grupos y evaluación</target>
+      </trans-unit> 
+      <trans-unit id="197">
+        <source>Listado por asignatura - grupo - evaluación</source>
+        <target>Listado por asignatura - grupo - evaluación</target>
+      </trans-unit> 
+      <trans-unit id="198">
+        <source>Listado por asignatura y grupo (Resumen)</source>
+        <target>Listado por asignatura y grupo (Resumen)</target>
+      </trans-unit> 
+      <trans-unit id="199">
+        <source>Nota media</source>
+        <target>Nota media</target>
+      </trans-unit> 
+      <trans-unit id="200">
+        <source>Listado del grupo</source>
+        <target>Listado del grupo</target>
+      </trans-unit> 
+      <trans-unit id="201">
+        <source>en la evaluación:</source>
+        <target>en la evaluación:</target>
+      </trans-unit> 
+      <trans-unit id="202">
+        <source>en la asignatura</source>
+        <target>en la asignatura</target>
+      </trans-unit> 
+      <trans-unit id="203">
+        <source>Media pruebas</source>
+        <target>Media pruebas</target>
+      </trans-unit> 
+      <trans-unit id="204">
+        <source>Nota faltas</source>
+        <target>Nota faltas</target>
+      </trans-unit> 
+      <trans-unit id="205">
+        <source>Nota comportamiento</source>
+        <target>Nota comportamiento</target>
+      </trans-unit> 
+      <trans-unit id="206">
+        <source>Editar horas</source>
+        <target>Editar horas</target>
+      </trans-unit> 
+      <trans-unit id="207">
+        <source>Editar perfiles</source>
+        <target>Editar perfiles</target>
+      </trans-unit> 
+      <trans-unit id="208">
+        <source>Editar festivos</source>
+        <target>Editar festivos</target>
+      </trans-unit> 
+      <trans-unit id="209">
+        <source>Listado de usuarios</source>
+        <target>Listado de usuarios</target>
+      </trans-unit> 
+      <trans-unit id="210">
+        <source>Codigo:</source>
+        <target>Codigo:</target>
+      </trans-unit> 
+      <trans-unit id="211">
+        <source>Nombre:</source>
+        <target>Nombre:</target>
+      </trans-unit> 
+      <trans-unit id="212">
+        <source>Information</source>
+        <target>Información</target>
+      </trans-unit> 
+      <trans-unit id="213">
+        <source>Is active:</source>
+        <target>Activo:</target>
+      </trans-unit> 
+      <trans-unit id="214">
+        <source>permissions:</source>
+        <target>permisos:</target>
+      </trans-unit> 
+      <trans-unit id="215">
+        <source>Permissions and groups</source>
+        <target>Permisos y grupos</target>
+      </trans-unit> 
+      <trans-unit id="216">
+        <source>Perfil</source>
+        <target>Perfil</target>
+      </trans-unit>  
+      <trans-unit id="217">
+        <source>Fecha inicio</source>
+        <target>Fecha inicio</target>
+      </trans-unit>  
+      <trans-unit id="218">
+        <source>Fecha fin</source>
+        <target>Fecha fin</target>
+      </trans-unit>  
+      <trans-unit id="219">
+        <source>Tramo</source>
+        <target>Tramo</target>
+      </trans-unit>  
+      <trans-unit id="220">
+        <source>Descanso</source>
+        <target>Descanso</target>
+      </trans-unit>  
+      <trans-unit id="221">
+        <source>Perfiles</source>
+        <target>Perfiles</target>
+      </trans-unit>  
+      <trans-unit id="222">
+        <source>Visualizar perfil</source>
+        <target>Visualizar perfil</target>
+      </trans-unit>  
+      <trans-unit id="223">
+        <source>Datos perfil</source>
+        <target>Datos perfil</target>
+      </trans-unit>  
+      <trans-unit id="224">
+        <source>Asignar horas</source>
+        <target>Asignar horas</target>
+      </trans-unit>  
+      <trans-unit id="225">
+        <source>Editar perfil</source>
+        <target>Editar perfil</target>
+      </trans-unit>  
+      <trans-unit id="226">
+        <source>Calendario para editar festivos</source>
+        <target>Calendario para editar festivos</target>
+      </trans-unit>  
+      <trans-unit id="227">
+        <source>Listado de festivos</source>
+        <target>Listado de festivos</target>
+      </trans-unit> 
+      <trans-unit id="228">
+        <source>Editar festivo</source>
+        <target>Editar festivo</target>
+      </trans-unit> 
+      <trans-unit id="229">
+        <source>Motivo</source>
+        <target>Motivo</target>
+      </trans-unit> 
+      <trans-unit id="230">
+        <source>Visualizar festivo</source>
+        <target>Visualizar festivo</target>
+      </trans-unit>
+      <trans-unit id="231">
+        <source>Error</source>
+        <target>Error</target>
+      </trans-unit>
+      <trans-unit id="232">
+        <source>Hoy</source>
+        <target>Hoy</target>
+      </trans-unit>
+      <trans-unit id="233">
+        <source>Mañana</source>
+        <target>Mañana</target>
+      </trans-unit>
+      <trans-unit id="234">
+        <source>Pasado</source>
+        <target>Pasado</target>
+      </trans-unit>
+      <trans-unit id="235">
+        <source>Bienvenido a la aplicación de gestión de alumnos</source>
+        <target>Bienvenido a la aplicación de gestión de alumnos</target>
+      </trans-unit> 
+      <trans-unit id="236">
+        <source>El Tiempo</source>
+        <target>El Tiempo</target>
+      </trans-unit>
+      <trans-unit id="237">
+        <source>Editar alumnos</source>
+        <target>Editar alumnos</target>
+      </trans-unit> 
+      <trans-unit id="238">
+        <source>Tutor</source>
+        <target>Tutor</target>
+      </trans-unit> 
+      <trans-unit id="239">
+        <source>horas</source>
+        <target>horas</target>
+      </trans-unit> 
+      <trans-unit id="269">
+        <source>The minimum length for the password is 4</source>
+        <target>La longitud mínima para la contraseña es 4</target>
+      </trans-unit> 
+      <trans-unit id="270">
+        <source>días completados</source>
+        <target>días completados</target>
+      </trans-unit> 
+      <trans-unit id="271">
+        <source>The form is not valid because it contains some errors.</source>
+        <target>El formulario no es válido porque existen algunos errores.</target>
+      </trans-unit>  
+      <trans-unit id="272">
+        <source>Please, enter a username</source>
+        <target>Por favor, introduce un usuario</target>
+      </trans-unit> 
+      <trans-unit id="273">
+        <source>Name is required</source>
+        <target>El campo nombre es obligatorio</target>
+      </trans-unit>   
+      <trans-unit id="274">
+        <source>Code is required</source>
+        <target>El campo código es obligatorio</target>
+      </trans-unit>  
+      <trans-unit id="275">
+        <source>This username already exists</source>
+        <target>El usuario ya existe</target>
+      </trans-unit>  
+      <trans-unit id="276">
+        <source>Passwords do not match</source>
+        <target>Las contraseñas no coinciden</target>
+      </trans-unit>                                        
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,1091 @@
+<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file orginal="global" source-language="es_ES" datatype="plaintext">
+    <body>
+      <trans-unit id="1">
+        <source>username:</source>
+        <target>Erabiltzailea: </target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>password:</source>
+        <target>Pasahitza: </target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>sign in</source>
+        <target>Sartu</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Forgot your password?</source>
+        <target>Pasahitza ahaztu duzu?</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Remember me?</source>
+        <target>Pasahitza gogoratu </target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>create</source>
+        <target>Sortu</target>
+      </trans-unit>
+      <trans-unit id="7"> 
+        <source>reset</source>
+        <target>Ezabatu</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>filter</source>
+        <target>Bilatu</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Username</source>
+        <target>Erabiltzailea</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Created at</source>
+        <target>Sortua</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Last login</source>
+        <target>Azken sarrera</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>filters</source>
+        <target>Bilaketak</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Username:</source>
+        <target>Erabiltzailea: </target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Password:</source>
+        <target>Pasahitza: </target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Password bis:</source>
+        <target>Pasahitza errepikatu: </target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Last login:</source>
+        <target>Azken sarrera: </target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>list</source>
+        <target>Zerrenda</target>
+      </trans-unit>
+       <trans-unit id="18">
+        <source>save</source>
+        <target>Gorde</target>
+      </trans-unit>
+       <trans-unit id="19">
+        <source>save and add</source>
+        <target>Gorde eta sortu</target>
+      </trans-unit>
+       <trans-unit id="20">
+        <source>delete</source>
+        <target>Ezabatu</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Username or password is not valid.</source>
+        <target>Erailtzailea edo pasahitza ez dira baliokoak.</target>
+      </trans-unit> 
+      <trans-unit id="22">
+        <source>User list</source>
+        <target>Erabiltzaile zerrenda</target>
+      </trans-unit>   
+      <trans-unit id="23">
+        <source>results</source>
+        <target>emaitza</target>
+      </trans-unit> 
+      <trans-unit id="24">
+        <source>You don't have the requested permission to access this page.</source>
+        <target>Ez duzu baimenik hemen sartzeko.</target>
+      </trans-unit> 
+      <trans-unit id="25">
+        <source>Your modifications have been saved</source>
+        <target>Aldaketak gorde dira</target>
+      </trans-unit>   
+      <trans-unit id="26">
+        <source>Your password is required</source>
+        <target>Pasahitza beharrezkoa da</target>
+      </trans-unit> 
+      <trans-unit id="27">
+        <source>Are you sure?</source>
+        <target>Zihur zaude?</target>
+      </trans-unit>   
+      <trans-unit id="28">
+        <source>Editar alumno</source>
+        <target>Ikaslea aldatu</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Datos alumno</source>
+        <target>Ikaslearen datuak</target>
+      </trans-unit> 
+      <trans-unit id="30">
+        <source>Grupo</source>
+        <target>Taldea</target>
+      </trans-unit> 
+      <trans-unit id="31">
+        <source>Codigo</source>
+        <target>Kodea</target>
+      </trans-unit> 
+      <trans-unit id="32">
+        <source>Nombre</source>
+        <target>Izena</target>
+      </trans-unit> 
+      <trans-unit id="33">
+        <source>Email</source>
+        <target>Email</target>
+      </trans-unit> 
+      <trans-unit id="34">
+        <source>Código</source>
+        <target>Kodea</target>
+      </trans-unit> 
+      <trans-unit id="35">
+        <source>Observaciones</source>
+        <target>Oharrak</target>
+      </trans-unit> 
+      <trans-unit id="36">
+        <source>Guardar</source>
+        <target>Gorde</target>
+      </trans-unit> 
+      <trans-unit id="37">
+        <source>Eliminar</source>
+        <target>Ezabatu</target>
+      </trans-unit> 
+      <trans-unit id="38">
+        <source>Cancelar</source>
+        <target>Ezeztatu</target>
+      </trans-unit> 
+      <trans-unit id="39">
+        <source>Alumnos</source>
+        <target>Ikasleak</target>
+      </trans-unit> 
+      <trans-unit id="40">
+        <source>Listado por grupos</source>
+        <target>Taldekako zerrenda</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source>Alumnos</source>
+        <target>Ikasleak</target>
+      </trans-unit> 
+      <trans-unit id="42">
+        <source>Listado de alumnos</source>
+        <target>Ikasle zerrenda</target>
+      </trans-unit> 
+      <trans-unit id="43">
+        <source>Escoge grupo</source>
+        <target>Taldea hautatu</target>
+      </trans-unit> 
+      <trans-unit id="44">
+        <source>Listado</source>
+        <target>Zerrenda</target>
+      </trans-unit> 
+      <trans-unit id="45">
+        <source>Todos los alumnos</source>
+        <target>Ikasle guztiak</target>
+      </trans-unit> 
+      <trans-unit id="46">
+        <source>Id</source>
+        <target>Id</target>
+      </trans-unit> 
+      <trans-unit id="47">
+        <source>Volver</source>
+        <target>Bueltatu</target>
+      </trans-unit> 
+      <trans-unit id="48">
+        <source>Nuevo</source>
+        <target>Sortu</target>
+      </trans-unit> 
+      <trans-unit id="49">
+        <source>Visualizar alumno</source>
+        <target>Ikaslea ikustarazi</target>
+      </trans-unit> 
+      <trans-unit id="50">
+        <source>Datos alumno</source>
+        <target>Ikalearen datuak</target>
+      </trans-unit> 
+      <trans-unit id="51">
+        <source>Actualizado</source>
+        <target>Eguneratua</target>
+      </trans-unit> 
+      <trans-unit id="52">
+        <source>Editar</source>
+        <target>Aldatu</target>
+      </trans-unit> 
+      <trans-unit id="53">
+        <source>Editar asignatura</source>
+        <target>Ikasgaia aldatu</target>
+      </trans-unit> 
+      <trans-unit id="54">
+        <source>Datos asignatura</source>
+        <target>Ikasgaiaren datuak</target>
+      </trans-unit>  
+      <trans-unit id="55">
+        <source>Profesor</source>
+        <target>Irakaslea</target>
+      </trans-unit> 
+      <trans-unit id="56">
+        <source>Descripcion</source>
+        <target>Deskripzioa</target>
+      </trans-unit> 
+      <trans-unit id="57">
+        <source>Aula</source>
+        <target>Ikasgela</target>
+      </trans-unit> 
+      <trans-unit id="58">
+        <source>Asignaturas</source>
+        <target>Ikasgaiak</target>
+      </trans-unit> 
+      <trans-unit id="59">
+        <source>Nombre asignatura</source>
+        <target>Ikasgaiaren izena</target>
+      </trans-unit>
+      <trans-unit id="60">
+        <source>Visualizar asignatura</source>
+        <target>Ikasgaia ikustarazi</target>
+      </trans-unit> 
+   
+      <trans-unit id="62">
+        <source>Editar comportamiento</source>
+        <target>Jarrera aldatu</target>
+      </trans-unit> 
+      <trans-unit id="63">
+        <source>Datos comportamiento</source>
+        <target>Jarreraren datuak</target>
+      </trans-unit> 
+      <trans-unit id="64">
+        <source>Asignatura</source>
+        <target>Ikasgaia</target>
+      </trans-unit> 
+      <trans-unit id="65">
+        <source>Nota</source>
+        <target>Nota</target>
+      </trans-unit> 
+      <trans-unit id="66">
+        <source>Porcentaje</source>
+        <target>Portzentaia</target>
+      </trans-unit> 
+      <trans-unit id="67">
+        <source>Listado por grupos</source>
+        <target>Taldekako zerrenda</target>
+      </trans-unit> 
+      <trans-unit id="68">
+        <source>Comportamientos de alumnos</source>
+        <target>Ikasleeen jarrerak</target>
+      </trans-unit> 
+      <trans-unit id="69">
+        <source>Escoge grupo</source>
+        <target>Taldea hautatu</target>
+      </trans-unit> 
+      <trans-unit id="70">
+        <source>Escoge asignatura</source>
+        <target>Ikasgaia hautatu</target>
+      </trans-unit> 
+      <trans-unit id="71">
+        <source>Escoge evaluación</source>
+        <target>Ebaluaketa hautatu</target>
+      </trans-unit> 
+      <trans-unit id="72">
+        <source>Comportamientos del grupo</source>
+        <target>Taldearen jarrerak</target>
+      </trans-unit> 
+      <trans-unit id="73">
+        <source>Evaluacion</source>
+        <target>Ebaluaketa</target>
+      </trans-unit> 
+      <trans-unit id="74">
+        <source>Escoge un alumno</source>
+        <target>Ikaslea hautatu</target>
+      </trans-unit> 
+      <trans-unit id="75">
+        <source>Visualizar comportamiento</source>
+        <target>Jarrera ikustarazi</target>
+      </trans-unit> 
+      <trans-unit id="76">
+        <source>Datos comportamiento</source>
+        <target>Jarreraren datuak</target>
+      </trans-unit> 
+      <trans-unit id="77">
+        <source>Editar evaluación</source>
+        <target>Ebaluaketa aldatu</target>
+      </trans-unit>
+      <trans-unit id="78">
+        <source>Datos evaluación</source>
+        <target>Ebaluaketaren datuak</target>
+      </trans-unit>
+      <trans-unit id="79">
+        <source>Titulo</source>
+        <target>Izenburua</target>
+      </trans-unit>
+      <trans-unit id="80">
+        <source>Evaluaciones</source>
+        <target>Ebaluaketak</target>
+      </trans-unit>
+      <trans-unit id="81">
+        <source>Visualizar evaluación</source>
+        <target>Ebaluaketa ikustarazi</target>
+      </trans-unit>
+   
+      <trans-unit id="83">
+        <source>Faltas del grupo</source>
+        <target>Taldearen hutsegiteak</target>
+      </trans-unit>
+      <trans-unit id="84">
+        <source>Faltas del alumno</source>
+        <target>Ikaslearen hutsegiteak</target>
+      </trans-unit>
+      <trans-unit id="85">
+        <source>Dia</source>
+        <target>Eguna</target>
+      </trans-unit>
+      <trans-unit id="86">
+        <source>Hora</source>
+        <target>Ordua</target>
+      </trans-unit>
+      <trans-unit id="87">
+        <source>Fecha</source>
+        <target>Data</target>
+      </trans-unit>
+      <trans-unit id="88">
+        <source>Justificado</source>
+        <target>Justifikatua</target>
+      </trans-unit>
+      <trans-unit id="89">
+        <source>Faltas justificadas</source>
+        <target>Justifikatutako hutsegiteak</target>
+      </trans-unit>
+      <trans-unit id="90">
+        <source>Faltas sin justificar</source>
+        <target>Justifika gabeko hutsegiteak</target>
+      </trans-unit>
+      <trans-unit id="91">
+        <source>Total de faltas</source>
+        <target>Hutsegite guztizkoa</target>
+      </trans-unit>
+      <trans-unit id="92">
+        <source>Editar falta</source>
+        <target>Hutsegitea aldatu</target>
+      </trans-unit>
+      <trans-unit id="93">
+        <source>Datos falta</source>
+        <target>Hutsegitearen datuak</target>
+      </trans-unit>
+      <trans-unit id="94">
+        <source>Faltas del alumno</source>
+        <target>Ikaslearen hutsegiteak</target>
+      </trans-unit>
+      <trans-unit id="95">
+        <source>SI</source>
+        <target>BAI</target>
+      </trans-unit>
+      <trans-unit id="96">
+        <source>NO</source>
+        <target>EZ</target>
+      </trans-unit>
+      <trans-unit id="97">
+        <source>Faltas de alumnos</source>
+        <target>Ikasleeen hutsegiteak</target>
+      </trans-unit>
+      <trans-unit id="98">
+        <source>ordutegia</source>
+        <target>ordutegia</target>
+      </trans-unit>
+      <trans-unit id="100">
+        <source>Listado recuento</source>
+        <target>Zenbaketa zerrenda</target>
+      </trans-unit>
+      <trans-unit id="101">
+        <source>Horario de</source>
+        <target> </target>
+      </trans-unit>
+      <trans-unit id="102">
+        <source>Horas</source>
+        <target>Orduak</target>
+      </trans-unit>
+      <trans-unit id="103">
+        <source>Lunes</source>
+        <target>Astelehena</target>
+      </trans-unit>
+      <trans-unit id="104">
+        <source>Martes</source>
+        <target>Asteartea</target>
+      </trans-unit>
+      <trans-unit id="105">
+        <source>Miércoles</source>
+        <target>Asteazkena</target>
+      </trans-unit>
+      <trans-unit id="106">
+        <source>Jueves</source>
+        <target>Osteguna</target>
+      </trans-unit>
+      <trans-unit id="107">
+        <source>Viernes</source>
+        <target>Ostirala</target>
+      </trans-unit>
+      <trans-unit id="108">
+        <source>Crear falta</source>
+        <target>Hutsegitea sortu</target>
+      </trans-unit>
+      <trans-unit id="109">
+        <source> Ver faltas</source>
+        <target> Hutsegiteak ikustarazi</target>
+      </trans-unit>
+      <trans-unit id="110">
+        <source>Listado total de faltas</source>
+        <target>Hutsegite guztien zerrenda</target>
+      </trans-unit>
+      <trans-unit id="112">
+        <source>Alumno</source>
+        <target>Ikaslea</target>
+      </trans-unit>
+      <trans-unit id="113">
+        <source>Faltas del grupo</source>
+        <target>Taldearean hutsegiteak</target>
+      </trans-unit>
+      <trans-unit id="114">
+        <source>Faltas</source>
+        <target>Hutsegiteak</target>
+      </trans-unit>
+      <trans-unit id="115">
+        <source>Visualizar falta</source>
+        <target>Hutsegitea ikustarazi</target>
+      </trans-unit>
+      <trans-unit id="116">
+        <source>Datos falta</source>
+        <target>Hutsegitearean datuak</target>
+      </trans-unit>
+      <trans-unit id="117">
+        <source>Editar grupo</source>
+        <target>Taldea aldatu</target>
+      </trans-unit>
+      <trans-unit id="118">
+        <source>Datos grupo</source>
+        <target>Taldearean datuak</target>
+      </trans-unit>
+      <trans-unit id="119">
+        <source>Descripción</source>
+        <target>Deskripzioa</target>
+      </trans-unit>
+      <trans-unit id="120">
+        <source>Grupos</source>
+        <target>Taldeak</target>
+      </trans-unit>
+      <trans-unit id="121">
+        <source>Visualizar grupo</source>
+        <target>Taldea ikustarazi</target>
+      </trans-unit>
+      <trans-unit id="124">
+        <source>Editar horario</source>
+        <target>Ordutegia aldatu</target>
+      </trans-unit>
+      <trans-unit id="125">
+        <source>Datos horario</source>
+        <target>Ordutegiaren datuak</target>
+      </trans-unit>
+      <trans-unit id="126">
+        <source>Profesor</source>
+        <target>Irakaslea</target>
+      </trans-unit>
+      <trans-unit id="127">
+        <source>Horario</source>
+        <target>Ordutegia</target>
+      </trans-unit>
+      <trans-unit id="128">
+        <source>Visualizar horario</source>
+        <target>Ordutegia ikustarazi</target>
+      </trans-unit>
+      <trans-unit id="129">
+        <source>Datos horario</source>
+        <target>Ordutegiaren datuak</target>
+      </trans-unit>
+      <trans-unit id="130">
+        <source>Editar usuarios</source>
+        <target>Erabiltzaileak aldatu</target>
+      </trans-unit>
+      <trans-unit id="131">
+        <source>Editar profesor</source>
+        <target>Irakaslea aldatu</target>
+      </trans-unit>
+      <trans-unit id="132">
+        <source>Editar grupo</source>
+        <target>Taldea aldatu</target>
+      </trans-unit>
+     
+      <trans-unit id="135">
+        <source>Datos profesor</source>
+        <target>Irakaslearen datuak</target>
+      </trans-unit>
+      <trans-unit id="136">
+        <source>Activo</source>
+        <target>Aktibatua</target>
+      </trans-unit>
+      <trans-unit id="137">
+        <source>Profesores</source>
+        <target>Irakasleak</target>
+      </trans-unit>
+      <trans-unit id="138">
+        <source>Visualizar profesor</source>
+        <target>Irakaslea ikustarazi</target>
+      </trans-unit>
+      <trans-unit id="139">
+        <source>taldeko ikesleen notak</source>
+        <target>taldeko ikesleen notak</target>
+      </trans-unit>
+      <trans-unit id="140">
+        <source>Notas de alumnos de</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="141">
+        <source>Editar prueba</source>
+        <target>Froga aldatu</target>
+      </trans-unit>
+      <trans-unit id="142">
+        <source>Datos prueba</source>
+        <target>Frogaren datuak</target>
+      </trans-unit>
+      <trans-unit id="143">
+        <source>Evaluación</source>
+        <target>Ebaluaketa</target>
+      </trans-unit>
+      <trans-unit id="144">
+        <source>Duración</source>
+        <target>Iraupena</target>
+      </trans-unit>
+      <trans-unit id="145">
+        <source>Pruebas</source>
+        <target>Frogak</target>
+      </trans-unit>
+      <trans-unit id="146">
+        <source>Notas</source>
+        <target>Notak</target>
+      </trans-unit>
+      <trans-unit id="147">
+        <source>Pruebas realizadas los</source>
+        <target>Egun eta ordu honetan egindako frogak:</target>
+      </trans-unit>
+      <trans-unit id="148">
+        <source>a</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="149">
+        <source>hora</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="150">
+        <source>Introducir Notas</source>
+        <target>Notak sartu</target>
+      </trans-unit>
+      <trans-unit id="151">
+        <source>Notas de alumnos de</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="152">
+        <source>Visualizar prueba</source>
+        <target>Froga ikustarazi</target>
+      </trans-unit>
+    
+      <trans-unit id="154">
+        <source>Comportamiento</source>
+        <target>Jarrera</target>
+      </trans-unit> 
+      <trans-unit id="155">
+        <source>Notas Evaluación</source>
+        <target>Ebaluaketa notak</target>
+      </trans-unit>    
+      <trans-unit id="156">
+        <source>Salir</source>
+        <target>Irten</target>
+      </trans-unit>       
+      <trans-unit id="157">
+        <source>Your username is required</source>
+        <target>Erabiltzailea beharrezkoa da</target>
+      </trans-unit>
+      <trans-unit id="158">
+        <source>Diario</source>
+        <target>Egunerokoa</target>
+      </trans-unit> 
+      <trans-unit id="159">
+        <source>Porcentaje pruebas</source>
+        <target>Froga portzentaia</target>
+      </trans-unit>    
+      <trans-unit id="159">
+        <source>Porcentaje faltas</source>
+        <target>Hutsegite portzentaia</target>
+      </trans-unit>    
+      <trans-unit id="160">
+        <source>Porcentaje comportamiento</source>
+        <target>Jarrera portzentaia</target>
+      </trans-unit>    
+      <trans-unit id="161">
+        <source>Máximo de faltas</source>
+        <target>Hutsegite maximoa</target>
+      </trans-unit>    
+      <trans-unit id="162">
+        <source>Porcentaje de pruebas</source>
+        <target>Froga portzentaia</target>
+      </trans-unit>    
+      <trans-unit id="163">
+        <source>Porcentaje de faltas</source>
+        <target>Hutsegite portzentaia</target>
+      </trans-unit>    
+      <trans-unit id="164">
+        <source>Porcentaje de comportamiento</source>
+        <target>Jarrera portzentaia</target>
+      </trans-unit>    
+      <trans-unit id="165">
+        <source>Listado por alumno</source>
+        <target>Ikasle zerrenda</target>
+      </trans-unit>    
+      <trans-unit id="166">
+        <source>Ver faltas</source>
+        <target>Hutsegiteak ikustarazi</target>
+      </trans-unit>    
+      <trans-unit id="167">
+        <source>en la</source>
+        <target>:</target>
+      </trans-unit>    
+      <trans-unit id="168">
+        <source>Enero</source>
+        <target>Urtarrila</target>
+      </trans-unit> 
+      <trans-unit id="169">
+        <source>Febrero</source>
+        <target>Otsaila</target>
+      </trans-unit> 
+      <trans-unit id="170">
+        <source>Marzo</source>
+        <target>Martxoa</target>
+      </trans-unit> 
+      <trans-unit id="171">
+        <source>Abril</source>
+        <target>Apirila</target>
+      </trans-unit> 
+      <trans-unit id="172">
+        <source>Mayo</source>
+        <target>Maiatza</target>
+      </trans-unit> 
+      <trans-unit id="173">
+        <source>Junio</source>
+        <target>Ekaina</target>
+      </trans-unit> 
+      <trans-unit id="174">
+        <source>Julio</source>
+        <target>Uztaila</target>
+      </trans-unit> 
+      <trans-unit id="175">
+        <source>Agosto</source>
+        <target>Abustua</target>
+      </trans-unit> 
+      <trans-unit id="176">
+        <source>Septiembre</source>
+        <target>Iraila</target>
+      </trans-unit> 
+      <trans-unit id="177">
+        <source>Octubre</source>
+        <target>Urria</target>
+      </trans-unit> 
+      <trans-unit id="178">
+        <source>Noviembre</source>
+        <target>Azaroa</target>
+      </trans-unit>  
+      <trans-unit id="179">
+        <source>Diciembre</source>
+        <target>Abendua</target>
+      </trans-unit> 
+      <trans-unit id="180">
+        <source>Calendario del diario</source>
+        <target>Egunerokoaren egutegia</target>
+      </trans-unit>
+      <trans-unit id="181">
+        <source>Editar diario</source>
+        <target>Egunerokoa aldatu</target>
+      </trans-unit>
+      <trans-unit id="182">
+        <source>Listado por grupo y asignatura</source>
+        <target>Ikasgai eta taldekako zerrenda</target>
+      </trans-unit>
+      <trans-unit id="183">
+        <source>Escoge una opción</source>
+        <target>Aukera bat hautatu</target>
+      </trans-unit>
+      <trans-unit id="184">
+        <source>Aceptar</source>
+        <target>Onartu</target>
+      </trans-unit>
+      <trans-unit id="185">
+        <source>Actividad</source>
+        <target>Ariketa</target>
+      </trans-unit>
+      <trans-unit id="186">
+        <source>Calendario</source>
+        <target>Egutegia</target>
+      </trans-unit>   
+      <trans-unit id="187">
+        <source>Editar diario</source>
+        <target>Egunerokoa aldatu</target>
+      </trans-unit>   
+      <trans-unit id="188">
+        <source>Listado por grupo, asignatura y evaluación</source>
+        <target>Ikasgai, ebaluaketa eta taldekako zerrenda</target>
+      </trans-unit>   
+      <trans-unit id="189">
+        <source>Diario del grupo</source>
+        <target>Taldearen egunerokoa:</target>
+      </trans-unit>  
+      <trans-unit id="190">
+        <source>en la asignatura de</source>
+        <target>Ikasgaia:</target>
+      </trans-unit>  
+      <trans-unit id="191">
+        <source>Número de horas</source>
+        <target>Ordu kopurua</target>
+      </trans-unit>  
+      <trans-unit id="192">
+        <source>Visualizar diario</source>
+        <target>Egunerokoa ikustarazi</target>
+      </trans-unit> 
+      <trans-unit id="193">
+        <source>Datos diario</source>
+        <target>Egunerokoaren datuak</target>
+      </trans-unit>  
+      <trans-unit id="194">
+        <source>Editar diario</source>
+        <target>Egunerokoa aldatu</target>
+      </trans-unit> 
+      <trans-unit id="195">
+        <source>Listados de evaluación</source>
+        <target>Ebaluaketa zerrendak</target>
+      </trans-unit> 
+      <trans-unit id="196">
+        <source>Listado por grupos y evaluación</source>
+        <target>Ikasgai eta taldekako zerrenda</target>
+      </trans-unit> 
+      <trans-unit id="197">
+        <source>Listado por asignatura - grupo - evaluación</source>
+        <target>Ikasgai, ebaluaketa eta taldekako zerrenda</target>
+      </trans-unit> 
+      <trans-unit id="198">
+        <source>Listado por asignatura y grupo (Resumen)</source>
+        <target>Ikasgai eta taldekako zerrenda (Laburpena)</target>
+      </trans-unit> 
+      <trans-unit id="199">
+        <source>Nota media</source>
+        <target>Batazbesteko nota</target>
+      </trans-unit> 
+      <trans-unit id="200">
+        <source>Listado del grupo</source>
+        <target>Talde zerrenda:</target>
+      </trans-unit> 
+      <trans-unit id="201">
+        <source>en la evaluación:</source>
+        <target>Ebaluaketa:</target>
+      </trans-unit> 
+      <trans-unit id="202">
+        <source>en la asignatura</source>
+        <target>Ikasgaia:</target>
+      </trans-unit> 
+      <trans-unit id="203">
+        <source>Media pruebas</source>
+        <target>Frogen batazbestekoa</target>
+      </trans-unit> 
+      <trans-unit id="204">
+        <source>Nota faltas</source>
+        <target>Hutsegiteen nota</target>
+      </trans-unit> 
+      <trans-unit id="205">
+        <source>Nota comportamiento</source>
+        <target>Jarrera nota</target>
+      </trans-unit> 
+      <trans-unit id="206">
+        <source>Editar horas</source>
+        <target>Orduak aldatu</target>
+      </trans-unit> 
+      <trans-unit id="207">
+        <source>Editar perfiles</source>
+        <target>Profila aldatu</target>
+      </trans-unit> 
+      <trans-unit id="208">
+        <source>Editar festivos</source>
+        <target>Jaiegunak aldatu</target>
+      </trans-unit> 
+      <trans-unit id="209">
+        <source>Listado de usuarios</source>
+        <target>Erabiltzaile zerrenda</target>
+      </trans-unit> 
+      <trans-unit id="210">
+        <source>Codigo:</source>
+        <target>Kodea:</target>
+      </trans-unit> 
+      <trans-unit id="211">
+        <source>Nombre:</source>
+        <target>Izena:</target>
+      </trans-unit> 
+      <trans-unit id="212">
+        <source>Information</source>
+        <target>Informazioa</target>
+      </trans-unit> 
+      <trans-unit id="213">
+        <source>Is active:</source>
+        <target>Aktibatua:</target>
+      </trans-unit> 
+      <trans-unit id="214">
+        <source>permissions:</source>
+        <target>baimenak:</target>
+      </trans-unit> 
+      <trans-unit id="215">
+        <source>Permissions and groups</source>
+        <target>Baimenak eta taldeak</target>
+      </trans-unit> 
+      <trans-unit id="216">
+        <source>Perfil</source>
+        <target>Profila</target>
+      </trans-unit>  
+      <trans-unit id="217">
+        <source>Fecha inicio</source>
+        <target>Hasiera data</target>
+      </trans-unit>  
+      <trans-unit id="218">
+        <source>Fecha fin</source>
+        <target>Amaiera data</target>
+      </trans-unit>  
+      <trans-unit id="219">
+        <source>Tramo</source>
+        <target>Tartea</target>
+      </trans-unit>  
+      <trans-unit id="220">
+        <source>Descanso</source>
+        <target>Atsedena</target>
+      </trans-unit>  
+      <trans-unit id="221">
+        <source>Perfiles</source>
+        <target>Profilak</target>
+      </trans-unit>  
+      <trans-unit id="222">
+        <source>Visualizar perfil</source>
+        <target>Profila ikustarazi</target>
+      </trans-unit>  
+      <trans-unit id="223">
+        <source>Datos perfil</source>
+        <target>Profilaren datuak</target>
+      </trans-unit>  
+      <trans-unit id="224">
+        <source>Asignar horas</source>
+        <target>Orduak aukeratu</target>
+      </trans-unit>  
+      <trans-unit id="225">
+        <source>Editar perfil</source>
+        <target>Profila aldatu</target>
+      </trans-unit>  
+      <trans-unit id="226">
+        <source>Calendario para editar festivos</source>
+        <target>Jaiegunak aldatzeko egutegia</target>
+      </trans-unit>  
+      <trans-unit id="227">
+        <source>Listado de festivos</source>
+        <target>Jaiegunen zerrenda</target>
+      </trans-unit> 
+      <trans-unit id="228">
+        <source>Editar festivo</source>
+        <target>Jaieguna aldatu</target>
+      </trans-unit> 
+      <trans-unit id="229">
+        <source>Motivo</source>
+        <target>Zergatia</target>
+      </trans-unit> 
+      <trans-unit id="230">
+        <source>Visualizar festivo</source>
+        <target>Jaieguna ikustarazi</target>
+      </trans-unit>   
+      <trans-unit id="231">
+        <source>Error</source>
+        <target>Oker</target>
+      </trans-unit>  
+      <trans-unit id="232">
+        <source>Hoy</source>
+        <target>Gaur</target>
+      </trans-unit>
+      <trans-unit id="233">
+        <source>Mañana</source>
+        <target>Bihar</target>
+      </trans-unit>
+      <trans-unit id="234">
+        <source>Pasado</source>
+        <target>Etzi</target>
+      </trans-unit>
+      <trans-unit id="235">
+        <source>Bienvenido a la aplicación de gestión de alumnos</source>
+        <target>Ongi etorri ikasle kudeaketa aplikaziora</target>
+      </trans-unit> 
+      <trans-unit id="236">
+        <source>El Tiempo</source>
+        <target>Eguraldia</target>
+      </trans-unit> 
+      <trans-unit id="237">
+        <source>Editar alumnos</source>
+        <target>Ikasleak aldatu</target>
+      </trans-unit> 
+      <trans-unit id="238">
+        <source>Tutor</source>
+        <target>Tutore</target>
+      </trans-unit> 
+      <trans-unit id="239">
+        <source>horas</source>
+        <target>ordu</target>
+      </trans-unit> 
+      <trans-unit id="240">
+        <source>No se puede eliminar el profesor porque es tutor de algún grupo.</source>
+        <target>Ezin daiteke irakaslea ezabatu, talde baten tutorea delako.</target>
+      </trans-unit> 
+      <trans-unit id="241">
+        <source>No se puede visualizar el listado sin grupo asociado.</source>
+        <target>Talderik ez badu, ezin daiteke zerrenda ikustarazi.</target>
+      </trans-unit> 
+      <trans-unit id="242">
+        <source>Un alumno debe estar asociado a un grupo.</source>
+        <target>Ikasle bati talde bat ezarri behar zaio.</target>
+      </trans-unit> 
+      <trans-unit id="243">
+        <source>La suma de los porcentajes de las pruebas, faltas y el comportamiento no suman 100.</source>
+        <target>Ikasgai, hutsegite eta jarreraren portzentaien baturak ez du ehunekoa egiten.</target>
+      </trans-unit> 
+      <trans-unit id="244">
+        <source>No se puede visualizar el listado sin elegir grupo, asignatura y evaluación.</source>
+        <target>Ikasgai, ebaluaketa eta talderik ez badu, ezin daiteke zerrenda ikustarazi.</target>
+      </trans-unit> 
+      <trans-unit id="245">
+        <source>No se puede crear el registro sin elegir un alumno.</source>
+        <target>Ikaslerik gabe, ezin daiteke sortu.</target>
+      </trans-unit>
+      <trans-unit id="246">
+        <source>No se puede visualizar el listado sin elegir una opción.</source>
+        <target>Aukera barik, ezin daiteke zerrenda ikustarazi.</target>
+      </trans-unit>
+      <trans-unit id="247">
+        <source>Las evaluaciones deben tener una fecha de inicio y una de fin.</source>
+        <target>Ebaluaketek hasiera eta amaiera data izan behar dute.</target>
+      </trans-unit> 
+      <trans-unit id="248">
+        <source>No se puede visualizar el listado sin elegir un grupo.</source>
+        <target>Talderik ez badu, ezin daiteke zerrenda ikustarazi.</target>
+      </trans-unit> 
+      <trans-unit id="249">
+        <source>No se puede visualizar el listado sin elegir un grupo.</source>
+        <target>Talderik ez badu, ezin daiteke zerrenda ikustarazi.</target>
+      </trans-unit> 
+      <trans-unit id="250">
+        <source>No se puede visualizar el listado sin elegir un grupo.</source>
+        <target>Talderik ez badu, ezin daiteke zerrenda ikustarazi.</target>
+      </trans-unit> 
+      <trans-unit id="251">
+        <source>Ya existe una falta para ese alumno en esa fecha a esa hora.</source>
+        <target>Ikasle horrek hutsegite bat du egun eta ordu honetan.</target>
+      </trans-unit> 
+      <trans-unit id="252">
+        <source>Se debe asignar un tutor al grupo.</source>
+        <target>Taldeari tutore bat ezarri behar zaio.</target>
+      </trans-unit> 
+      <trans-unit id="253">
+        <source>No se puede crear el registro sin elegir asignatura y grupo.</source>
+        <target>Ikasgai edo talderik gabe, ezin daiteke sortu.</target>
+      </trans-unit> 
+      <trans-unit id="254">
+        <source>Este hueco está ocupado.</source>
+        <target>Hutsune hau hartuta dago.</target>
+      </trans-unit>
+      <trans-unit id="255">
+        <source>No se puede visualizar el listado sin grupo o asignatura asociada.</source>
+        <target>Ikasgai edo talderik ez badu, ezin daiteke zerrenda ikustarazi.</target>
+      </trans-unit>
+      <trans-unit id="256">
+        <source>No se puede visualizar el listado sin grupo asociado.</source>
+        <target>Talderik ez badu, ezin daiteke zerrenda ikustarazi.</target>
+      </trans-unit>
+      <trans-unit id="257">
+        <source>No se puede eliminar el perfil porque existen profesores que lo tiene asignado.</source>
+        <target>Ezin daiteke profila ezabatu, zenbait irakaslek asignatua dutelako.</target>
+      </trans-unit>
+      <trans-unit id="258">
+        <source>No se puede crear un profesor sin código.</source>
+        <target>Koderik gabe, ezin daiteke irakaslea sortu.</target>
+      </trans-unit>
+      <trans-unit id="259">
+        <source>No se puede crear un profesor sin perfil.</source>
+        <target>Profilik gabe, ezin daiteke irakaslea sortu.</target>
+      </trans-unit>
+      <trans-unit id="260">
+        <source>Ya existe una prueba en esa fecha a esa hora.</source>
+        <target>Egun eta ordu honetan beste froga bat dago.</target>
+      </trans-unit>
+      <trans-unit id="261">
+        <source>No puede haber pruebas que tengan como porcentaje 100 y menos de 100 al mismo tiempo.</source>
+        <target>Ehuneko portzenaia eta ehun baino gutxiagoko portzentaia duten frogak ezin daitezke egon aldi berean.</target>
+      </trans-unit>
+      <trans-unit id="262">
+        <source>La suma de los porcentajes de las pruebas debe ser 100.</source>
+        <target>Portzentien batura ehun izan behar da.</target>
+      </trans-unit>
+      <trans-unit id="263">
+        <source>días festivos</source>
+        <target>jaiegunak</target>
+      </trans-unit>
+      <trans-unit id="264">
+        <source>días con información</source>
+        <target>informazioa duten egunak</target>
+      </trans-unit>
+      <trans-unit id="265">
+        <source>Usuarios / Profesores</source>
+        <target>Erabiltzaileak / Irakasleak</target>
+      </trans-unit>
+      <trans-unit id="266">
+        <source>Festivos</source>
+        <target>Jaiegunak</target>
+      </trans-unit>
+      <trans-unit id="267">
+        <source>Asignar profesor</source>
+        <target>Irakaslea asignatu</target>
+      </trans-unit>
+      <trans-unit id="268">
+        <source>Escoge idioma</source>
+        <target>Hizkuntza aukeratu</target>
+      </trans-unit>
+      <trans-unit id="269">
+        <source>The minimum length for the password is 4</source>
+        <target>Pasahitzak 4 karaktere izan behar diu gutxienez</target>
+      </trans-unit>
+      <trans-unit id="270">
+        <source>días completados</source>
+        <target>burututako egunak</target>
+      </trans-unit> 
+      <trans-unit id="271">
+        <source>The form is not valid because it contains some errors.</source>
+        <target>Formularioa ez da baliokoa zenbait akats dituelako.</target>
+      </trans-unit>  
+      <trans-unit id="272">
+        <source>Please, enter a username</source>
+        <target>Mesedez, erabiltzailea sartu</target>
+      </trans-unit> 
+      <trans-unit id="273">
+        <source>Name is required</source>
+        <target>Izena derrigorrezkoa da</target>
+      </trans-unit>   
+      <trans-unit id="274">
+        <source>Code is required</source>
+        <target>Kodea derrigorrezkoa da</target>
+      </trans-unit>  
+      <trans-unit id="275">
+        <source>This username already exists</source>
+        <target>Erabiltzailea bada</target>
+      </trans-unit>  
+      <trans-unit id="276">
+        <source>Passwords do not match</source>
+        <target>Pasahitzak ez dira berdinak</target>
+      </trans-unit> 
+      <trans-unit id="277">
+        <source>Se deben crear horas para que puedan ser asignadas</source>
+        <target>Orduak sortu behar dira profilari ezarri ahal izateko</target>
+      </trans-unit>  
+      <trans-unit id="278">
+        <source>Acciones</source>
+        <target>Ekintzak</target>
+      </trans-unit>         
+    </body>
+  </file>
+</xliff>

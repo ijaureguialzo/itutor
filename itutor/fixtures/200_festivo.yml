@@ -1,0 +1,18 @@
+Festivo:
+  Festivo_1:
+    evaluacion_id: Evaluacion_3
+    
+    fecha: '2008-03-19'
+    motivo: 'Semana Santa'
+    
+  Festivo_2:
+    evaluacion_id: Evaluacion_3
+    
+    fecha: '2008-03-20'
+    motivo: 'Semana Santa'
+    
+  Festivo_3:
+    evaluacion_id: Evaluacion_3
+    
+    fecha: '2008-03-21'
+    motivo: 'Semana Santa'

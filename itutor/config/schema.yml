@@ -1,0 +1,227 @@
+itutor:
+  profesor:
+    _attributes: { phpName: Profesor }
+    id:
+    perfil_id:
+
+    nombre: { type: varchar, size: 128, required: true }
+    codigo: { type: varchar, size: 128, required: true }
+    email: varchar(200)
+    activo: { type: boolean, default: true }
+    updated_at:
+
+  asignatura:
+    _attributes: { phpName: Asignatura }
+    id:
+    profesor_id: { type: integer, foreignTable: profesor, foreignReference: id, onDelete: cascade }
+
+    nombre: varchar(200)
+    descripcion: varchar(3000)
+    aula: varchar(200)
+    porcentajepruebas: { type: integer, default: 80 }
+    porcentajefaltas: { type: integer, default: 10 }
+    porcentajecomportamiento: { type: integer, default: 10 }
+    maximofaltas: { type: integer, default: 10 }
+    activo: { type: boolean, default: true }
+    updated_at:
+      
+  grupo:
+    _attributes: { phpName: Grupo }
+    id:
+    profesor_id: { type: integer, foreignTable: profesor, foreignReference: id, onDelete: cascade }
+    
+    nombre: varchar(200)
+    descripcion: varchar(3000)
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at: 
+      
+  perfil:
+    _attributes: { phpName: Perfil } 
+    id:
+    
+    nombre: varchar(200)
+    descripcion: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  hora:
+    _attributes: { phpName: Hora } 
+    id:
+    
+    tramo: varchar(200)
+    descanso: { type: boolean, default: false }
+    descripcion: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  horaperfil:
+    _attributes: { phpName: Horaperfil }
+    id:
+    hora_id: { type: integer, foreignTable: hora, foreignReference: id, onDelete: cascade }
+    perfil_id: { type: integer, foreignTable: perfil, foreignReference: id, onDelete: cascade }
+    
+    orden: integer
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  horario:
+    _attributes: { phpName: Horario }
+    id:
+    profesor_id: { type: integer, foreignTable: profesor, foreignReference: id, onDelete: cascade }  
+    asignatura_id: { type: integer, foreignTable: asignatura, foreignReference: id, onDelete: cascade }
+    grupo_id: { type: integer, foreignTable: grupo, foreignReference: id, onDelete: cascade }
+    
+    dia: integer
+    hora: integer
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  alumno:
+    _attributes: { phpName: Alumno }
+    id:
+    grupo_id: { type: integer, foreignTable: grupo, foreignReference: id, onDelete: cascade }
+    
+    codigo: integer
+    nombre: varchar(200)
+    email: varchar(200)
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+
+  evaluacion:
+    _attributes: { phpName: Evaluacion }
+    id:
+    
+    titulo: varchar(200)
+    fechaini: date
+    fechafin: date
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+
+  grupoevaluacion:
+    _attributes: { phpName: Grupoevaluacion }
+    id:
+    grupo_id: { type: integer, foreignTable: grupo, foreignReference: id, onDelete: cascade }
+    evaluacion_id: { type: integer, foreignTable: evaluacion, foreignReference: id, onDelete: cascade }
+    activo: { type: boolean, default: true }
+    updated_at:
+        
+  falta:
+    _attributes: { phpName: Falta }
+    id:
+    evaluacion_id: { type: integer, foreignTable: evaluacion, foreignReference: id, onDelete: cascade }
+    alumno_id: { type: integer, foreignTable: alumno, foreignReference: id, onDelete: cascade }
+    asignatura_id: { type: integer, foreignTable: asignatura, foreignReference: id, onDelete: cascade }
+    
+    dia: integer
+    hora: integer
+    fecha: date
+    justificado: { type: boolean, default: false }
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  retraso:
+    _attributes: { phpName: Retraso }
+    id:
+    evaluacion_id: { type: integer, foreignTable: evaluacion, foreignReference: id, onDelete: cascade }
+    alumno_id: { type: integer, foreignTable: alumno, foreignReference: id, onDelete: cascade }
+    asignatura_id: { type: integer, foreignTable: asignatura, foreignReference: id, onDelete: cascade }
+    
+    dia: integer
+    hora: integer
+    fecha: date
+    justificado: { type: boolean, default: false }
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  prueba:
+    _attributes: { phpName: Prueba }
+    id:
+    evaluacion_id: { type: integer, foreignTable: evaluacion, foreignReference: id, onDelete: cascade }
+    asignatura_id: { type: integer, foreignTable: asignatura, foreignReference: id, onDelete: cascade }
+    
+    dia: integer
+    hora: integer
+    fecha: date
+    duracion: integer
+    porcentaje: { type: integer, default: 100 }
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+
+  notaprueba:
+    _attributes: { phpName: Notaprueba }
+    id:
+    alumno_id: { type: integer, foreignTable: alumno, foreignReference: id, onDelete: cascade }
+    prueba_id: { type: integer, foreignTable: prueba, foreignReference: id, onDelete: cascade }
+    
+    nota: float
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+
+  notaevaluacion:
+    _attributes: { phpName: Notaevaluacion }
+    id:
+    alumno_id: { type: integer, foreignTable: alumno, foreignReference: id, onDelete: cascade }
+    evaluacion_id: { type: integer, foreignTable: evaluacion, foreignReference: id, onDelete: cascade }
+    asignatura_id: { type: integer, foreignTable: asignatura, foreignReference: id, onDelete: cascade }
+
+    nota: float
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  comportamiento:
+    _attributes: { phpName: Comportamiento }
+    id:
+    alumno_id: { type: integer, foreignTable: alumno, foreignReference: id, onDelete: cascade }
+    evaluacion_id: { type: integer, foreignTable: evaluacion, foreignReference: id, onDelete: cascade }
+    asignatura_id: { type: integer, foreignTable: asignatura, foreignReference: id, onDelete: cascade }
+    
+    nota: float
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  notaevaluacion:
+    _attributes { phpName: Notaevaluacion }
+    id:
+    evaluacion_id: { type: integer, foreignTable: evaluacion, foreignReference: id, onDelete: cascade }
+    alumno_id: { type: integer, foreignTable: alumno, foreignReference: id, onDelete: cascade }
+    asignatura_id: { type: integer, foreignTable: asignatura, foreignReference: id, onDelete: cascade }
+    
+    nota: float
+    observaciones: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  festivo:
+    _attributes { phpName: Festivo }
+    id:
+    evaluacion_id: { type: integer, foreignTable: evaluacion, foreignReference: id, onDelete: cascade }
+    
+    fecha: date
+    motivo: varchar(3000)
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+  diario:
+    _attributes { phpName: Diario }
+    id:
+    evaluacion_id: { type: integer, foreignTable: evaluacion, foreignReference: id, onDelete: cascade }
+    asignatura_id: { type: integer, foreignTable: asignatura, foreignReference: id, onDelete: cascade }
+    grupo_id: { type: integer, foreignTable: grupo, foreignReference: id, onDelete: cascade }
+    profesor_id: { type: integer, foreignTable: profesor, foreignReference: id, onDelete: cascade }
+    
+    fecha: date
+    actividad: varchar(3000)
+    udidactica: varchar(200)
+    activo: { type: boolean, default: true }
+    updated_at:
+    
+

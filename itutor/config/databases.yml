@@ -1,0 +1,28 @@
+#all:
+#  propel:
+#    class:          sfPropelDatabase
+#    param:
+#      dsn:          mysql://root:@localhost/dbname
+
+all:
+  itutor:
+    class:          sfPropelDatabase
+    param:
+      phptype:            mysql     # Database vendor
+      hostspec:           localhost
+      database:           itutor
+      username:           itutor
+      password:           '8+PoDcr*6qdciLo3J.sRNt8YUG2+#6n$'
+      encoding:           utf8      # Default charset for table creation
+      persistent:         true      # Use persistent connections
+
+  propel:
+    class:          sfPropelDatabase
+    param:
+      phptype:            mysql     # Database vendor
+      hostspec:           localhost
+      database:           itutor
+      username:           itutor
+      password:           '8+PoDcr*6qdciLo3J.sRNt8YUG2+#6n$'       
+      encoding:           utf8      # Default charset for table creation
+      persistent:         true      # Use persistent connections

@@ -1,0 +1,12 @@
+Grupo:
+  Grupo_1:
+    profesor_id: 'Profesor_1'
+    nombre: '8A'
+        
+  Grupo_2:
+    profesor_id: 'Profesor_1'
+    nombre: '8B'
+    
+  Grupo_3:
+    profesor_id: 'Profesor_2'
+    nombre: '4B'

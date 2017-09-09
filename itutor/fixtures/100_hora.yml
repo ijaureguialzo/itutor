@@ -1,0 +1,32 @@
+Hora:
+  Hora_1:
+    tramo: '8:10-9:10'
+       
+  Hora_2:
+    tramo: '9:10-10:10'
+ 
+  Hora_3:
+    tramo: '10:10-11:05'
+    
+  Hora_4:
+    tramo: '11:05-11:30'
+    descanso: true
+    
+  Hora_5:
+    tramo: '11:30-12:20'
+    
+  Hora_6:
+    tramo: '12:20-13:15'
+    
+  Hora_7:
+    tramo: '13:15-14:10'
+    
+  Hora_8:
+    tramo: '14:10-15:10'
+
+  Hora_9:
+    tramo: '10:10-10:35'
+    descanso: true
+    
+  Hora_10:
+    tramo: '10:35-11:30'

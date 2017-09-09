@@ -1,0 +1,273 @@
+/*
+  This file is part of iTutor.
+  Copyright (C) 2008 Oihane Garcia Bolumburu <oihaneg@gmail.com>
+  Copyright (C) 2008 Ion Jaureguialzo Sarasola <widemos@gmail.com>
+
+  iTutor is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  iTutor is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with iTutor. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+* {margin: 0; padding: 0;}
+.body ul, .body li { padding-left: 1em;}
+body {
+  min-width: 680px;
+  padding-bottom: 15px;
+  color: #000;
+  font: 120%/180% sans-serif;
+  /*border-bottom: 7px solid #066;*/
+  background: #fff;
+}
+
+table, tr, td, th { font-size: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  text-shadow: #000 0 0 0;
+ /* Reduces font-weight in Safari */
+}
+
+h1 {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #1e3987;
+} 
+
+#titulo {
+margin-left: 1em;
+margin-bottom: 0.5em;
+}
+
+#mensaje {
+font-size: 139%; /* 18px */
+margin-top: 15px;
+margin-left: 10px;
+}
+
+#warning {
+color: red;
+font-weight: bold;
+font-size: 110%;
+}
+
+.subtitulo1 h2{
+margin-left: 10px;
+padding-left: 5px;
+margin-top: 5px;
+background-color: #1e3987;
+color: #fff; 
+}
+
+.subtitulo2 h3{
+margin-left: 10px;
+padding-left: 10px;
+margin-top: 5px;
+font-weight: bold;
+}
+
+.subtitulo3 h3{
+margin-left: 10px;
+padding-left: 10px;
+margin-top: 5px;
+font-weight: bold;
+}
+
+.subtitulo3{
+margin-left: 10px;
+padding-left: 10px;
+margin-top: 5px;
+font-weight: bold;
+}
+
+.subtitulo2_faltas h3{
+margin-left: 10px;
+padding-left: 10px;
+margin-top: 5px;
+font-weight: bold;
+}
+
+.subtitulo3_faltas h3{
+margin-left: 10px;
+padding-left: 10px;
+margin-top: 5px;
+font-weight: bold;
+}
+
+.subtitulo3_faltas {
+margin-left: 10px;
+padding-left: 10px;
+margin-top: 5px;
+font-weight: bold;
+border-bottom: 1px solid #bbb;
+margin-bottom: 20px;
+}
+ 
+#linea { 
+width:100%;
+border-bottom: 1px solid #bbb;
+height:2em;
+margin-bottom: 2px;
+}
+
+.lineasep { 
+width:100%;
+height:2em;
+margin-bottom: 2px;
+}
+
+#contenedor {
+ float: left;
+ width: 100%;
+ margin-top: 1em;
+}
+
+#contents h1 {
+  margin-bottom: 1em;
+  font-size: 185%; /* 24px */
+  
+}
+
+#contents h2 {
+  margin: 1em 0 .25em 0;
+  font-size: 139%; /* 18px */
+}
+
+#slashboxes #contents ul {
+  padding-left: 1.25em;
+  margin-bottom: 20px;
+}
+
+
+#contents p {
+  margin: 0 0 1em 0;
+}
+
+a { color: #555; }
+a:visited { color: #555; }
+a:hover { text-decoration: none; }
+
+hr { border: 1px solid #fff; border-width: 1px 0 0 0; }
+
+img { border: none; text-decoration: none; }
+sup { margin: 0 0 -.3em 0; }
+fieldset { border: none; }
+  fieldset legend { display: none; }
+
+#jump { display: none; }
+
+div.ad1 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+.article div.ad6 { margin: 1em 0 }
+
+#frame {
+  clear: both;
+  padding: 0 0 0 0;
+  margin: 0;
+  border-top: 1px solid #fff;
+  background: #fff;
+}
+
+#topnav {
+  position: relative;
+  height: 93px;
+  margin: 0 0em 0 0em;
+  background: #2a3c9a;
+  background: url(../images/fondo1.png) repeat-x left top;
+}
+  #topnav div#rec_topics_header,
+  /*#topnav ul { display: none; } *//* Hide the topic icons */
+  #topnav #logo {
+    width: 415px;
+    height: 100%;
+  }
+  #topnav #logo h1 {
+    display: block;
+    height: 100%;
+    width: 100%;
+   
+  }
+    #topnav #logo h1 a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      outline: none;
+      text-indent: -5000px;
+      text-decoration: none;
+      
+    }
+  #topnav div.search {
+    position: absolute;
+    top: 20px;
+    right: 1.25em;
+    text-align: right;
+    white-space: nowrap;    
+    color: #fff;
+  }
+    div.search input {
+      font-size: 93%;
+      width: 9em;
+    }
+    div.search input.button { width: auto; margin-left: 5px; }
+  
+#slogan, #topnav label, #topnav legend  { display: none; }
+
+/* Wrapper */
+#wrapper {
+  padding: 0 0em;
+  border: 1px solid #fff;
+  border-width: 1px 0;
+  background-color: #fff;
+}
+  /* Thanks: http://positioniseverything.net/easyclearing.html */
+  #contents:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+  }
+  
+  
+  /* Menu */
+  /* Menus                                                                      */
+/* ---------------------------------------------------------------------------*/
+
+#menu_principal {
+  background-color: #b7bccc;
+  height: 1.5em;
+  line-height: 1.5em;
+  width: 100%; 
+  margin: 0;
+  margin-bottom: 0em; 
+  text-align:right;
+  font-size: 150%; 
+  font-weight: bold; 
+  color: #1e3987;
+  text-decoration: none; 
+}
+
+#menu_principal_lista { position: relative; margin-right: 1em; }
+
+#menu_principal_lista li { display: inline; margin: 0 0 0 0.5em;}
+
+#menu_principal_lista li a {
+  font-size: 1em; 
+  font-weight: bold; 
+  color: #555; 
+  text-decoration: none;  
+}
+
+#menu_principal_lista li a:hover{ text-decoration: none; color: #1e3987;}
