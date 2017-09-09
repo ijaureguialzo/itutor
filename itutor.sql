@@ -527,7 +527,7 @@ CREATE TABLE `sf_guard_user` (
 --
 
 INSERT INTO `sf_guard_user` (`id`, `username`, `algorithm`, `salt`, `password`, `codigo`, `nombre`, `created_at`, `last_login`, `is_active`, `is_super_admin`) VALUES
-(1, 'admin', 'sha1', '99703e2b0147dd2f146597ed38d3843b', '6669b224ab156a48c0a420229937d8bdb2c771fb', '0', 'admin', '2011-09-06 13:42:05', '2017-09-08 10:32:01', 1, 1),
+(1, 'admin', 'sha1', '99703e2b0147dd2f146597ed38d3843b', '88d0b9d998d95fd377542f243c4c42066c95fa2c', '0', 'Admin', '2011-09-06 13:42:05', '2017-09-09 10:26:49', 1, 1),
 (8, 'oihane', 'sha1', '6417e86bcf3e15dfbb05a21bb69e377f', 'e3ce4bb01f867d8fbeebb5775073546782e0bd00', '478', 'Oihane García', '2011-09-07 15:59:23', '2016-06-22 11:45:26', 1, 0),
 (63, 'widemos', 'sha1', 'bcd655e1391a140f3d0f494032112bd4', 'a2314fb0c4a9bf0531ece030711033a63a5db8cf', '508', 'Ion', '2015-09-28 17:55:41', '2017-09-08 10:49:51', 1, 0);
 
