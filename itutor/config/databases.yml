@@ -12,7 +12,7 @@ all:
       hostspec:           localhost
       database:           itutor
       username:           itutor
-      password:           '8+PoDcr*6qdciLo3J.sRNt8YUG2+#6n$'
+      password:           '12345Abcde'
       encoding:           utf8      # Default charset for table creation
       persistent:         true      # Use persistent connections
 
@@ -23,6 +23,6 @@ all:
       hostspec:           localhost
       database:           itutor
       username:           itutor
-      password:           '8+PoDcr*6qdciLo3J.sRNt8YUG2+#6n$'       
+      password:           '12345Abcde'       
       encoding:           utf8      # Default charset for table creation
       persistent:         true      # Use persistent connections
