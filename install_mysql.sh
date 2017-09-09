@@ -27,7 +27,7 @@ apt-get -y install mysql-server phpmyadmin >> /vagrant/vm_build.log 2>&1
 echo -e "\n--- Setting up our MySQL user and db ---\n"
 mysql -uroot -p$DBPASSWD -e "CREATE DATABASE $DBNAME" >> /vagrant/vm_build.log 2>&1
 mysql -uroot -p$DBPASSWD -e "grant all privileges on $DBNAME.* to '$DBUSER'@'localhost' identified by '$DBPASSWD'" > /vagrant/vm_build.log 2>&1
-mysql -u $DBUSER -p$DBPASSWD < itutor.sql
+mysql -u $DBUSER -p$DBPASSWD < /vagrant/itutor.sql
 
 echo -e "\n--- Installing PHP-specific packages ---\n"
 apt-get -y install php apache2 libapache2-mod-php php-curl php-gd php-mysql php-gettext >> /vagrant/vm_build.log 2>&1
@@ -41,12 +41,14 @@ sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
 echo -e "\n--- Setting document root to public directory ---\n"
 rm -rf /var/www/html
 ln -fs /vagrant/itutor/web /var/www/html
-ln -fs /vagrant/itutor/lib/vendor/symfony/data/web/sf /vagrant/itutor/web/sf
-rm -rf /vagrant/itutor/cache/*
+ln -fs /vagrant/itutor/lib/vendor/symfony/data/web/sf /vagrant/itutor/web/
 
-echo -e "\n--- We definitly need to see the PHP errors, turning them on ---\n"
-sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
-sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
+rm -rf /vagrant/itutor/cache/*
+rm -rf /vagrant/itutor/web/images/grupos/*
+
+# echo -e "\n--- We definitly need to see the PHP errors, turning them on ---\n"
+# sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini
+# sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
 
 echo -e "\n--- Restarting Apache ---\n"
 service apache2 restart >> /vagrant/vm_build.log 2>&1

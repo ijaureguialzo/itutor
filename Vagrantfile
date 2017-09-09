@@ -13,6 +13,8 @@ Vagrant.configure("2") do |config|
       v.memory = 2048
       v.gui = false
       v.cpus = 2
+
+      v.name = "itutor.local"
     end
 
     config.vm.provision "shell", path: "install_mysql.sh"
