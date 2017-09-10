@@ -65,97 +65,94 @@ body
 
 .cancel{
 float: left;
-width: 50px;
-height: 15px;
+height: 18px;
 padding-left: 18px; 
-padding-top: 2px;
-background-image: url(/images/iconos/cancel.png); 
+padding-right: 18px; 
+padding-top: 0px;
+background: url(/images/iconos/cancel.png) left center no-repeat;
+background-repeat: no-repeat;
 }
 
 .exit{
 float: left;
-width: 50px;
-height: 15px;
+height: 18px;
 padding-left: 18px; 
-padding-top: 2px;
-background-image: url(/images/iconos/exit.png); 
+padding-right: 18px; 
+padding-top: 0px;
+background: url(/images/iconos/exit.png) left center no-repeat;
+background-repeat: no-repeat;
 } 
 
 .delete{
 float: left;
-width: 50px;
-height: 15px;
+height: 18px;
 padding-left: 18px; 
-padding-top: 2px;
-background-image: url(/images/iconos/delete.png); 
+padding-right: 18px; 
+padding-top: 0px;
+background: url(/images/iconos/delete.png) left center no-repeat;
+background-repeat: no-repeat;
 } 
 
 .save{
 float: left;
-width: 50px;
-height: 15px;
+height: 18px;
 padding-left: 18px; 
-padding-top: 2px;
-background-image: url(/images/iconos/save.png);  
+padding-right: 18px; 
+padding-top: 0px;
+background: url(/images/iconos/save.png) left center no-repeat;
+background-repeat: no-repeat;
 }
 
 .guardar{
 float: left;
-width: 100px;
-height: 15px;
+height: 18px;
 padding-left: 18px; 
-padding-top: 2px;
-color: red;
-background-image: url(/images/iconos/guardar.png); 
+padding-right: 18px; 
+padding-top: 0px;
+background: url(/images/iconos/guardar.png) left center no-repeat;
+background-repeat: no-repeat;
 }
 
 .imprimir{
 float: left;
-width: 100px;
-height: 15px;
-padding-left: 18px;
-padding-top: 2px;
-background: url(/images/iconos/printer.png) left top no-repeat;
+height: 18px;
+padding-left: 18px; 
+padding-right: 18px; 
+padding-top: 0px;
+background: url(/images/iconos/printer.png) left center no-repeat;
+background-repeat: no-repeat;
 }
 
 .add{
 float: left;
-width: 50px;
-height: 15px;
+height: 18px;
 padding-left: 18px; 
-padding-top: 2px;
-background-image: url(/images/iconos/add.png); 
+padding-right: 18px; 
+padding-top: 0px;
+background: url(/images/iconos/add.png) left center no-repeat;
+background-size: 16px 16px;
+background-repeat: no-repeat;
 }
 
-.list{
+.list, .list_alum{
 float: left;
-height: 15px;
+height: 18px;
 padding-left: 18px; 
-padding-top: 2px;
-padding-right: 8px;
-background: url(/images/iconos/list.png) left top no-repeat; 
-}
-
-
-.list_alum{
-float: left;
-height: 15px;
-padding-left: 18px; 
-padding-top: 2px;
-padding-right: 8px;
-background: url(/images/iconos/list.png) left top no-repeat; 
+padding-right: 18px; 
+padding-top: 0px;
+background: url(/images/iconos/list.png) left center no-repeat;
+background-repeat: no-repeat;
 }
 
 .edit{
 float: left;
-width: 50px;
-height: 15px;
+height: 18px;
 padding-left: 18px; 
-padding-top: 2px;
-background-image: url(/images/iconos/edit.png); 
+padding-right: 18px; 
+padding-top: 0px;
+background: url(/images/iconos/edit.png) left center no-repeat;
+background-repeat: no-repeat;
 }
-
-
 
 #sf_admin_container { margin-left: 1em; margin-top: 1em; }
 
