@@ -1,6 +1,6 @@
 # itutor.local
 
-Máquina virtual Ubuntu 14.04 con iTutor. !!!
+Máquina virtual Ubuntu 14.04 con iTutor.
 
 1. Clonar el repositorio.
 2. Ejecutar `vagrant up`
