@@ -52,3 +52,4 @@ services:
       - ./logs/goaccess:/srv/report
     ports:
       - 7890:7890
+    restart: always
