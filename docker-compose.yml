@@ -14,8 +14,6 @@ services:
       - ./bd:/docker-entrypoint-initdb.d:ro
     expose:
       - 3306
-    ports:
-      - 3306:3306
 
   web:
     image: nimmis/apache-php5:latest
@@ -32,3 +30,11 @@ services:
       - 80
     ports:
       - 80:80
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+    ports:
+      - 8080:80
