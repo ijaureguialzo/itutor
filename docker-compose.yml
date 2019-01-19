@@ -1,0 +1,34 @@
+version: "3.5"
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=itutor
+      - MYSQL_ROOT_PASSWORD=12345Abcde
+      - MYSQL_USER=itutor
+      - MYSQL_PASSWORD=12345Abcde
+    volumes:
+      - ./datos/mysql:/var/lib/mysql
+      - ./bd:/docker-entrypoint-initdb.d:ro
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+
+  web:
+    image: nimmis/apache-php5:latest
+    depends_on:
+      - mysql
+    volumes:
+      - ./app:/var/www
+      - ./app/web:/var/www/html
+      - ./app/lib/vendor/symfony/data/web/sf:/var/www/html/sf
+      - ./datos/cache:/var/www/cache
+      - ./logs/itutor:/var/www/log
+      - ./logs/apache:/var/logs/apache2
+    expose:
+      - 80
+    ports:
+      - 80:80

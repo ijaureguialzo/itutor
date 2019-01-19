@@ -9,7 +9,7 @@ all:
     class:          sfPropelDatabase
     param:
       phptype:            mysql     # Database vendor
-      hostspec:           localhost
+      hostspec:           mysql
       database:           itutor
       username:           itutor
       password:           '12345Abcde'
@@ -20,7 +20,7 @@ all:
     class:          sfPropelDatabase
     param:
       phptype:            mysql     # Database vendor
-      hostspec:           localhost
+      hostspec:           mysql
       database:           itutor
       username:           itutor
       password:           '12345Abcde'       
