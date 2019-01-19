@@ -26,6 +26,7 @@ services:
       - ./datos/cache:/var/www/cache
       - ./logs/itutor:/var/www/log
       - ./logs/apache:/var/log/apache2
+      - ./logs/goaccess:/var/www/html/goaccess:ro
     expose:
       - 80
     ports:
@@ -33,8 +34,21 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
+    depends_on:
+      - mysql
     environment:
       - PMA_HOST=mysql
       - PMA_PORT=3306
     ports:
       - 8080:80
+
+  goaccess:
+    image: allinurl/goaccess:latest
+    depends_on:
+      - web
+    volumes:
+      - ./config/goaccess:/srv/data
+      - ./logs/apache:/srv/logs:ro
+      - ./logs/goaccess:/srv/report
+    ports:
+      - 7890:7890
