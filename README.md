@@ -1,6 +1,6 @@
-# itutor.local
+# iTutor
 
-Servicio iTutor en contenedores Docker.
+Aplicación de gestión de alumnos.
 
 ## Instalación
 
@@ -16,5 +16,6 @@ Servicio iTutor en contenedores Docker.
 ## Utilidades
 
 - Controlador de depuracion en [itutor_dev](http://localhost/itutor_dev.php).
+- Acceso mediante shell: `docker-compose exec web /bin/bash`
 - Contenedor con [phpMyAdmin](http://localhost:8080/).
 - Analizador de logs de Apache con [GoAccess](http://localhost/goaccess/).
