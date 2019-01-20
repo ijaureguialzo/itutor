@@ -9,7 +9,7 @@ all:
     class:          sfPropelDatabase
     param:
       phptype:            mysql     # Database vendor
-      hostspec:           mysql
+      hostspec:           bd
       database:           itutor
       username:           itutor
       password:           '12345Abcde'
@@ -20,9 +20,9 @@ all:
     class:          sfPropelDatabase
     param:
       phptype:            mysql     # Database vendor
-      hostspec:           mysql
+      hostspec:           bd
       database:           itutor
       username:           itutor
-      password:           '12345Abcde'       
+      password:           '12345Abcde'
       encoding:           utf8      # Default charset for table creation
       persistent:         true      # Use persistent connections

@@ -2,31 +2,31 @@ version: "3.5"
 
 services:
 
-  mysql:
-    image: mysql:5.7
+  bd:
+    image: mariadb:latest
     environment:
       - MYSQL_DATABASE=itutor
       - MYSQL_ROOT_PASSWORD=12345Abcde
       - MYSQL_USER=itutor
       - MYSQL_PASSWORD=12345Abcde
     volumes:
-      - ./datos/mysql:/var/lib/mysql
-      - ./bd:/docker-entrypoint-initdb.d:ro
+      - ./datos/bd:/var/lib/mysql
+      - ./config/sql:/docker-entrypoint-initdb.d:ro
     expose:
       - 3306
 
   web:
     image: nimmis/apache-php5:latest
     depends_on:
-      - mysql
+      - bd
     volumes:
       - ./app:/var/www
       - ./app/web:/var/www/html
       - ./app/lib/vendor/symfony/data/web/sf:/var/www/html/sf
       - ./datos/cache:/var/www/cache
-      - ./logs/itutor:/var/www/log
-      - ./logs/apache:/var/log/apache2
-      - ./logs/goaccess:/var/www/html/goaccess:ro
+      - ./datos/log/itutor:/var/www/log
+      - ./datos/log/apache:/var/log/apache2
+      - ./datos/log/goaccess:/var/www/html/goaccess:ro
     expose:
       - 80
     ports:
@@ -35,9 +35,9 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     depends_on:
-      - mysql
+      - bd
     environment:
-      - PMA_HOST=mysql
+      - PMA_HOST=bd
       - PMA_PORT=3306
     ports:
       - 8080:80
@@ -48,8 +48,8 @@ services:
       - web
     volumes:
       - ./config/goaccess:/srv/data
-      - ./logs/apache:/srv/logs:ro
-      - ./logs/goaccess:/srv/report
+      - ./datos/log/apache:/srv/logs:ro
+      - ./datos/log/goaccess:/srv/report
     ports:
       - 7890:7890
     restart: always
