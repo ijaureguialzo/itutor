@@ -16,15 +16,17 @@ services:
       - 3306
 
   web:
-    image: nimmis/apache-php5:latest
+    build:
+      context: ./config
+      dockerfile: Dockerfile.web
     depends_on:
       - bd
     volumes:
       - ./app:/var/www
       - ./app/web:/var/www/html
       - ./app/lib/vendor/symfony/data/web/sf:/var/www/html/sf
-      - ./datos/symfony_cache:/var/www/cache
-      - ./datos/symfony_log:/var/www/log
+      - symfony_cache:/var/www/cache
+      - symfony_log:/var/www/log
       - apache_log:/var/log/apache2
       - goaccess:/var/www/html/goaccess:ro
     expose:
@@ -58,3 +60,5 @@ volumes:
   mariadb:
   apache_log:
   goaccess:
+  symfony_cache:
+  symfony_log:
