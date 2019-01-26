@@ -10,7 +10,7 @@ services:
       - MYSQL_USER=itutor
       - MYSQL_PASSWORD=12345Abcde
     volumes:
-      - ./datos/bd:/var/lib/mysql
+      - mariadb:/var/lib/mysql
       - ./config/sql:/docker-entrypoint-initdb.d:ro
     expose:
       - 3306
@@ -23,10 +23,10 @@ services:
       - ./app:/var/www
       - ./app/web:/var/www/html
       - ./app/lib/vendor/symfony/data/web/sf:/var/www/html/sf
-      - ./datos/cache:/var/www/cache
-      - ./datos/log/itutor:/var/www/log
-      - ./datos/log/apache:/var/log/apache2
-      - ./datos/log/goaccess:/var/www/html/goaccess:ro
+      - ./datos/symfony_cache:/var/www/cache
+      - ./datos/symfony_log:/var/www/log
+      - apache_log:/var/log/apache2
+      - goaccess:/var/www/html/goaccess:ro
     expose:
       - 80
     ports:
@@ -48,8 +48,13 @@ services:
       - web
     volumes:
       - ./config/goaccess:/srv/data
-      - ./datos/log/apache:/srv/logs:ro
-      - ./datos/log/goaccess:/srv/report
+      - apache_log:/srv/logs:ro
+      - goaccess:/srv/report
     ports:
       - 7890:7890
     restart: always
+
+volumes:
+  mariadb:
+  apache_log:
+  goaccess:
