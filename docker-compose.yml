@@ -27,8 +27,6 @@ services:
       - ./app/lib/vendor/symfony/data/web/sf:/var/www/html/sf
       - symfony_cache:/var/www/cache
       - symfony_log:/var/www/log
-      - apache_log:/var/log/apache2
-      - goaccess:/var/www/html/goaccess:ro
     expose:
       - 80
     ports:
@@ -46,21 +44,7 @@ services:
     ports:
       - 8080:80
 
-  goaccess:
-    image: allinurl/goaccess:latest
-    depends_on:
-      - web
-    volumes:
-      - ./config/goaccess:/srv/data
-      - apache_log:/srv/logs:ro
-      - goaccess:/srv/report
-    ports:
-      - 7890:7890
-    restart: always
-
 volumes:
   mariadb:
-  apache_log:
-  goaccess:
   symfony_cache:
   symfony_log:
