@@ -16,6 +16,7 @@ services:
       - 3306
 
   web:
+    platform: linux/amd64
     build:
       context: ./config
       dockerfile: Dockerfile.web
