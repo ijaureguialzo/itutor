@@ -31,10 +31,10 @@ services:
     expose:
       - 80
     ports:
-      - 80:80
+      - "80:80"
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin:latest
     depends_on:
       - bd
     environment:
@@ -43,7 +43,7 @@ services:
       - PMA_USER=root
       - PMA_PASSWORD=12345Abcde
     ports:
-      - 8080:80
+      - "8080:80"
 
 volumes:
   mariadb:
