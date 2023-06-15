@@ -1,2 +1,5 @@
 FROM nimmis/apache-php5:latest
+
 RUN mkdir /var/www/cache && mkdir /var/www/log && chmod 777 /var/www/cache && chmod 777 /var/www/log
+
+WORKDIR /var/www
