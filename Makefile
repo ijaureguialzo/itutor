@@ -14,20 +14,20 @@ help: _header
 _urls: _header
 	${info }
 	@echo Sitios disponibles:
-	@echo ------------------------------------------------
+	@echo --------------------------------------------------
 	@echo [iTutor] http://localhost
 	@echo [iTutor \(Debug\)] http://localhost/itutor_dev.php
 	@echo [phpMyAdmin] http://localhost:8080
-	@echo ------------------------------------------------
+	@echo --------------------------------------------------
 
 _urls-traefik: _header
 	${info }
 	@echo Sitios disponibles:
-	@echo --------------------------------------------------
-	@echo [iTutor] http://itutor.test
-	@echo [iTutor \(Debug\)] http://itutor.test/itutor_dev.php
-	@echo [phpMyAdmin] http://phpmyadmin.itutor.test
-	@echo --------------------------------------------------
+	@echo -----------------------------------------------------
+	@echo [iTutor] https://itutor.test
+	@echo [iTutor \(Debug\)] https://itutor.test/itutor_dev.php
+	@echo [phpMyAdmin] https://phpmyadmin.itutor.test
+	@echo -----------------------------------------------------
 
 _header:
 	@echo ----------------

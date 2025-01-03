@@ -2,9 +2,13 @@ services:
   web:
     labels:
       - "traefik.http.routers.itutor.rule=Host(`itutor.test`)"
+      - "traefik.http.routers.itutor.entrypoints=websecure"
+      - "traefik.http.routers.itutor.tls=true"
   phpmyadmin:
     labels:
       - "traefik.http.routers.itutor-phpmyadmin.rule=Host(`phpmyadmin.itutor.test`)"
+      - "traefik.http.routers.itutor-phpmyadmin.entrypoints=websecure"
+      - "traefik.http.routers.itutor-phpmyadmin.tls=true"
 
 networks:
   default:
