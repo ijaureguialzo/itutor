@@ -5,6 +5,7 @@ help: _header
 	@echo Opciones:
 	@echo ------------------------
 	@echo start / stop / restart
+	@echo start-traefik
 	@echo ------------------------
 	@echo stats / logs / workspace
 	@echo clean
@@ -13,10 +14,20 @@ help: _header
 _urls: _header
 	${info }
 	@echo Sitios disponibles:
-	@echo ----------------------------------
+	@echo ------------------------------------------------
 	@echo [iTutor] http://localhost
+	@echo [iTutor (Debug)] http://localhost/itutor_dev.php
 	@echo [phpMyAdmin] http://localhost:8080
-	@echo ----------------------------------
+	@echo ------------------------------------------------
+
+_urls-traefik: _header
+	${info }
+	@echo Sitios disponibles:
+	@echo --------------------------------------------------
+	@echo [iTutor] http://itutor.test
+	@echo [iTutor (Debug)] http://itutor.test/itutor_dev.php
+	@echo [phpMyAdmin] http://phpmyadmin.itutor.test
+	@echo --------------------------------------------------
 
 _header:
 	@echo ----------------
@@ -26,7 +37,12 @@ _header:
 _start-command:
 	@docker compose up -d --remove-orphans
 
+_start-traefik-command:
+	@docker compose -f docker-compose.yml -f docker-compose.traefik.yml up -d --remove-orphans
+
 start: _start-command _urls
+
+start-traefik: _start-traefik-command _urls-traefik
 
 stop:
 	@docker compose stop

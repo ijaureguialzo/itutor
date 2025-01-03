@@ -90,3 +90,5 @@ Temporary Items
 datos/
 
 logs/
+
+.env

@@ -1,0 +1,12 @@
+services:
+  web:
+    labels:
+      - "traefik.http.routers.itutor.rule=Host(`itutor.test`)"
+  phpmyadmin:
+    labels:
+      - "traefik.http.routers.itutor-phpmyadmin.rule=Host(`phpmyadmin.itutor.test`)"
+
+networks:
+  default:
+    name: ${NETWORK_NAME:-traefik-network}
+    external: true
