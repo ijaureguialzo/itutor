@@ -16,7 +16,7 @@ _urls: _header
 	@echo Sitios disponibles:
 	@echo ------------------------------------------------
 	@echo [iTutor] http://localhost
-	@echo [iTutor (Debug)] http://localhost/itutor_dev.php
+	@echo [iTutor \(Debug\)] http://localhost/itutor_dev.php
 	@echo [phpMyAdmin] http://localhost:8080
 	@echo ------------------------------------------------
 
@@ -25,7 +25,7 @@ _urls-traefik: _header
 	@echo Sitios disponibles:
 	@echo --------------------------------------------------
 	@echo [iTutor] http://itutor.test
-	@echo [iTutor (Debug)] http://itutor.test/itutor_dev.php
+	@echo [iTutor \(Debug\)] http://itutor.test/itutor_dev.php
 	@echo [phpMyAdmin] http://phpmyadmin.itutor.test
 	@echo --------------------------------------------------
 
