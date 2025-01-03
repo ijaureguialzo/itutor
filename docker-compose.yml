@@ -12,6 +12,7 @@ services:
       - ./config/sql:/docker-entrypoint-initdb.d:ro
     expose:
       - 3306
+    restart: unless-stopped
 
   web:
     platform: linux/amd64
@@ -28,6 +29,7 @@ services:
       - symfony_log:/var/www/log
     expose:
       - 80
+    restart: unless-stopped
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -38,6 +40,7 @@ services:
       - PMA_PORT=3306
       - PMA_USER=root
       - PMA_PASSWORD=12345Abcde
+    restart: unless-stopped
 
 volumes:
   mariadb:
