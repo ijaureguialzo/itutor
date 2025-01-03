@@ -3,10 +3,10 @@ services:
   bd:
     image: mariadb:latest
     environment:
-      - MYSQL_DATABASE=itutor
-      - MYSQL_ROOT_PASSWORD=12345Abcde
-      - MYSQL_USER=itutor
-      - MYSQL_PASSWORD=12345Abcde
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-itutor}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-12345Abcde}
+      - MYSQL_USER=${MYSQL_USER:-itutor}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-12345Abcde}
     volumes:
       - mariadb:/var/lib/mysql
       - ./config/sql:/docker-entrypoint-initdb.d:ro
@@ -38,8 +38,6 @@ services:
     environment:
       - PMA_HOST=bd
       - PMA_PORT=3306
-      - PMA_USER=root
-      - PMA_PASSWORD=12345Abcde
     restart: unless-stopped
 
 volumes:
