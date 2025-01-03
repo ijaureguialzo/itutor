@@ -1,0 +1,8 @@
+services:
+  web:
+    ports:
+      - "80:80"
+
+  phpmyadmin:
+    ports:
+      - "8080:80"

@@ -28,8 +28,6 @@ services:
       - symfony_log:/var/www/log
     expose:
       - 80
-    ports:
-      - "80:80"
 
   phpmyadmin:
     image: phpmyadmin:latest
@@ -40,8 +38,6 @@ services:
       - PMA_PORT=3306
       - PMA_USER=root
       - PMA_PASSWORD=12345Abcde
-    ports:
-      - "8080:80"
 
 volumes:
   mariadb:
