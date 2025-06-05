@@ -5,12 +5,14 @@ services:
       - "traefik.http.routers.itutor.rule=Host(`${FQDN_ITUTOR}`)"
       - "traefik.http.routers.itutor.entrypoints=websecure"
       - "traefik.http.routers.itutor.tls=true"
+      - "traefik.http.services.itutor.loadbalancer.server.port=80"
   phpmyadmin:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.itutor-phpmyadmin.rule=Host(`${FQDN_PHPMYADMIN}`)"
       - "traefik.http.routers.itutor-phpmyadmin.entrypoints=websecure"
       - "traefik.http.routers.itutor-phpmyadmin.tls=true"
+      - "traefik.http.services.itutor-phpmyadmin.loadbalancer.server.port=80"
 
 networks:
   default:
