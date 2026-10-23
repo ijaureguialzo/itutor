@@ -8,6 +8,7 @@ help: _header
 	@echo start-traefik
 	@echo ------------------------
 	@echo stats / logs / workspace
+	@echo test
 	@echo clean
 	@echo ------------------------
 
@@ -48,6 +49,9 @@ stop:
 	@docker compose stop
 
 restart: stop start
+
+test: _start-command
+	@docker compose --profile tools run --rm tests
 
 stats:
 	@docker stats
