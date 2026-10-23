@@ -99,7 +99,7 @@ class DefaultPlatform implements Platform {
 	/**
 	 * @return     Only produces a SQL fragment if null values are
 	 * disallowed.
-	 * @see        Platform::getNullString(boolean)
+	 * @see        Platform::getNullString(bool)
 	 */
 	public function getNullString($notNull)
 	{

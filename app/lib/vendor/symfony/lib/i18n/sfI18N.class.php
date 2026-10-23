@@ -20,6 +20,7 @@ class sfI18N
   protected
     $context             = null,
     $globalMessageSource = null,
+    $globalMessageFormat = null,
     $messageSource       = null,
     $messageFormat       = null;
 

@@ -8,7 +8,7 @@
  *
  * Copyright(c) 2004 by Qiang Xue. All rights reserved.
  *
- * To contact the author write to {@link mailto:qiang.xue@gmail.com Qiang Xue}
+ * To contact the author write to [@link mailto:qiang.xue@gmail.com Qiang Xue]
  * The latest version of PRADO can be obtained from:
  * {@link http://prado.sourceforge.net/}
  *
@@ -197,7 +197,7 @@ class sfNumberFormat
       // now for the integer groupings
       for ($i = 0; $i < $len; $i++)
       {
-        $char = $string{$len - $i - 1};
+        $char = $string[$len - $i - 1];
 
         if ($multiGroup && $count == 0)
         {

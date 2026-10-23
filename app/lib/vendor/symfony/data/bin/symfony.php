@@ -106,7 +106,7 @@ class simpleAutoloader
   }
 }
 
-function __autoload($class)
+function sfSymfonyCliAutoload($class)
 {
   static $initialized = false;
 
@@ -118,6 +118,8 @@ function __autoload($class)
 
   return simpleAutoloader::__autoload($class);
 }
+
+spl_autoload_register('sfSymfonyCliAutoload');
 
 // trap -V before pake
 if (in_array('-V', $argv) || in_array('--version', $argv))

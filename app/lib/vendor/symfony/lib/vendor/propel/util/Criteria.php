@@ -178,6 +178,7 @@ class Criteria implements IteratorAggregate {
 	 * Implementing SPL IteratorAggregate interface.  This allows
 	 * you to foreach() over a Criteria object.
 	 */
+	#[\ReturnTypeWillChange]
 	public function getIterator()
 	{
 		return new CriterionIterator($this);
@@ -320,7 +321,7 @@ class Criteria implements IteratorAggregate {
 	 */
 	public function setUseTransaction($v)
 	{
-		$this->useTransaction = (boolean) $v;
+		$this->useTransaction = (bool) $v;
 	}
 
 	/**
@@ -644,7 +645,7 @@ class Criteria implements IteratorAggregate {
 	 */
 	public function setIgnoreCase($b)
 	{
-		$this->ignoreCase = (boolean) $b;
+		$this->ignoreCase = (bool) $b;
 		return $this;
 	}
 
@@ -673,7 +674,7 @@ class Criteria implements IteratorAggregate {
 	 */
 	public function setSingleRecord($b)
 	{
-		$this->singleRecord = (boolean) $b;
+		$this->singleRecord = (bool) $b;
 		return $this;
 	}
 
@@ -1125,22 +1126,27 @@ class CriterionIterator implements Iterator {
 		$this->criteriaSize = count($this->criteriaKeys);
 	}
 
+	#[\ReturnTypeWillChange]
 	public function rewind() {
 		$this->idx = 0;
 	}
 
+	#[\ReturnTypeWillChange]
 	public function valid() {
 		return $this->idx < $this->criteriaSize;
 	}
 
+	#[\ReturnTypeWillChange]
 	public function key() {
 		return $this->criteriaKeys[$this->idx];
 	}
 
+	#[\ReturnTypeWillChange]
 	public function current() {
 		return $this->criteria->getCriterion($this->criteriaKeys[$this->idx]);
 	}
 
+	#[\ReturnTypeWillChange]
 	public function next() {
 		$this->idx++;
 	}

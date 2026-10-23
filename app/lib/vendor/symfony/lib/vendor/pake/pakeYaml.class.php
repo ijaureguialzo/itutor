@@ -193,7 +193,7 @@
         } elseif ($this->_inBlock == true && empty($ifchk)) {
           $last =& $this->_allNodes[$this->_lastNode];
           $last->data[key($last->data)] .= "\n";
-        } elseif ($ifchk{0} != '#' && substr($ifchk,0,3) != '---') {
+        } elseif ($ifchk[0] != '#' && substr($ifchk,0,3) != '---') {
           // Create a new node and get its indent
           $node         = new pakeYAMLNode;
           $node->indent = $this->_getIndent($line);
@@ -873,8 +873,10 @@
       $vals  = array_merge($vals1,$vals2); 
       $ret   = array(); 
 
-      foreach($keys as $key) { 
-        list($unused,$val) = each($vals);
+      reset($vals);
+      foreach($keys as $key) {
+        $val = current($vals);
+        next($vals);
         // This is the good part!  If a key already exists, but it's part of a
         // sequence (an int), just keep addin numbers until we find a fresh one.
         if (isset($ret[$key]) and is_int($key)) {

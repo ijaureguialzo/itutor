@@ -31,7 +31,7 @@ include_once 'phing/tasks/system/condition/Condition.php';
  * 
  *    @author    Hans Lellelid <hans@xmpl.org>
  *  @author    Andreas Aderhold <andi@binarycloud.com>
- *  @copyright © 2001,2002 THYRELL. All rights reserved
+ *  @copyright ï¿½ 2001,2002 THYRELL. All rights reserved
  *  @version   $Revision: 1.16 $
  *  @package   phing.tasks.system.condition
  */
@@ -169,6 +169,7 @@ class ConditionEnumeration implements Iterator {
         $this->outer = $outer;
     }
     
+    #[\ReturnTypeWillChange]
     public function valid() {
         return $this->outer->countConditions() > $this->num;
     }

@@ -188,31 +188,9 @@ class sfCore
     {
       ini_set('unserialize_callback_func', 'spl_autoload_call');
     }
-    else if (!function_exists('__autoload'))
+    else
     {
-      ini_set('unserialize_callback_func', '__autoload');
-
-      function __autoload($class)
-      {
-        foreach (sfCore::getAutoloadCallables() as $callable)
-        {
-          if (call_user_func($callable, $class))
-          {
-            return true;
-          }
-        }
-
-        // unspecified class
-        // do not print an error if the autoload came from class_exists
-        $trace = debug_backtrace();
-        if (count($trace) < 1 || ($trace[1]['function'] != 'class_exists' && $trace[1]['function'] != 'is_a'))
-        {
-          $error = sprintf('Autoloading of class "%s" failed. Try to clear the symfony cache and refresh.', $class);
-          $e = new sfAutoloadException($error);
-
-          $e->printStackTrace();
-        }
-      }
+      // PHP 8 removed the __autoload() fallback; only the spl branch is reachable.
     }
 
     self::addAutoloadCallable(array('sfCore', 'splAutoload'));
@@ -264,14 +242,9 @@ class sfCore
 
       spl_autoload_register(array('sfCore', 'splSimpleAutoload'));
     }
-    elseif (!function_exists('__autoload'))
+    else
     {
-      ini_set('unserialize_callback_func', '__autoload');
-
-      function __autoload($class)
-      {
-        return sfCore::splSimpleAutoload($class);
-      }
+      // PHP 8 removed the __autoload() fallback; only the spl branch is reachable.
     }
   }
 }

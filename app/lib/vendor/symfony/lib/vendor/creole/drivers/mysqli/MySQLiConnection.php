@@ -32,6 +32,8 @@ include_once 'creole/drivers/mysqli/MySQLiResultSet.php';
  * @package   creole.drivers.mysqli
  */
 class MySQLiConnection extends ConnectionCommon implements Connection {
+
+    protected $lastQuery = null;
     /** Current database (used in mysqli_select_db()). */
     private $database;
 

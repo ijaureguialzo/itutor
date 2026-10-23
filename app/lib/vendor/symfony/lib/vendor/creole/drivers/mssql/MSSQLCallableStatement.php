@@ -338,7 +338,7 @@ class MSSQLCallableStatement extends MSSQLPreparedStatement implements CallableS
             throw new SQLException('Requesting variable not bound to output var: '.$paramIndex);
         }
         if ($this->boundOutVars[$paramIndex] === null) { return null; }
-        return (boolean) $this->boundOutVars[$paramIndex];
+        return (bool) $this->boundOutVars[$paramIndex];
     }
             
     /**

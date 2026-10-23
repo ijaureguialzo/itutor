@@ -8,7 +8,7 @@
  *
  * Copyright(c) 2004 by Qiang Xue. All rights reserved.
  *
- * To contact the author write to {@link mailto:qiang.xue@gmail.com Qiang Xue}
+ * To contact the author write to [@link mailto:qiang.xue@gmail.com Qiang Xue]
  * The latest version of PRADO can be obtained from:
  * {@link http://prado.sourceforge.net/}
  *
@@ -310,7 +310,7 @@ class sfNumberFormatInfo
         // to find the groupsize 1.
         for ($i = strlen($pattern) - 1; $i >= 0; $i--)
         {
-          if ($pattern{$i} == $digit || $pattern{$i} == $hash)
+          if ($pattern[$i] == $digit || $pattern[$i] == $hash)
           {
             $groupSize1 = $i - $groupPos1;
             break;
@@ -329,11 +329,11 @@ class sfNumberFormatInfo
     {
       for ($i = strlen($pattern) - 1; $i >= 0; $i--)
       {
-        if ($pattern{$i} == $dot)
+        if ($pattern[$i] == $dot)
         {
           break;
         }
-        if ($pattern{$i} == $digit)
+        if ($pattern[$i] == $digit)
         {
           $decimalPoints = $i - $decimalPos;
           break;

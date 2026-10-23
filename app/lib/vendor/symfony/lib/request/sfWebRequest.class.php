@@ -455,7 +455,7 @@ class sfWebRequest extends sfRequest
         $pathInfo = preg_replace('/^'.preg_quote($script_name, '/').'/', '', $pathInfo);
         $prefix_name = preg_replace('#/[^/]+$#', '', $script_name);
         $pathInfo = preg_replace('/^'.preg_quote($prefix_name, '/').'/', '', $pathInfo);
-        $pathInfo = preg_replace('/\??'.preg_quote($pathArray['QUERY_STRING'], '/').'$/', '', $pathInfo);
+        $pathInfo = preg_replace('/\??'.preg_quote(isset($pathArray['QUERY_STRING']) ? $pathArray['QUERY_STRING'] : '', '/').'$/', '', $pathInfo);
       }
     }
     else

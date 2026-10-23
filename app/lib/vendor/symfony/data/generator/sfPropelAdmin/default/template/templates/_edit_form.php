@@ -79,8 +79,9 @@
  * WARNING: delete is a form, it must be outside the main form
  */
  $editActions = $this->getParameterValue('edit.actions');
+ $deleteAction = (null !== $editActions && array_key_exists('_delete', $editActions)) ? $editActions['_delete'] : null;
 ?>
   <?php if (null === $editActions || (null !== $editActions && array_key_exists('_delete', $editActions))): ?>
-    <?php echo $this->addCredentialCondition($this->getButtonToAction('_delete', $editActions['_delete'], true), $editActions['_delete']) ?>
+    <?php echo $this->addCredentialCondition($this->getButtonToAction('_delete', $deleteAction, true), $deleteAction) ?>
   <?php endif; ?>
 </ul>

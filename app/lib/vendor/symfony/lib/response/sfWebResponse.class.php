@@ -97,7 +97,7 @@ class sfWebResponse extends sfResponse
    */
   public function setHeaderOnly($value = true)
   {
-    $this->headerOnly = (boolean) $value;
+    $this->headerOnly = (bool) $value;
   }
 
   /**
@@ -328,7 +328,7 @@ class sfWebResponse extends sfResponse
    */
   protected function normalizeHeaderName($name)
   {
-    return preg_replace('/\-(.)/e', "'-'.strtoupper('\\1')", strtr(ucfirst(strtolower($name)), '_', '-'));
+    return preg_replace_callback('/\-(.)/', function ($m) { return '-'.strtoupper($m[1]); }, strtr(ucfirst(strtolower($name)), '_', '-'));
   }
 
   /**

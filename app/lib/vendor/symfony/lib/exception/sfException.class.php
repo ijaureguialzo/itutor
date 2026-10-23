@@ -38,7 +38,7 @@ class sfException extends Exception
       $this->setName('sfException');
     }
 
-    parent::__construct($message, $code);
+    parent::__construct((string) $message, $code);
 
     if (sfConfig::get('sf_logging_enabled') && $this->getName() != 'sfStopException')
     {

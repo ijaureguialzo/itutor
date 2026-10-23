@@ -108,6 +108,7 @@ interface ResultSet extends IteratorAggregate {
      * @return boolean <tt>true</tt> if success, <tt>false</tt> if no next record.
      * @throws SQLException on any driver-level errors.
      */
+    #[\ReturnTypeWillChange]
     public function next();
 
     /**

@@ -19,6 +19,30 @@
  */
 
 $sf_symfony_lib_dir = sfConfig::get('sf_symfony_lib_dir');
+
+// PHP 8 removed the magic quotes functions; they were no-ops since PHP 5.4.
+// Provide polyfills so legacy code paths keep working without errors.
+if (!function_exists('get_magic_quotes_gpc'))
+{
+  function get_magic_quotes_gpc()
+  {
+    return false;
+  }
+}
+if (!function_exists('get_magic_quotes_runtime'))
+{
+  function get_magic_quotes_runtime()
+  {
+    return false;
+  }
+}
+if (!function_exists('set_magic_quotes_runtime'))
+{
+  function set_magic_quotes_runtime($enabled = null)
+  {
+    return true;
+  }
+}
 if (!sfConfig::get('sf_in_bootstrap'))
 {
   // YAML support

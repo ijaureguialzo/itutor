@@ -7,7 +7,7 @@
  *
  * Copyright(c) 2004 by Qiang Xue. All rights reserved.
  *
- * To contact the author write to {@link mailto:qiang.xue@gmail.com Qiang Xue}
+ * To contact the author write to [@link mailto:qiang.xue@gmail.com Qiang Xue]
  * The latest version of PRADO can be obtained from:
  * {@link http://prado.sourceforge.net/}
  *
@@ -223,7 +223,7 @@ class sfDateFormat
     for ($i = 0, $max = count($tokens); $i < $max; $i++)
     {
       $pattern = $tokens[$i];
-      if ($pattern{0} == "'" && $pattern{strlen($pattern) - 1} == "'")
+      if ($pattern[0] == "'" && $pattern[strlen($pattern) - 1] == "'")
       {
         $tokens[$i] = str_replace('``````', '\'', preg_replace('/(^\')|(\'$)/', '', $pattern));
       }
@@ -233,7 +233,7 @@ class sfDateFormat
       }
       else
       {
-        $function = ucfirst($this->getFunctionName($pattern));
+        $function = ucfirst((string) $this->getFunctionName($pattern));
         if ($function != null)
         {
           $fName = 'get'.$function;
@@ -260,9 +260,9 @@ class sfDateFormat
    */
   protected function getFunctionName($token)
   {
-    if (isset($this->tokens[$token{0}]))
+    if (isset($this->tokens[$token[0]]))
     {
-      return $this->tokens[$token{0}];
+      return $this->tokens[$token[0]];
     }
   }
 
@@ -391,30 +391,30 @@ class sfDateFormat
 
     for ($i = 0, $max = strlen($pattern); $i < $max; $i++)
     {
-      if ($char == null || $pattern{$i} == $char || $text)
+      if ($char == null || $pattern[$i] == $char || $text)
       {
-        $token .= $pattern{$i};
+        $token .= $pattern[$i];
       }
       else
       {
         $tokens[] = str_replace("''", "'", $token);
-        $token = $pattern{$i};
+        $token = $pattern[$i];
       }
 
-      if ($pattern{$i} == "'" && $text == false)
+      if ($pattern[$i] == "'" && $text == false)
       {
         $text = true;
       }
-      else if ($text && $pattern{$i} == "'" && $char == "'")
+      else if ($text && $pattern[$i] == "'" && $char == "'")
       {
         $text = true;
       }
-      else if ($text && $char != "'" && $pattern{$i} == "'")
+      else if ($text && $char != "'" && $pattern[$i] == "'")
       {
         $text = false;
       }
 
-      $char = $pattern{$i};
+      $char = $pattern[$i];
 
     }
     $tokens[] = $token;

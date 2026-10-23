@@ -99,7 +99,7 @@ function link_to($name = '', $internal_uri = '', $options = array())
   }
   if (isset($html_options['absolute']))
   {
-    $absolute = (boolean) $html_options['absolute'];
+    $absolute = (bool) $html_options['absolute'];
     unset($html_options['absolute']);
   }
 
@@ -428,7 +428,7 @@ function _encodeText($text)
 
   for ($i = 0; $i < strlen($text); $i++)
   {
-    $char = $text{$i};
+    $char = $text[$i];
     $r = rand(0, 100);
 
     # roughly 10% raw, 45% hex, 45% dec
