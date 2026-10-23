@@ -184,7 +184,7 @@ class festivoActions extends sfActions
 
     $festivo->save();
 
-    return $this->redirect('festivo/index?fecha='.strtotime($this->getRequestParameter('fecha')));
+    return $this->redirect('festivo/index?fecha=' . (strtotime((string) $this->getRequestParameter('fecha')) ?: time()));
   }
 
   public function executeDelete()
@@ -193,10 +193,10 @@ class festivoActions extends sfActions
 
     $this->forward404Unless($festivo);
 
-    $fecha = $festivo->getFecha();
+    $fecha = (string) $festivo->getFecha();
 
     $festivo->delete();
 
-    return $this->redirect('festivo/index?fecha='.strtotime($fecha));
+    return $this->redirect('festivo/index?fecha=' . (strtotime($fecha) ?: time()));
   }
 }

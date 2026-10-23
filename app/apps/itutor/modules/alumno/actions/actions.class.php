@@ -129,8 +129,7 @@ class alumnoActions extends sfActions
     $this->grupo_id = $this->getRequestParameter('grupo_id');
     
     $grupo_tutor = GrupoPeer::retrieveByPk($this->grupo_id);
-        
-    $this->tutor = ProfesorPeer::retrieveByPk($grupo_tutor->getProfesorId());
+    $this->tutor = $grupo_tutor ? ProfesorPeer::retrieveByPk($grupo_tutor->getProfesorId()) : null;
     
     $this->setTemplate('list');
     }
@@ -151,7 +150,7 @@ class alumnoActions extends sfActions
 
     $grupo_tutor = GrupoPeer::retrieveByPk($this->grupo_id);
 
-    $this->tutor = ProfesorPeer::retrieveByPk($grupo_tutor->getProfesorId());
+    $this->tutor = $grupo_tutor ? ProfesorPeer::retrieveByPk($grupo_tutor->getProfesorId()) : null;
 
   }
   
@@ -162,7 +161,12 @@ class alumnoActions extends sfActions
     $c->addAscendingOrderByColumn(AlumnoPeer::NOMBRE);
     $this->alumnos = AlumnoPeer::doSelect($c);
 
-    $this->tutor = ProfesorPeer::retrieveByPk($this->alumnos[0]->getGrupo()->getProfesorId());
+    $this->tutor = null;
+    if (count($this->alumnos) > 0)
+    {
+      $grupo = $this->alumnos[0]->getGrupo();
+      $this->tutor = $grupo ? ProfesorPeer::retrieveByPk($grupo->getProfesorId()) : null;
+    }
 
   }
 
@@ -243,6 +247,7 @@ class alumnoActions extends sfActions
   public function executeEdit()
   {
     $this->alumno = AlumnoPeer::retrieveByPk($this->getRequestParameter('id'));
+    $this->forward404Unless($this->alumno);
     if ($this->getUser()->isSuperAdmin() || $this->getUser()->getAttribute('admin') == true)
     {
      $c = new Criteria();
@@ -459,10 +464,11 @@ class alumnoActions extends sfActions
   public function executeDelete()
   {
     $alumno = AlumnoPeer::retrieveByPk($this->getRequestParameter('id'));
-    
-    $grupo = $alumno->getGrupoId();
-    
+    $this->forward404Unless($this->alumno);
+
     $this->forward404Unless($alumno);
+
+    $grupo = $alumno->getGrupoId();
 
     //Borrado de la foto
 
@@ -503,11 +509,10 @@ class alumnoActions extends sfActions
 
   public function executeImagendelete()
   {
-
     $this->alumno = AlumnoPeer::retrieveByPk($this->getRequestParameter('id'));
+    $this->forward404Unless($this->alumno);
 
     $foto = $this->getRequestParameter('foto');
-
     //Borrado de la foto
 
     $dir = "images/grupos/".$this->alumno->getGrupoId();

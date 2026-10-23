@@ -128,12 +128,13 @@ class comportamientoActions extends sfActions
   public function executeShow()
   {
     $this->comportamiento = ComportamientoPeer::retrieveByPk($this->getRequestParameter('id'));
+    $this->forward404Unless($this->comportamiento);
+
     $this->grupo = $this->getRequestParameter('grupo');
-    
+
     $this->alumno = AlumnoPeer::retrieveByPk($this->comportamiento->getAlumnoId());
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->comportamiento->getAsignaturaId());
     $this->evaluacion = EvaluacionPeer::retrieveByPk($this->comportamiento->getEvaluacionId());
-    $this->forward404Unless($this->comportamiento);
   }
 
   public function executeCreate()
@@ -216,13 +217,13 @@ class comportamientoActions extends sfActions
   public function executeEdit()
   {
     $this->comportamiento = ComportamientoPeer::retrieveByPk($this->getRequestParameter('id'));
-    
+    $this->forward404Unless($this->comportamiento);
+
     $this->alumno = AlumnoPeer::retrieveByPk($this->comportamiento->getAlumnoId());
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->comportamiento->getAsignaturaId());
     $this->evaluacion = EvaluacionPeer::retrieveByPk($this->comportamiento->getEvaluacionId());
     
     $this->grupo = $this->getRequestParameter('grupo');
-    $this->forward404Unless($this->comportamiento);
   }
 
   public function executeUpdate()

@@ -170,9 +170,7 @@ class listadosActions extends sfActions
 
       $nota = NotaevaluacionPeer::doSelectOne($c);
 
-      $notamod = $this->getRequestParameter('notamod'.$alumno);
-
-      $notamod = str_replace(",",".",$notamod);
+      $notamod = str_replace(",", ".", (string) $this->getRequestParameter('notamod'.$alumno));
 
       if (!$nota)
       {

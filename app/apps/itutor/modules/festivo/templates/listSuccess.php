@@ -73,7 +73,7 @@ else
       $formato = 'Y/m/d';   
    }  
    
-   echo date($formato,strtotime($festivo->getFecha()))
+   echo date($formato, strtotime((string) $festivo->getFecha()) ?: time())
    ?></td>
   </tr>
 <?php

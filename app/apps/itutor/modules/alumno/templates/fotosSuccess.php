@@ -50,7 +50,9 @@
   echo " (";
   echo __('Tutor');
   echo ": ";
-  echo $tutor->getNombre();
+  if ($tutor) {
+    echo $tutor->getNombre();
+  }
   echo ")";
 }
 

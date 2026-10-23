@@ -54,10 +54,9 @@ class grupoActions extends sfActions
   public function executeShow()
   {
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('id'));
-    
-    $this->profesor = ProfesorPeer::retrieveByPk($this->grupo->getProfesorId());
-    
     $this->forward404Unless($this->grupo);
+
+    $this->profesor = ProfesorPeer::retrieveByPk($this->grupo->getProfesorId());
   }
 
   public function executeCreate()

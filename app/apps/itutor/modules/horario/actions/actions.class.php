@@ -294,7 +294,7 @@ class horarioActions extends sfActions
   
   public function executeError()
   {
-  
+    $this->mensaje = (string) $this->getRequestParameter('mensaje');
   }
 
   public function executeDelete()

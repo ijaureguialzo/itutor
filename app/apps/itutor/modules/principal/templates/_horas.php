@@ -21,5 +21,7 @@
 
 ?>
 <?php
-echo $horas[$hora]->getTramo();
+if (isset($hora) && $hora !== null && isset($horas[$hora])) {
+  echo $horas[$hora]->getTramo();
+}
 ?> 
