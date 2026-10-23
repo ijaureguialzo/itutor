@@ -8,7 +8,7 @@ all:
   itutor:
     class:          sfPropelDatabase
     param:
-      phptype:            mysql     # Database vendor
+      phptype:            mysqli     # Database vendor
       hostspec:           bd
       database:           itutor
       username:           itutor
@@ -19,7 +19,7 @@ all:
   propel:
     class:          sfPropelDatabase
     param:
-      phptype:            mysql     # Database vendor
+      phptype:            mysqli     # Database vendor
       hostspec:           bd
       database:           itutor
       username:           itutor
