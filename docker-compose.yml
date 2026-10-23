@@ -10,8 +10,6 @@ services:
     volumes:
       - mariadb:/var/lib/mysql
       - ./config/sql:/docker-entrypoint-initdb.d:ro
-    ports:
-      - "127.0.0.1:3306:3306"
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-12345Abcde}"]
@@ -34,8 +32,6 @@ services:
       - ./app/lib/vendor/symfony/data/web/sf:/var/www/html/sf
       - symfony_cache:/var/www/cache
       - symfony_log:/var/www/log
-    ports:
-      - "80:80"
     restart: unless-stopped
 
   phpmyadmin:
@@ -45,26 +41,7 @@ services:
     environment:
       - PMA_HOST=bd
       - PMA_PORT=3306
-    ports:
-      - "8080:80"
     restart: unless-stopped
-
-  tests:
-    build: ./tests
-    profiles: ["tools"]
-    volumes:
-      - ./app:/var/www:ro
-    environment:
-      - ITUTOR_URL=${ITUTOR_URL:-http://web}
-      - MYSQL_HOST=${MYSQL_HOST:-bd}
-      - MYSQL_DATABASE=${MYSQL_DATABASE:-itutor}
-      - MYSQL_USER=${MYSQL_USER:-itutor}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-12345Abcde}
-      - APP_USER=${APP_USER:-admin}
-      - APP_PASSWORD=${APP_PASSWORD:-12345Abcde}
-    depends_on:
-      - web
-    restart: "no"
 
 volumes:
   mariadb:
