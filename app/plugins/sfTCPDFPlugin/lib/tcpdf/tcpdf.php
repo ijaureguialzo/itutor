@@ -800,6 +800,7 @@ if (!class_exists('TCPDF')) {
 		 * @since 2.0.000 (2008-01-02)
 		 */
 		protected $last_rc4_key;
+		protected $padding;
 		
 		/**
 		 * last RC4 computed key
@@ -6830,6 +6831,9 @@ if (!class_exists('TCPDF')) {
 		*/
 		protected function utf8Bidi($ta, $forcertl=false) {
 			global $unicode, $unicode_mirror, $unicode_arlet, $laa_array, $diacritics;
+			if (!is_array($unicode)) {
+				return $ta;
+			}
 			// paragraph embedding level
 			$pel = 0;
 			// max level
@@ -8563,6 +8567,9 @@ if (!class_exists('TCPDF')) {
 			if (empty($code)) {
 				return;
 			}
+			if (empty($style)) {
+				$style = array();
+			}
 			$barcodeobj = new TCPDFbarcode($code, $type);
 			$arrcode = $barcodeobj->getBarcodeArray();
 			if ($arrcode === false) {
@@ -9526,7 +9533,7 @@ if (!class_exists('TCPDF')) {
 						$strrest = $this->Write($this->lasth, $dom[$key]['value'], '', $wfill, "", false, 0, true);
 						$this->cMargin = $ctmpmargin;
 					}
-					if (strlen($strrest) > 0) {
+					if (strlen((string) $strrest) > 0) {
 						// store the remaining string on the previous $key position
 						$this->newline = true;
 						if ($cell) {

@@ -148,6 +148,10 @@ abstract class sfWebController extends sfController
     {
       $query_string = substr($url, $pos + 1);
       $url = substr($url, 0, $pos);
+      if (!$url)
+      {
+        $url = '/';
+      }
     }
 
     // 2 url forms
@@ -158,6 +162,10 @@ abstract class sfWebController extends sfController
     if ($url[0] == '/')
     {
       $url = substr($url, 1);
+    }
+    if (!$url)
+    {
+      $url = '/';
     }
 
 

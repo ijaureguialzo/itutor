@@ -103,7 +103,8 @@ class sfException extends Exception
       // clean current output buffer
       while (@ob_end_clean());
 
-      ob_start(sfConfig::get('sf_compressed') ? 'ob_gzhandler' : '');
+      $handler = sfConfig::get('sf_compressed') ? 'ob_gzhandler' : '';
+      ob_start($handler === '' ? null : $handler);
     }
 
     // send an error 500 if not in debug mode
