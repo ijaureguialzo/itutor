@@ -1,7 +1,7 @@
 services:
 
   bd:
-    image: mariadb:11
+    image: mariadb:${MARIADB_VERSION:-12.3}
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE:-itutor}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-12345Abcde}
@@ -39,7 +39,7 @@ services:
     restart: unless-stopped
 
   phpmyadmin:
-    image: phpmyadmin:latest
+    image: phpmyadmin:${PHPMYADMIN_VERSION:-latest}
     depends_on:
       - bd
     environment:
