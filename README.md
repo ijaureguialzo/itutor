@@ -54,14 +54,29 @@ Ejecuta la batería de pruebas (`tests/`):
 
 1. **Lint**: `php -l` sobre todos los archivos PHP de la aplicación
    (framework, plugins, modelos, acciones, plantillas...).
-2. **Batería funcional HTTP** (29 pruebas): accesibilidad y esquema de la BD,
+2. **Batería funcional HTTP** (39 pruebas): accesibilidad y esquema de la BD,
    página de inicio anónima, login válido/inválido, los 13 módulos
-   autenticados, generación de PDF, controlador de debug, rutas desconocidas,
+   autenticados, subrutas de los módulos generados, generación de PDF,
+   controlador de debug, rutas desconocidas,
    logout y verificación de que **ninguna respuesta contiene warnings,
    notices ni errores de PHP**.
 
 La batería corre en un contenedor `php:8.5.12-cli` dentro de la red de
 Docker (`make test` = `docker compose --profile tools run --rm tests`).
+
+### Recorrido exhaustivo de rutas
+
+```bash
+make sweep
+```
+
+Recorre **todas las rutas** de la aplicación (13 módulos + plugins, con
+sus parámetros y variantes de fecha) contra el front controller de debug,
+login con `admin`, y detecta cualquier `Deprecated`, `Warning`, `Notice`,
+`Fatal error` o `Parse error` en cada respuesta. Es la herramienta con la
+que se auditó la migración: detecta en un solo pase los errores que la
+batería funcional no ejercita. (Solo lectura: no muta datos; para probar
+los POST se necesita `ITUTOR_POST=1 make sweep`.)
 
 ## Otros targets
 
@@ -71,6 +86,7 @@ make down     Para y elimina los contenedores
 make logs     Sigue los logs de la aplicación
 make clean    Borra la caché de configuración de Symfony
 make test     Ejecuta la batería de pruebas
+make sweep    Recorrido exhaustivo de rutas (detecta PHP markers en debug)
 make help     Muestra esta ayuda
 ```
 

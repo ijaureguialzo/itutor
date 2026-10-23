@@ -8,7 +8,7 @@ help: _header
 	@echo start-traefik
 	@echo ------------------------
 	@echo stats / logs / workspace
-	@echo test
+	@echo test / sweep
 	@echo clean
 	@echo ------------------------
 
@@ -52,6 +52,11 @@ restart: stop start
 
 test: _start-command
 	@docker compose --profile tools run --rm tests
+
+# Recorrido exhaustivo de rutas: detecta deprecated/warning/notice/fatal
+# en cada respuesta (usa el front controller de debug)
+sweep: _start-command
+	@php tests/route_sweep.php --base=http://localhost --pass=all
 
 stats:
 	@docker stats
