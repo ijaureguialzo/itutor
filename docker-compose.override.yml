@@ -10,7 +10,7 @@ services:
       - PMA_USER=root
       - PMA_PASSWORD=${MYSQL_ROOT_PASSWORD:-12345Abcde}
 
-  mariadb:
+  bd:
     ports:
       - "127.0.0.1:3306:3306"
 
