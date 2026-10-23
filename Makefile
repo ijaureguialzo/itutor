@@ -4,6 +4,7 @@ help: _header
 	${info }
 	@echo Opciones:
 	@echo ------------------------
+	@echo build
 	@echo start / stop / restart
 	@echo start-traefik
 	@echo ------------------------
@@ -34,6 +35,9 @@ _header:
 	@echo ----------------
 	@echo iTutor en Docker
 	@echo ----------------
+
+build:
+	@docker compose build --pull
 
 _start-command:
 	@docker compose up -d --remove-orphans
