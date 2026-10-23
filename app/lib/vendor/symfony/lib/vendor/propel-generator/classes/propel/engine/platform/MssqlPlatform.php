@@ -65,7 +65,7 @@ class MssqlPlatform extends DefaultPlatform {
 	/**
 	 * @return     Explicitly returns <code>NULL</code> if null values are
 	 * allowed (as recomended by Microsoft).
-	 * @see        Platform#getNullString(boolean)
+	 * @see        Platform#getNullString(bool)
 	 */
 	public function getNullString($notNull)
 	{

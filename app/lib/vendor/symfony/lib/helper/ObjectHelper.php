@@ -66,7 +66,7 @@ function object_textarea_tag($object, $method, $options = array(), $default_valu
  *
  * NOTE: Only the option tags are returned, you have to wrap this call in a regular HTML select tag.
  */
-function objects_for_select($options = array(), $value_method, $text_method = null, $selected = null, $html_options = array())
+function objects_for_select($options = array(), $value_method = null, $text_method = null, $selected = null, $html_options = array())
 {
   $select_options = array();
   foreach ($options as $option)
@@ -260,7 +260,7 @@ function object_checkbox_tag($object, $method, $options = array(), $default_valu
 {
   $options = _parse_attributes($options);
 
-  $checked = (boolean) _get_object_value($object, $method, $default_value);
+  $checked = (bool) _get_object_value($object, $method, $default_value);
 
   return checkbox_tag(_convert_method_to_name($method, $options), isset($options['value']) ? $options['value'] : 1, $checked, $options);
 }

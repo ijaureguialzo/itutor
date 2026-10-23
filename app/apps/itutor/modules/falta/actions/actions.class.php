@@ -42,6 +42,9 @@ class faltaActions extends sfActions
     $c= new Criteria();
     $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
     $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $d = new Criteria();
    $d->add(HoraperfilPeer::PERFIL_ID,$this->profesor->getPerfilId());
@@ -57,7 +60,7 @@ class faltaActions extends sfActions
     $this->asignaturas = AsignaturaPeer::doSelect(new Criteria());
     $this->grupos = GrupoPeer::doSelect (new Criteria());
     
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->festivos = FestivoPeer::doSelect(new Criteria());
    
@@ -69,6 +72,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -93,6 +99,9 @@ class faltaActions extends sfActions
     $c->add(GrupoevaluacionPeer::GRUPO_ID, $this->getRequestParameter('grupo_id'));
     $c->addJoin(EvaluacionPeer::ID,GrupoevaluacionPeer::EVALUACION_ID);
     $this->eva_actual = EvaluacionPeer::doSelectOne($c);
+    if (!$this->eva_actual) {
+      $this->eva_actual = new Evaluacion();
+    }
 
     $this->a = new Criteria();
     $this->a->add(GrupoevaluacionPeer::GRUPO_ID, $this->getRequestParameter('grupo_id'));
@@ -109,6 +118,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
 
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -122,7 +134,9 @@ class faltaActions extends sfActions
     $d->add(GrupoPeer::PROFESOR_ID,$this->profesor->getId());
 
     $this->grupo = GrupoPeer::doSelectOne($d);
-
+    if (!$this->grupo) {
+      $this->grupo = new Grupo();
+    }
 
 
   }
@@ -143,6 +157,9 @@ class faltaActions extends sfActions
     $c->add(EvaluacionPeer::FECHAINI,$this->fecha,Criteria::LESS_EQUAL);
     $c->add(EvaluacionPeer::FECHAFIN,$this->fecha,Criteria::GREATER_EQUAL);
     $this->evaluacion = EvaluacionPeer::doSelectOne($c);
+    if (!$this->evaluacion) {
+      $this->evaluacion = new Evaluacion();
+    }
 
     $c = new Criteria();
     $c->addJoin(AsignaturaPeer::ID,HorarioPeer::ASIGNATURA_ID);
@@ -198,9 +215,18 @@ class faltaActions extends sfActions
     $c->add(EvaluacionPeer::FECHAINI,$this->fecha,Criteria::LESS_EQUAL);
     $c->add(EvaluacionPeer::FECHAFIN,$this->fecha,Criteria::GREATER_EQUAL);
     $this->evaluacion = EvaluacionPeer::doSelectOne($c);
+    if (!$this->evaluacion) {
+      $this->evaluacion = new Evaluacion();
+    }
         
     $this->asignatura = $this->getRequestParameter('asignatura');
-    $this->asig = AsignaturaPeer::retrieveByPk($this->asignatura); 
+    if (!$this->asignatura) {
+      $this->asignatura = '';
+    }
+    $this->asig = AsignaturaPeer::retrieveByPk($this->asignatura);
+    if (!$this->asig) {
+      $this->asig = new Asignatura();
+    }
     
     $c = new Criteria();
     $c->add(FaltaPeer::DIA, $this->getRequestParameter('dia')); 
@@ -511,7 +537,10 @@ class faltaActions extends sfActions
   
   public function executeLimpiar()
   {
-    $this->alumno = AlumnoPeer::retrieveByPk($this->getRequestParameter('id'));  
+    $this->alumno = AlumnoPeer::retrieveByPk($this->getRequestParameter('id'));
+    if (!$this->alumno) {
+      $this->alumno = new Alumno();
+    }
   }
 
   public function executeLimp()
@@ -528,6 +557,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -544,6 +576,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -562,6 +597,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -583,6 +621,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $fecha = strtotime("now");
     
@@ -592,6 +633,9 @@ class faltaActions extends sfActions
     $c->add(GrupoevaluacionPeer::GRUPO_ID, $this->grupo);
     $c->addJoin(EvaluacionPeer::ID,GrupoevaluacionPeer::EVALUACION_ID);
     $this->eva_actual = EvaluacionPeer::doSelectOne($c);
+    if (!$this->eva_actual) {
+      $this->eva_actual = new Evaluacion();
+    }
 
 
     $this->a = new Criteria();
@@ -617,6 +661,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(FaltaPeer::EVALUACION_ID,$this->getRequestParameter('evaluacion_id'));
@@ -643,7 +690,13 @@ class faltaActions extends sfActions
     $this->alumnos = AlumnoPeer::doSelect($d);
     
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->getRequestParameter('asignatura_id'));
+    if (!$this->asignatura) {
+      $this->asignatura = new Asignatura();
+    }
     $this->evaluacion = EvaluacionPeer::retrieveByPk($this->getRequestParameter('evaluacion_id'));
+    if (!$this->evaluacion) {
+      $this->evaluacion = new Evaluacion();
+    }
   }
   
   //Listado por alumno y asignatura (primer paso)
@@ -654,6 +707,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -675,6 +731,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $fecha = strtotime("now");
     
@@ -684,6 +743,9 @@ class faltaActions extends sfActions
     $c->add(GrupoevaluacionPeer::GRUPO_ID, $this->grupo);
     $c->addJoin(EvaluacionPeer::ID,GrupoevaluacionPeer::EVALUACION_ID);
     $this->eva_actual = EvaluacionPeer::doSelectOne($c);
+    if (!$this->eva_actual) {
+      $this->eva_actual = new Evaluacion();
+    }
 
 
     $this->a = new Criteria();
@@ -713,6 +775,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(FaltaPeer::EVALUACION_ID,$this->getRequestParameter('evaluacion_id'));
@@ -731,8 +796,17 @@ class faltaActions extends sfActions
     $this->retrasos = RetrasoPeer::doSelect($c);
     
     $this->alumno = AlumnoPeer::retrieveByPk($this->getRequestParameter('alumno_id'));
+    if (!$this->alumno) {
+      $this->alumno = new Alumno();
+    }
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->getRequestParameter('asignatura_id'));
+    if (!$this->asignatura) {
+      $this->asignatura = new Asignatura();
+    }
     $this->evaluacion = EvaluacionPeer::retrieveByPk($this->getRequestParameter('evaluacion_id'));
+    if (!$this->evaluacion) {
+      $this->evaluacion = new Evaluacion();
+    }
   }
   
   public function executeGrupolist()
@@ -741,6 +815,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -757,6 +834,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -773,6 +853,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -802,6 +885,9 @@ class faltaActions extends sfActions
     $this->hora = $this->getRequestParameter('hora');
     $this->asignatura = $this->getRequestParameter('asignatura');
     $this->asig = AsignaturaPeer::retrieveByPk($this->asignatura);
+    if (!$this->asig) {
+      $this->asig = new Asignatura();
+    }
   }
   
   public function executeTotalalumnolist()
@@ -817,6 +903,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -833,6 +922,9 @@ class faltaActions extends sfActions
     $d->add(GrupoPeer::ID, $this->getRequestParameter('grupo_id'));
     
     $this->grupo = GrupoPeer::doSelectOne($d);
+    if (!$this->grupo) {
+      $this->grupo = new Grupo();
+    }
 
     $c = new Criteria();
     $c->add(GrupoevaluacionPeer::GRUPO_ID, $this->grupo->getId());
@@ -870,6 +962,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -897,11 +992,17 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(AlumnoPeer::ID, $this->getRequestParameter('alumno_id'));
     
     $this->alumno = AlumnoPeer::doSelectOne($c);
+    if (!$this->alumno) {
+      $this->alumno = new Alumno();
+    }
     
     $c = new Criteria();
     $c->add(AsignaturaPeer::PROFESOR_ID,$this->profesor->getId());
@@ -957,6 +1058,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
 
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $c = new Criteria();
     $c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -980,6 +1084,9 @@ class faltaActions extends sfActions
     $this->asignaturas = AsignaturaPeer::doSelect($g);
 
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo_id'));
+    if (!$this->grupo) {
+      $this->grupo = new Grupo();
+    }
 
     $e = new Criteria();
     $e->addAscendingOrderByColumn(FaltaPeer::FECHA);
@@ -1005,6 +1112,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria(); 
 
@@ -1024,6 +1134,9 @@ class faltaActions extends sfActions
     $this->asignaturas = AsignaturaPeer::doSelect($g);
     
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo_id'));
+    if (!$this->grupo) {
+      $this->grupo = new Grupo();
+    }
     
     $e = new Criteria();
     $e->addAscendingOrderByColumn(FaltaPeer::FECHA);
@@ -1059,6 +1172,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria(); 
 
@@ -1078,6 +1194,9 @@ class faltaActions extends sfActions
     $this->asignaturas = AsignaturaPeer::doSelect($g);
     
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo_id'));
+    if (!$this->grupo) {
+      $this->grupo = new Grupo();
+    }
     
     $e = new Criteria();
     $e->addAscendingOrderByColumn(FaltaPeer::FECHA);
@@ -1091,6 +1210,9 @@ class faltaActions extends sfActions
     $this->faltas = FaltaPeer::doSelect($e);
 
     $this->evaluacion = EvaluacionPeer::retrieveByPK($this->getRequestParameter('evaluacion_id'));
+    if (!$this->evaluacion) {
+      $this->evaluacion = new Evaluacion();
+    }
     
     $this->fecha = $this->getRequestParameter('fecha');
     } 
@@ -1103,6 +1225,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
       
     $g = new Criteria();
@@ -1117,13 +1242,22 @@ class faltaActions extends sfActions
     
     
     $this->alumno = AlumnoPeer::retrieveByPk($this->getRequestParameter('alumno'));
+    if (!$this->alumno) {
+      $this->alumno = new Alumno();
+    }
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo'));
+    if (!$this->grupo) {
+      $this->grupo = new Grupo();
+    }
     $c = new Criteria();
     $c->add(FaltaPeer::ALUMNO_ID,$this->getRequestParameter('alumno'));
     $c->add(FaltaPeer::EVALUACION_ID,$this->getRequestParameter('evaluacion'));
     $c->addAscendingOrderByColumn(FaltaPeer::FECHA);
     $this->faltas = FaltaPeer::doSelect($c);
     $this->evaluacion = EvaluacionPeer::retrieveByPk($this->getRequestParameter('evaluacion'));
+    if (!$this->evaluacion) {
+      $this->evaluacion = new Evaluacion();
+    }
     $this->fecha = $this->getRequestParameter('fecha'); 
 
   }
@@ -1141,6 +1275,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -1154,6 +1291,9 @@ class faltaActions extends sfActions
 
     $this->alumnos = AlumnoPeer::doSelect($c);
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo_id'));
+    if (!$this->grupo) {
+      $this->grupo = new Grupo();
+    }
     $a = new Criteria();
     $a->add(GrupoevaluacionPeer::GRUPO_ID, $this->grupo->getId());
     $a->addJoin(EvaluacionPeer::ID,GrupoevaluacionPeer::EVALUACION_ID);
@@ -1177,6 +1317,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -1201,6 +1344,9 @@ class faltaActions extends sfActions
     
     $this->alumnos = AlumnoPeer::doSelect($c);
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo_id'));
+    if (!$this->grupo) {
+      $this->grupo = new Grupo();
+    }
     $this->faltas = FaltaPeer::doSelect(new Criteria());
     $a = new Criteria();
     $a->add(GrupoevaluacionPeer::GRUPO_ID, $this->grupo->getId());
@@ -1223,6 +1369,9 @@ class faltaActions extends sfActions
     $d=new Criteria();
     $d->add(AlumnoPeer::ID, $this->getRequestParameter('alumno')); 
     $this->alumno = AlumnoPeer::doSelectOne($d);
+    if (!$this->alumno) {
+      $this->alumno = new Alumno();
+    }
     
     $this->evaluaciones = EvaluacionPeer::doSelect(new Criteria());
     
@@ -1230,6 +1379,9 @@ class faltaActions extends sfActions
     $this->hora = $this->getRequestParameter('hora');
     $this->asignatura = $this->getRequestParameter('asignatura');
     $this->asig = AsignaturaPeer::retrieveByPk($this->asignatura);
+    if (!$this->asig) {
+      $this->asig = new Asignatura();
+    }
     $this->fecha = $this->getRequestParameter('fecha');
     
     $this->setTemplate('faltas');
@@ -1248,6 +1400,9 @@ class faltaActions extends sfActions
     $d=new Criteria();
     $d->add(AlumnoPeer::ID, $this->getRequestParameter('alumno')); 
     $this->alumno = AlumnoPeer::doSelectOne($d);
+    if (!$this->alumno) {
+      $this->alumno = new Alumno();
+    }
     
     $this->evaluaciones = EvaluacionPeer::doSelect(new Criteria());
     
@@ -1255,6 +1410,9 @@ class faltaActions extends sfActions
     $this->hora = $this->getRequestParameter('hora');
     $this->asignatura = $this->getRequestParameter('asignatura');
     $this->asig = AsignaturaPeer::retrieveByPk($this->asignatura);
+    if (!$this->asig) {
+      $this->asig = new Asignatura();
+    }
     $this->fecha = $this->getRequestParameter('fecha');
     
   }
@@ -1262,10 +1420,14 @@ class faltaActions extends sfActions
   public function executeShow()
   {
     $this->falta = FaltaPeer::retrieveByPk($this->getRequestParameter('id'));
-    
+    $this->forward404Unless($this->falta);
+
     $d=new Criteria();
     $d->add(AlumnoPeer::ID, $this->falta->getAlumnoId()); 
     $this->alumno = AlumnoPeer::doSelectOne($d);
+    if (!$this->alumno) {
+      $this->alumno = new Alumno();
+    }
     
     $this->evaluaciones = EvaluacionPeer::doSelect(new Criteria());
     
@@ -1273,6 +1435,9 @@ class faltaActions extends sfActions
     $this->hora = $this->falta->getHora();
     $this->asignatura = $this->falta->getAsignaturaId();
     $this->asig = AsignaturaPeer::retrieveByPk($this->asignatura);
+    if (!$this->asig) {
+      $this->asig = new Asignatura();
+    }
     $this->fecha = $this->getRequestParameter('fecha');
     $this->forward404Unless($this->falta);
   }
@@ -1284,11 +1449,17 @@ class faltaActions extends sfActions
     $d = new Criteria();
     $d->add(AlumnoPeer::ID, $this->getRequestParameter('alumno'));   
     $this->alumno = AlumnoPeer::doSelectOne($d);
+    if (!$this->alumno) {
+      $this->alumno = new Alumno();
+    }
  
     $this->dia = $this->getRequestParameter('dia');
     $this->hora = $this->getRequestParameter('hora');
     $this->asignatura = $this->getRequestParameter('asignatura');
     $this->asig = AsignaturaPeer::retrieveByPk($this->asignatura);
+    if (!$this->asig) {
+      $this->asig = new Asignatura();
+    }
     $this->fecha = date('Y-m-d',$this->getRequestParameter('fecha'));
     
     $c = new Criteria();
@@ -1296,6 +1467,9 @@ class faltaActions extends sfActions
     $c->add(EvaluacionPeer::FECHAFIN,$this->fecha,Criteria::GREATER_EQUAL);
     
     $this->evaluacion = EvaluacionPeer::doSelectOne($c);
+    if (!$this->evaluacion) {
+      $this->evaluacion = new Evaluacion();
+    }
     
     $this->crear = true;
     
@@ -1305,9 +1479,14 @@ class faltaActions extends sfActions
   public function executeEdit()
   {
     $this->falta = FaltaPeer::retrieveByPk($this->getRequestParameter('id'));
+    $this->forward404Unless($this->falta);
+
     $d = new Criteria();
     $d->add(AlumnoPeer::ID, $this->falta->getAlumnoId());   
     $this->alumno = AlumnoPeer::doSelectOne($d);
+    if (!$this->alumno) {
+      $this->alumno = new Alumno();
+    }
  
     $this->dia = $this->falta->getDia();
     $this->hora = $this->falta->getHora();
@@ -1320,8 +1499,14 @@ class faltaActions extends sfActions
     $c->add(EvaluacionPeer::FECHAFIN,$this->fecha,Criteria::GREATER_EQUAL);
     
     $this->evaluacion = EvaluacionPeer::doSelectOne($c);
+    if (!$this->evaluacion) {
+      $this->evaluacion = new Evaluacion();
+    }
     
     $this->asig = AsignaturaPeer::retrieveByPk($this->asignatura);
+    if (!$this->asig) {
+      $this->asig = new Asignatura();
+    }
     
     $this->crear = $this->getRequestParameter('crear');
     if (!$this->crear)
@@ -1335,6 +1520,11 @@ class faltaActions extends sfActions
   {
     if (!$this->getRequestParameter('id'))
     {
+      if (!$this->getRequestParameter('alumno_id'))
+      {
+        $mensaje = 'No se puede crear la falta sin elegir un alumno.';
+        return $this->redirect('principal/error?mensaje=' . $mensaje);
+      }
       $falta = new Falta();
     }
     else
@@ -1388,7 +1578,7 @@ class faltaActions extends sfActions
   
   public function executeError()
   {
-  
+    $this->mensaje = (string) $this->getRequestParameter('mensaje');
   }
 
   public function executeDelete()

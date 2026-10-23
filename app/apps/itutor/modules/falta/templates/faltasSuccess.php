@@ -75,7 +75,7 @@ else
       'hora' => $falta->getHora() 
       ));?></td>
   <td><?php
-  $f = strtotime($falta->getFecha());
+  $f = strtotime((string) $falta->getFecha()) ?: time();
   if ($sf_user->getCulture() == 'es')
   {
     echo date('d-m-Y',$f);  

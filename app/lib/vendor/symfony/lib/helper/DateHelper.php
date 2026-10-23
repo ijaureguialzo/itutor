@@ -17,7 +17,7 @@
  * @version    SVN: $Id: DateHelper.php 8763 2008-05-04 07:24:40Z fabien $
  */
 
-function format_daterange($start_date, $end_date, $format = 'd', $full_text, $start_text, $end_text, $culture = null, $charset = null)
+function format_daterange($start_date = null, $end_date = null, $format = 'd', $full_text = null, $start_text = null, $end_text = null, $culture = null, $charset = null)
 {
   if ($start_date != '' && $end_date != '')
   {

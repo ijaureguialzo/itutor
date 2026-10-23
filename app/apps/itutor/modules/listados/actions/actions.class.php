@@ -42,6 +42,9 @@ class listadosActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -85,6 +88,9 @@ class listadosActions extends sfActions
    $c= new Criteria();
    $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
    $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
    
    $this->asignatura = AsignaturaPeer::retrieveByPk($this->getRequestParameter('asignatura_id'));
    $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo_id'));
@@ -164,9 +170,7 @@ class listadosActions extends sfActions
 
       $nota = NotaevaluacionPeer::doSelectOne($c);
 
-      $notamod = $this->getRequestParameter('notamod'.$alumno);
-
-      $notamod = str_replace(",",".",$notamod);
+      $notamod = str_replace(",", ".", (string) $this->getRequestParameter('notamod'.$alumno));
 
       if (!$nota)
       {
@@ -194,6 +198,9 @@ class listadosActions extends sfActions
    $c= new Criteria();
    $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
    $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
    
    $this->asignatura = AsignaturaPeer::retrieveByPk($this->getRequestParameter('asignatura_id'));
    
@@ -231,6 +238,9 @@ class listadosActions extends sfActions
    $c= new Criteria();
    $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
    $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
    
    $this->asignatura = AsignaturaPeer::retrieveByPk($this->getRequestParameter('asignatura_id'));
    
@@ -254,6 +264,9 @@ class listadosActions extends sfActions
    $c= new Criteria();
    $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
    $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
    
    $this->asignatura = AsignaturaPeer::retrieveByPk($this->getRequestParameter('asignatura_id'));
    $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo_id'));
@@ -321,6 +334,9 @@ class listadosActions extends sfActions
    $c= new Criteria();
    $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
    $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
    
    $this->asignatura = AsignaturaPeer::retrieveByPk($this->getRequestParameter('asignatura_id'));
    $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo_id'));
@@ -699,6 +715,9 @@ endforeach; //alumno
    $c= new Criteria();
    $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
    $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
    
    $c = new Criteria();
    $c->add(HorarioPeer::GRUPO_ID,$this->getRequestParameter('grupo_id'));

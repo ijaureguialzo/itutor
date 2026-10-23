@@ -7,8 +7,8 @@ prod:
 
 dev:
   .settings:
-    # E_ALL | E_STRICT = 4095
-    error_reporting:        4095
+    # E_ALL
+    error_reporting:        32767
     web_debug:              on
     cache:                  off
     no_script_name:         off
@@ -16,8 +16,8 @@ dev:
 
 test:
   .settings:
-    # E_ALL | E_STRICT & ~E_NOTICE = 2047
-    error_reporting:        2047
+    # E_ALL minus deprecations (legacy codebase)
+    error_reporting:        8191
     cache:                  off
     web_debug:              off
     no_script_name:         off
@@ -113,6 +113,8 @@ all:
 all:
   .settings:
     enabled_modules: [ sfGuardAuth, sfGuardGroup, sfGuardPermission, sfGuardUser, sfTCPDF ]
+    error_404_module:       principal
+    error_404_action:       error
     i18n: on
   .actions:    
     login_module:           sfGuardAuth

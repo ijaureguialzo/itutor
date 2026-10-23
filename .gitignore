@@ -92,3 +92,8 @@ datos/
 logs/
 
 .env
+
+# Symfony app (PHP 8 / Docker layout)
+app/cache/
+app/log/
+app/data/

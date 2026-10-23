@@ -85,7 +85,7 @@ if ($grupos)
 <?php echo form_tag('falta/tablalist', 'name=formulario1') ?>
 <?php echo input_hidden_tag('fecha', $fecha);?>
 <?php echo input_hidden_tag('dia', $dia);?>
-<?php echo input_hidden_tag('grupo', $grupo->getId());?>
+<?php echo input_hidden_tag('grupo', $grupo ? $grupo->getId() : '');?>
 <?php echo input_hidden_tag('tutor', true);?>
 
 <?php

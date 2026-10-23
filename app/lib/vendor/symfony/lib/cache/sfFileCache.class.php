@@ -102,10 +102,10 @@ class sfFileCache extends sfCache
    * @param array An array of options
    * Available options:
    *  - cacheDir:                cache root directory
-   *  - fileLocking:             enable / disable file locking (boolean)
-   *  - writeControl:            enable / disable write control (boolean)
-   *  - readControl:             enable / disable read control (boolean)
-   *  - fileNameProtection:      enable / disable automatic file name protection (boolean)
+   *  - fileLocking:             enable / disable file locking (bool)
+   *  - writeControl:            enable / disable write control (bool)
+   *  - readControl:             enable / disable read control (bool)
+   *  - fileNameProtection:      enable / disable automatic file name protection (bool)
    *  - automaticCleaningFactor: disable / tune automatic cleaning process (int)
    *  - hashedDirectoryLevel:    level of the hashed directory system (int)
    *  - lifeTime:                default life time
@@ -289,7 +289,7 @@ class sfFileCache extends sfCache
   *
   * @see sfCache
   */
-  public function set($id, $namespace = self::DEFAULT_NAMESPACE, $data)
+  public function set($id, $namespace = self::DEFAULT_NAMESPACE, $data = null)
   {
     list($path, $file) = $this->getFileName($id, $namespace);
 
@@ -480,15 +480,13 @@ class sfFileCache extends sfCache
     {
       clearstatcache(); // because the filesize can be cached by PHP itself...
       $length = @filesize($path.$file);
-      $mqr = get_magic_quotes_runtime();
-      set_magic_quotes_runtime(0);
+      // Magic quotes no longer exist since PHP 8, nothing to toggle.
       if ($this->readControl)
       {
         $hashControl = @fread($fp, 32);
         $length = $length - 32;
       }
       $data = ($length) ? @fread($fp, $length) : '';
-      set_magic_quotes_runtime($mqr);
       if ($this->fileLocking)
       {
         @flock($fp, LOCK_UN);

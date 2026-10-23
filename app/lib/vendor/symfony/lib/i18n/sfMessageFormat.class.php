@@ -216,6 +216,11 @@ class sfMessageFormat
 
   protected function getFormattedString($string, $args = array(), $catalogue = null)
   {
+    if ($string === null)
+    {
+      $string = '';
+    }
+
     if (empty($catalogue))
     {
       $catalogue = empty($this->catalogue) ? 'messages' : $this->catalogue;

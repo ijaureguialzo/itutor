@@ -54,6 +54,9 @@ class perfilActions extends sfActions
     $c->add(HoraperfilPeer::PERFIL_ID,$this->getRequestParameter('perfil'));
     
     $this->perfil = PerfilPeer::retrieveByPk($this->getRequestParameter('perfil'));
+    if (!$this->perfil) {
+      $this->perfil = new Perfil();
+    }
     $this->horas = HoraPeer::doSelect(new Criteria());
     $this->horasperfil = HoraperfilPeer::doSelect($c);
   }
@@ -81,6 +84,9 @@ class perfilActions extends sfActions
     $this->horaperfil = new Horaperfil();
     
     $this->perfil = PerfilPeer::retrieveByPk($this->getRequestParameter('perfil'));
+    if (!$this->perfil) {
+      $this->perfil = new Perfil();
+    }
 
     $this->setTemplate('perfilhoraedit');
   }
@@ -88,8 +94,14 @@ class perfilActions extends sfActions
   public function executePerfilhoraedit()
   {
     $this->horaperfil = HoraperfilPeer::retrieveByPk($this->getRequestParameter('id'));
+    if (!$this->horaperfil) {
+      $this->horaperfil = new Horaperfil();
+    }
     
     $this->perfil = PerfilPeer::retrieveByPk($this->getRequestParameter('perfil'));
+    if (!$this->perfil) {
+      $this->perfil = new Perfil();
+    }
     $this->forward404Unless($this->horaperfil);
   }
   
@@ -118,10 +130,10 @@ class perfilActions extends sfActions
   public function executePerfilhoradelete()
   {
     $horaperfil = HoraperfilPeer::retrieveByPk($this->getRequestParameter('id'));
-    
-    $perfil = $horaperfil->getPerfilId();
 
     $this->forward404Unless($horaperfil);
+
+    $perfil = $horaperfil->getPerfilId();
 
     $horaperfil->delete();
 
@@ -152,12 +164,13 @@ class perfilActions extends sfActions
   
   public function executeError()
   {
-    $this->mensaje = $this->getRequestParameter('mensaje');
+    $this->mensaje = (string) $this->getRequestParameter('mensaje');
   }
 
   public function executeDelete()
   {
     $perfil = PerfilPeer::retrieveByPk($this->getRequestParameter('id'));
+    $this->forward404Unless($perfil);
 
     $c = new Criteria();
     $c->add(ProfesorPeer::PERFIL_ID,$perfil->getId());

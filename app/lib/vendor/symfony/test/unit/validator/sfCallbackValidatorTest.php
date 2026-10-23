@@ -41,19 +41,19 @@ catch (sfValidatorException $e)
 
 function callbackValidator($value)
 {
-  return (boolean) $value;
+  return (bool) $value;
 }
 
 class callbackClassValidator
 {
   public function callbackValidator($value)
   {
-    return (boolean) $value;
+    return (bool) $value;
   }
 
   static public function staticCallbackValidator($value)
   {
-    return (boolean) $value;
+    return (bool) $value;
   }
 }
 

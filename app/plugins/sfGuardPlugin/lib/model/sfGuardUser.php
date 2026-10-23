@@ -17,6 +17,8 @@
  */
 class sfGuardUser extends PluginsfGuardUser
 {
+  // runtime flag used by getProfesor() (PHP 8.2: declare it to avoid the dynamic property deprecation)
+  protected $admin = false;
 
   public function getProfesor()
   {

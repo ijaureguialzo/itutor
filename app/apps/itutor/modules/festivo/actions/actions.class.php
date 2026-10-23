@@ -38,7 +38,7 @@ class festivoActions extends sfActions
 {
   public function executeIndex()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     switch($this->fecha['mon'])
     {
@@ -112,7 +112,7 @@ class festivoActions extends sfActions
 
   public function executeList()
   { 
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $c = new Criteria();
     $c->addAscendingOrderByColumn(FestivoPeer::FECHA);
@@ -124,6 +124,8 @@ class festivoActions extends sfActions
   public function executeShow()
   {
     $this->festivo = FestivoPeer::retrieveByPk($this->getRequestParameter('id'));
+    
+    $this->forward404Unless($this->festivo);
     
     $this->evaluacion = EvaluacionPeer::retrieveByPk($this->festivo->getEvaluacionId());
     
@@ -142,7 +144,9 @@ class festivoActions extends sfActions
     $this->festivo = new Festivo();
     
     $this->festivo->setFecha($fecha);
-    $this->festivo->setEvaluacionId($this->evaluacion->getId());
+    if ($this->evaluacion) {
+      $this->festivo->setEvaluacionId($this->evaluacion->getId());
+    }
 
     $this->setTemplate('edit');
   }
@@ -150,6 +154,7 @@ class festivoActions extends sfActions
   public function executeEdit()
   {
     $this->festivo = FestivoPeer::retrieveByPk($this->getRequestParameter('id'));
+    $this->forward404Unless($this->festivo);
     $fecha = $this->festivo->getFecha();
     $c = new Criteria();
     $c->add(EvaluacionPeer::FECHAINI,$fecha,Criteria::LESS_EQUAL);
@@ -179,18 +184,19 @@ class festivoActions extends sfActions
 
     $festivo->save();
 
-    return $this->redirect('festivo/index?fecha='.strtotime($this->getRequestParameter('fecha')));
+    return $this->redirect('festivo/index?fecha=' . (strtotime((string) $this->getRequestParameter('fecha')) ?: time()));
   }
 
   public function executeDelete()
   {
     $festivo = FestivoPeer::retrieveByPk($this->getRequestParameter('id'));
-    $fecha = $festivo->getFecha();
 
     $this->forward404Unless($festivo);
 
+    $fecha = (string) $festivo->getFecha();
+
     $festivo->delete();
 
-    return $this->redirect('festivo/index?fecha='.strtotime($fecha));
+    return $this->redirect('festivo/index?fecha=' . (strtotime($fecha) ?: time()));
   }
 }

@@ -52,6 +52,7 @@ class MySQLResultSet extends ResultSetCommon implements ResultSet {
     /**
      * @see ResultSet::next()
      */ 
+    #[\ReturnTypeWillChange]
     public function next()
     {
         $this->fields = mysql_fetch_array($this->result, $this->fetchmode);        

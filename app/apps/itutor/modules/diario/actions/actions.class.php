@@ -38,7 +38,7 @@ class diarioActions extends sfActions
 {
   public function executeIndex()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     switch($this->fecha['mon'])
     {
@@ -96,6 +96,9 @@ class diarioActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
         
     $c = new Criteria();
     $c->add(DiarioPeer::PROFESOR_ID,$this->profesor->getId());
@@ -234,7 +237,7 @@ class diarioActions extends sfActions
   
   public function executeGrupodia()
   {
-    $this->fecha = getdate($this->getRequestParameter('dia'));
+    $this->fecha = getdate($this->getRequestParameter('dia', time()));
     
     $dia = $this->fecha['wday'];
     
@@ -242,6 +245,9 @@ class diarioActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(HorarioPeer::PROFESOR_ID,$this->profesor->getId());
@@ -332,20 +338,30 @@ class diarioActions extends sfActions
    }
    else
    {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $opcion = $this->getRequestParameter('opcion');
     
     $horario = HorarioPeer::retrieveByPk($opcion);
+    if (!$horario) {
+      $mensaje = 'No se encuentra la opción seleccionada.';
+      return $this->redirect('principal/error?mensaje='.$mensaje);
+    }
     
     $this->grupo = GrupoPeer::retrieveByPk($horario->getGrupoId());
-    
     $this->asignatura = AsignaturaPeer::retrieveByPk($horario->getAsignaturaId());
+    if (!$this->grupo || !$this->asignatura) {
+      $mensaje = 'No se puede crear la entrada del diario para esa opción.';
+      return $this->redirect('principal/error?mensaje='.$mensaje);
+    }
     
     $d = new Criteria();
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $date = date('Y-m-d',$this->fecha[0]);
     
@@ -376,7 +392,9 @@ class diarioActions extends sfActions
       
       $this->evaluacion = EvaluacionPeer::doSelectOne($c);
       
-      $this->diario->setEvaluacionId($this->evaluacion->getId());
+      if ($this->evaluacion) {
+        $this->diario->setEvaluacionId($this->evaluacion->getId());
+      }
       
       $this->setTemplate('edit');
     }
@@ -388,7 +406,9 @@ class diarioActions extends sfActions
     $this->opcion = $this->getRequestParameter('opcion');
 
     $this->horario = HorarioPeer::retrieveBypk($this->opcion);
-
+    if (!$this->horario) {
+      return $this->redirect('diario/index');
+    }
 
     $fe = strtotime("now");
     
@@ -411,7 +431,7 @@ class diarioActions extends sfActions
     
     
     
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
 
     $fe = $this->getRequestParameter('fecha');
 
@@ -471,6 +491,9 @@ class diarioActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
 
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $c = new Criteria();
     $c->add(DiarioPeer::PROFESOR_ID,$this->profesor->getId());
@@ -614,6 +637,9 @@ class diarioActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(HorarioPeer::PROFESOR_ID,$this->profesor->getId());
@@ -689,7 +715,7 @@ class diarioActions extends sfActions
    //Genera todas las entradas del diario
   public function executeGenerar()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->opcion = $this->getRequestParameter('opcion');
     
@@ -698,10 +724,13 @@ class diarioActions extends sfActions
     $id_evaluacion = $this->getRequestParameter('ev');
     
     $this->evaluacion = EvaluacionPeer::retrieveByPk($id_evaluacion);
+    if (!$this->horario || !$this->evaluacion) {
+      return $this->redirect('diario/index');
+    }
     $this->grupo = GrupoPeer::retrieveByPk($this->horario->getGrupoId());
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->horario->getAsignaturaId());
     $this->profesor = ProfesorPeer::retrieveByPk($this->horario->getProfesorId());
-    
+
     $c = new Criteria();
     $c->add(FestivoPeer::FECHA,$this->evaluacion->getFechaini(),Criteria::GREATER_EQUAL);
     $c->add(FestivoPeer::FECHA,$this->evaluacion->getFechafin(),Criteria::LESS_EQUAL);
@@ -784,7 +813,7 @@ class diarioActions extends sfActions
 
   public function executeRegenerar()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->opcion = $this->getRequestParameter('opcion');
 
@@ -793,6 +822,9 @@ class diarioActions extends sfActions
     $id_evaluacion = $this->getRequestParameter('ev');
 
     $this->evaluacion = EvaluacionPeer::retrieveByPk($id_evaluacion);
+    if (!$this->horario || !$this->evaluacion) {
+      return $this->redirect('diario/index');
+    }
     $this->grupo = GrupoPeer::retrieveByPk($this->horario->getGrupoId());
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->horario->getAsignaturaId());
     $this->profesor = ProfesorPeer::retrieveByPk($this->horario->getProfesorId());
@@ -893,13 +925,16 @@ class diarioActions extends sfActions
 
   public function executeImprimir()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
 
 
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo'));
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->getRequestParameter('asig'));
     $this->profesor = ProfesorPeer::retrieveByPk($this->getRequestParameter('prof'));
     $this->evaluacion = EvaluacionPeer::retrieveByPk($this->getRequestParameter('ev'));
+    if (!$this->evaluacion) {
+      return $this->redirect('diario/index');
+    }
 
     $c = new Criteria();
     $c->add(FestivoPeer::FECHA,$this->evaluacion->getFechaini(),Criteria::GREATER_EQUAL);
@@ -954,13 +989,16 @@ class diarioActions extends sfActions
 
   public function executeImprimirud()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
 
 
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo'));
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->getRequestParameter('asig'));
     $this->profesor = ProfesorPeer::retrieveByPk($this->getRequestParameter('prof'));
     $this->evaluacion = EvaluacionPeer::retrieveByPk($this->getRequestParameter('ev'));
+    if (!$this->evaluacion) {
+      return $this->redirect('diario/index');
+    }
 
     $c = new Criteria();
     $c->add(FestivoPeer::FECHA,$this->evaluacion->getFechaini(),Criteria::GREATER_EQUAL);
@@ -1015,20 +1053,23 @@ class diarioActions extends sfActions
   
   public function executeListado()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->opcion = $this->getRequestParameter('opcion');
     
     $this->horario = HorarioPeer::retrieveBypk($this->opcion);
     
     $id_evaluacion = $this->getRequestParameter('evaluacion');
-    
-    
+
+    $this->evaluacion = EvaluacionPeer::retrieveByPk($id_evaluacion);
+    if (!$this->horario || !$this->evaluacion) {
+      return $this->redirect('diario/index');
+    }
+
     $this->grupo = GrupoPeer::retrieveByPk($this->horario->getGrupoId());
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->horario->getAsignaturaId());
     $this->profesor = ProfesorPeer::retrieveByPk($this->horario->getProfesorId());
-    $this->evaluacion = EvaluacionPeer::retrieveByPk($id_evaluacion);
-    
+
     $c = new Criteria();
     $c->add(FestivoPeer::FECHA,$this->evaluacion->getFechaini(),Criteria::GREATER_EQUAL);
     $c->add(FestivoPeer::FECHA,$this->evaluacion->getFechafin(),Criteria::LESS_EQUAL);
@@ -1082,12 +1123,12 @@ class diarioActions extends sfActions
   public function executeShow()
   {
     $this->diario = DiarioPeer::retrieveByPk($this->getRequestParameter('id'));
-    
+    $this->forward404Unless($this->diario);
+
     $this->profesor = ProfesorPeer::retrieveByPk($this->diario->getProfesorId());
     $this->grupo = GrupoPeer::retrieveByPk($this->diario->getGrupoId());
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->diario->getAsignaturaId());
-    $this->evaluacion = EvaluacionPeer::retrieveByPk($this->diario->getEvaluacionId()); 
-    $this->forward404Unless($this->diario);
+    $this->evaluacion = EvaluacionPeer::retrieveByPk($this->diario->getEvaluacionId());
   }
 
   public function executeCreate()
@@ -1100,12 +1141,12 @@ class diarioActions extends sfActions
   public function executeEdit()
   {
     $this->diario = DiarioPeer::retrieveByPk($this->getRequestParameter('id'));
-    
+    $this->forward404Unless($this->diario);
+
     $this->profesor = ProfesorPeer::retrieveByPk($this->diario->getProfesorId());
     $this->grupo = GrupoPeer::retrieveByPk($this->diario->getGrupoId());
     $this->asignatura = AsignaturaPeer::retrieveByPk($this->diario->getAsignaturaId());
-    $this->evaluacion = EvaluacionPeer::retrieveByPk($this->diario->getEvaluacionId()); 
-    $this->forward404Unless($this->diario);
+    $this->evaluacion = EvaluacionPeer::retrieveByPk($this->diario->getEvaluacionId());
   }
 
   public function executeUpdateall()
@@ -1168,19 +1209,19 @@ class diarioActions extends sfActions
 
     $diario->save();
 
-    return $this->redirect('diario/index?fecha='.strtotime($this->getRequestParameter('fecha')));
+    return $this->redirect('diario/index?fecha=' . (strtotime((string) $this->getRequestParameter('fecha')) ?: time()));
   }
 
   public function executeDelete()
   {
     $diario = DiarioPeer::retrieveByPk($this->getRequestParameter('id'));
-    
-    $fecha = $diario->getFecha();
 
     $this->forward404Unless($diario);
 
+    $fecha = (string) $diario->getFecha();
+
     $diario->delete();
 
-    return $this->redirect('diario/index?fecha='.strtotime($fecha));
+    return $this->redirect('diario/index?fecha=' . (strtotime($fecha) ?: time()));
   }
 }

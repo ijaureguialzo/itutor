@@ -299,7 +299,7 @@ class sfRouting
         $elements[count($elements) - 1] = $matches[1];
         $route = '/'.implode('/', $elements);
       }
-      else if ($route{strlen($route) - 1} == '/')
+      else if ($route[strlen($route) - 1] == '/')
       {
         $suffix = '/';
       }
@@ -457,7 +457,7 @@ class sfRouting
 
     $params = sfToolkit::arrayDeepMerge($defaults, $params);
 
-    $real_url = preg_replace('/\:([^\/]+)/e', 'urlencode($params["\\1"])', $url);
+    $real_url = preg_replace_callback('/\:([^\/]+)/', function ($m) use ($params) { return urlencode(isset($params[$m[1]]) ? $params[$m[1]] : ''); }, $url);
 
     // we add all other params if *
     if (strpos($real_url, '*'))

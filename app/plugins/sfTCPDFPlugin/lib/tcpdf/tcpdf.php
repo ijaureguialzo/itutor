@@ -67,7 +67,7 @@
 // dullus for text Justification.
 // Bob Vincent (pillarsdotnet@users.sourceforge.net) for <li> value attribute.
 // Patrick Benny for text stretch suggestion on Cell().
-// Johannes Güntert for JavaScript support.
+// Johannes Gï¿½ntert for JavaScript support.
 // Denis Van Nuffelen for Dynamic Form.
 // Jacek Czekaj for multibyte justification
 // Anthony Ferrara for the reintroduction of legacy image methods.
@@ -78,7 +78,7 @@
 // Mohamad Ali Golkar, Saleh AlMatrafe, Charles Abbott for Arabic and Persian support.
 // Moritz Wagner and Andreas Wurmser for graphic functions.
 // Andrew Whitehead for core fonts support.
-// Esteban Joël Marín for OpenType font conversion.
+// Esteban Joï¿½l Marï¿½n for OpenType font conversion.
 // Anyone that has reported a bug or sent a suggestion.
 //============================================================+
 
@@ -800,6 +800,7 @@ if (!class_exists('TCPDF')) {
 		 * @since 2.0.000 (2008-01-02)
 		 */
 		protected $last_rc4_key;
+		protected $padding;
 		
 		/**
 		 * last RC4 computed key
@@ -1071,7 +1072,7 @@ if (!class_exists('TCPDF')) {
 				mb_internal_encoding("ASCII");
 			}
 			// set language direction
-			$this->rtl = $this->l['a_meta_dir']=='rtl' ? true : false;
+			$this->rtl = (isset($this->l['a_meta_dir']) && $this->l['a_meta_dir']=='rtl') ? true : false;
 			$this->tmprtl = false;
 			//Some checks
 			$this->_dochecks();
@@ -2042,7 +2043,7 @@ if (!class_exists('TCPDF')) {
 				$barcode_width = round(($this->getPageWidth() - $ormargins['left'] - $ormargins['right'])/3);
 				$this->write1DBarcode($barcode, "C128B", $this->GetX(), $cur_y + $line_width, $barcode_width, (($this->getFooterMargin() / 3) - $line_width), 0.3, '', '');	
 			}
-			$pagenumtxt = $this->l['w_page']." ".$this->PageNo().' / '.$this->getAliasNbPages();
+			$pagenumtxt = (isset($this->l['w_page']) ? $this->l['w_page'] : 'Page')." ".$this->PageNo().' / '.$this->getAliasNbPages();
 			$this->SetY($cur_y);
 			//Print page number
 			if ($this->getRTL()) {
@@ -3379,6 +3380,10 @@ if (!class_exists('TCPDF')) {
 		* @since 2.3.000 (2008-03-05)
 		*/
 		public function unichr($c) {
+			if (!is_int($c)) {
+				// PHP 8 requires an int; cast reproduces the old coercive behaviour.
+				$c = (int) $c;
+			}
 			if (!$this->isunicode) {
 				return chr($c);
 			} elseif ($c <= 0x7F) {
@@ -3458,8 +3463,7 @@ if (!class_exists('TCPDF')) {
 				if ($type == "jpg") {
 					$type = "jpeg";
 				}
-				$mqr = get_magic_quotes_runtime();
-				set_magic_quotes_runtime(0);
+				// Magic quotes no longer exist since PHP 8, nothing to toggle.
 				// Specific image handlers
 				$mtd = '_parse'.$type;
 				// GD image handler function
@@ -3486,7 +3490,6 @@ if (!class_exists('TCPDF')) {
 					//If false, we cannot process image
 					return;
 				}
-				set_magic_quotes_runtime($mqr);
 				$info['i'] = count($this->images) + 1;
 				// add image to document
 				$this->images[$file] = $info;
@@ -4353,8 +4356,7 @@ if (!class_exists('TCPDF')) {
 				$this->_out('<</Type /Encoding /BaseEncoding /WinAnsiEncoding /Differences ['.$diff.']>>');
 				$this->_out('endobj');
 			}
-			$mqr = get_magic_quotes_runtime();
-			set_magic_quotes_runtime(0);
+			// Magic quotes no longer exist since PHP 8, nothing to toggle.
 			foreach($this->FontFiles as $file => $info) {
 				//Font file embedding
 				$this->_newobj();
@@ -4362,12 +4364,12 @@ if (!class_exists('TCPDF')) {
 				$font = file_get_contents($this->_getfontpath().strtolower($file));
 				$compressed = (substr($file,-2)=='.z');
 				if ((!$compressed) AND (isset($info['length2']))) {
-					$header = (ord($font{0}) == 128);
+					$header = (ord($font[0]) == 128);
 					if ($header) {
 						//Strip first binary header
 						$font = substr($font,6);
 					}
-					if ($header AND (ord($font{$info['length1']}) == 128)) {
+					if ($header AND (ord($font[$info['length1']]) == 128)) {
 						//Strip second binary header
 						$font = substr($font, 0, $info['length1']).substr($font, $info['length1']+6);
 					}
@@ -4384,7 +4386,6 @@ if (!class_exists('TCPDF')) {
 				$this->_putstream($font);
 				$this->_out('endobj');
 			}
-			set_magic_quotes_runtime($mqr);
 			foreach($this->fonts as $k => $font) {
 				//Font objects
 				$this->fonts[$k]['n'] = $this->n + 1;
@@ -4523,8 +4524,7 @@ if (!class_exists('TCPDF')) {
 		 */
 		protected function _putimages() {
 			$filter = ($this->compress) ? '/Filter /FlateDecode ' : '';
-			reset($this->images);
-			while (list($file, $info) = each($this->images)) {
+			foreach ($this->images as $file => $info) {
 				$this->_newobj();
 				$this->images[$file]['n'] = $this->n;
 				$this->_out('<</Type /XObject');
@@ -5201,7 +5201,7 @@ if (!class_exists('TCPDF')) {
 				$strarr = array();
 				$strlen = strlen($str);
 				for($i=0; $i < $strlen; $i++) {
-					$strarr[] = ord($str{$i});
+					$strarr[] = ord($str[$i]);
 				}
 				return $strarr;
 			}
@@ -5211,7 +5211,7 @@ if (!class_exists('TCPDF')) {
 			$str .= ""; // force $str to be a string
 			$length = strlen($str);
 			for($i = 0; $i < $length; $i++) {
-				$char = ord($str{$i}); // get one string character at time
+				$char = ord($str[$i]); // get one string character at time
 				if (count($bytes) == 0) { // get starting octect
 					if ($char <= 0x7F) {
 						$unicode[] = $char; // use the character "as is" because is ASCII
@@ -5415,7 +5415,7 @@ if (!class_exists('TCPDF')) {
 		 */
 		public function setLanguageArray($language) {
 			$this->l = $language;
-			$this->rtl = $this->l['a_meta_dir']=='rtl' ? true : false;
+			$this->rtl = (isset($this->l['a_meta_dir']) && $this->l['a_meta_dir']=='rtl') ? true : false;
 		}
 		
 		/**
@@ -5573,7 +5573,7 @@ if (!class_exists('TCPDF')) {
 				$j = 0;
 				for ($i=0; $i < 256; $i++) {
 					$t = $rc4[$i];
-					$j = ($j + $t + ord($k{$i})) % 256;
+					$j = ($j + $t + ord($k[$i])) % 256;
 					$rc4[$i] = $rc4[$j];
 					$rc4[$j] = $t;
 				}
@@ -5593,7 +5593,7 @@ if (!class_exists('TCPDF')) {
 				$rc4[$a] = $rc4[$b];
 				$rc4[$b] = $t;
 				$k = $rc4[($rc4[$a] + $rc4[$b]) % 256];
-				$out .= chr(ord($text{$i}) ^ $k);
+				$out .= chr(ord($text[$i]) ^ $k);
 			}
 			return $out;
 		}
@@ -6048,7 +6048,7 @@ if (!class_exists('TCPDF')) {
 			if (isset($dash)) {
 				$dash_string = "";
 				if ($dash) {
-					if (ereg("^.+,", $dash)) {
+					if (preg_match("/^.+,/", $dash)) {
 						$tab = explode(",", $dash);
 					} else {
 						$tab = array($dash);
@@ -6144,7 +6144,7 @@ if (!class_exists('TCPDF')) {
 		* @param float $y1 Ordinate of first point.
 		* @param float $x2 Abscissa of second point.
 		* @param float $y2 Ordinate of second point.
-		* @param array $style Line style. Array like for {@link SetLineStyle SetLineStyle}. Default value: default line style (empty array).
+		* @param array $style Line style. Array like for [@link SetLineStyle SetLineStyle]. Default value: default line style (empty array).
 		* @access public
 		* @since 1.0
 		* @see SetLineWidth(), SetDrawColor(), SetLineStyle()
@@ -6174,11 +6174,11 @@ if (!class_exists('TCPDF')) {
 		* </ul>
 		* @param array $border_style Border style of rectangle. Array with keys among the following:
 		* <ul>
-		*	 <li>all: Line style of all borders. Array like for {@link SetLineStyle SetLineStyle}.</li>
-		*	 <li>L, T, R, B or combinations: Line style of left, top, right or bottom border. Array like for {@link SetLineStyle SetLineStyle}.</li>
+		*	 <li>all: Line style of all borders. Array like for [@link SetLineStyle SetLineStyle].</li>
+		*	 <li>L, T, R, B or combinations: Line style of left, top, right or bottom border. Array like for [@link SetLineStyle SetLineStyle].</li>
 		* </ul>
 		* If a key is not present or is null, not draws the border. Default value: default line style (empty array).
-		* @param array $border_style Border style of rectangle. Array like for {@link SetLineStyle SetLineStyle}. Default value: default line style (empty array).
+		* @param array $border_style Border style of rectangle. Array like for [@link SetLineStyle SetLineStyle]. Default value: default line style (empty array).
 		* @param array $fill_color Fill color. Format: array(GREY) or array(R,G,B) or array(C,M,Y,K). Default value: default color (empty array).
 		* @access public
 		* @since 1.0
@@ -6274,7 +6274,7 @@ if (!class_exists('TCPDF')) {
 		*	 <li>CNZ: Clipping mode (using the even-odd rule to determine which regions lie inside the clipping path).</li>
 		*	 <li>CEO: Clipping mode (using the nonzero winding number rule to determine which regions lie inside the clipping path).</li>
 		* </ul>
-		* @param array $line_style Line style of curve. Array like for {@link SetLineStyle SetLineStyle}. Default value: default line style (empty array).
+		* @param array $line_style Line style of curve. Array like for [@link SetLineStyle SetLineStyle]. Default value: default line style (empty array).
 		* @param array $fill_color Fill color. Format: array(GREY) or array(R,G,B) or array(C,M,Y,K). Default value: default color (empty array).
 		* @access public
 		* @see SetLineStyle()
@@ -6331,7 +6331,7 @@ if (!class_exists('TCPDF')) {
 		*	 <li>CNZ: Clipping mode (using the even-odd rule to determine which regions lie inside the clipping path).</li>
 		*	 <li>CEO: Clipping mode (using the nonzero winding number rule to determine which regions lie inside the clipping path).</li>
 		* </ul>
-		* @param array $line_style Line style of curve. Array like for {@link SetLineStyle SetLineStyle}. Default value: default line style (empty array).
+		* @param array $line_style Line style of curve. Array like for [@link SetLineStyle SetLineStyle]. Default value: default line style (empty array).
 		* @param array $fill_color Fill color. Format: array(GREY) or array(R,G,B) or array(C,M,Y,K). Default value: default color (empty array).
 		* @access public
 		* @see SetLineStyle()
@@ -6382,7 +6382,7 @@ if (!class_exists('TCPDF')) {
 		* @param float $x0 Abscissa of center point.
 		* @param float $y0 Ordinate of center point.
 		* @param float $rx Horizontal radius.
-		* @param float $ry Vertical radius (if ry = 0 then is a circle, see {@link Circle Circle}). Default value: 0.
+		* @param float $ry Vertical radius (if ry = 0 then is a circle, see [@link Circle Circle]). Default value: 0.
 		* @param float $angle: Angle oriented (anti-clockwise). Default value: 0.
 		* @param float $astart: Angle start of draw line. Default value: 0.
 		* @param float $afinish: Angle finish of draw line. Default value: 360.
@@ -6395,7 +6395,7 @@ if (!class_exists('TCPDF')) {
 		*	 <li>CNZ: Clipping mode (using the even-odd rule to determine which regions lie inside the clipping path).</li>
 		*	 <li>CEO: Clipping mode (using the nonzero winding number rule to determine which regions lie inside the clipping path).</li>
 		* </ul>
-		* @param array $line_style Line style of ellipse. Array like for {@link SetLineStyle SetLineStyle}. Default value: default line style (empty array).
+		* @param array $line_style Line style of ellipse. Array like for [@link SetLineStyle SetLineStyle]. Default value: default line style (empty array).
 		* @param array $fill_color Fill color. Format: array(GREY) or array(R,G,B) or array(C,M,Y,K). Default value: default color (empty array).
 		* @param integer $nc Number of curves used in ellipse. Default value: 8.
 		* @access public
@@ -6499,7 +6499,7 @@ if (!class_exists('TCPDF')) {
 		*	 <li>CNZ: Clipping mode (using the even-odd rule to determine which regions lie inside the clipping path).</li>
 		*	 <li>CEO: Clipping mode (using the nonzero winding number rule to determine which regions lie inside the clipping path).</li>
 		* </ul>
-		* @param array $line_style Line style of circle. Array like for {@link SetLineStyle SetLineStyle}. Default value: default line style (empty array).
+		* @param array $line_style Line style of circle. Array like for [@link SetLineStyle SetLineStyle]. Default value: default line style (empty array).
 		* @param array $fill_color Fill color. Format: array(red, green, blue). Default value: default color (empty array).
 		* @param integer $nc Number of curves used in circle. Default value: 8.
 		* @access public
@@ -6522,8 +6522,8 @@ if (!class_exists('TCPDF')) {
 		* </ul>
 		* @param array $line_style Line style of polygon. Array with keys among the following:
 		* <ul>
-		*	 <li>all: Line style of all lines. Array like for {@link SetLineStyle SetLineStyle}.</li>
-		*	 <li>0 to ($np - 1): Line style of each line. Array like for {@link SetLineStyle SetLineStyle}.</li>
+		*	 <li>all: Line style of all lines. Array like for [@link SetLineStyle SetLineStyle].</li>
+		*	 <li>0 to ($np - 1): Line style of each line. Array like for [@link SetLineStyle SetLineStyle].</li>
 		* </ul>
 		* If a key is not present or is null, not draws the line. Default value is default line style (empty array).
 		* @param array $fill_color Fill color. Format: array(GREY) or array(R,G,B) or array(C,M,Y,K). Default value: default color (empty array).
@@ -6611,8 +6611,8 @@ if (!class_exists('TCPDF')) {
 		* </ul>
 		* @param array $line_style Line style of polygon sides. Array with keys among the following:
 		* <ul>
-		*	 <li>all: Line style of all sides. Array like for {@link SetLineStyle SetLineStyle}.</li>
-		*	 <li>0 to ($ns - 1): Line style of each side. Array like for {@link SetLineStyle SetLineStyle}.</li>
+		*	 <li>all: Line style of all sides. Array like for [@link SetLineStyle SetLineStyle].</li>
+		*	 <li>0 to ($ns - 1): Line style of each side. Array like for [@link SetLineStyle SetLineStyle].</li>
 		* </ul>
 		* If a key is not present or is null, not draws the side. Default value is default line style (empty array).
 		* @param array $fill_color Fill color. Format: array(red, green, blue). Default value: default color (empty array).
@@ -6624,7 +6624,7 @@ if (!class_exists('TCPDF')) {
 		*	 <li>CNZ: Clipping mode (using the even-odd rule to determine which regions lie inside the clipping path).</li>
 		*	 <li>CEO: Clipping mode (using the nonzero winding number rule to determine which regions lie inside the clipping path).</li>
 		* </ul>
-		* @param array $circle_outLine_style Line style of inscribed circle (if draws). Array like for {@link SetLineStyle SetLineStyle}. Default value: default line style (empty array).
+		* @param array $circle_outLine_style Line style of inscribed circle (if draws). Array like for [@link SetLineStyle SetLineStyle]. Default value: default line style (empty array).
 		* @param array $circle_fill_color Fill color of inscribed circle (if draws). Format: array(red, green, blue). Default value: default color (empty array).
 		* @access public
 		* @since 2.1.000 (2008-01-08)
@@ -6667,7 +6667,7 @@ if (!class_exists('TCPDF')) {
 		* <ul>
 		*	 <li>all: Line style of all sides. Array like for
 		* {@link SetLineStyle SetLineStyle}.</li>
-		*	 <li>0 to (n - 1): Line style of each side. Array like for {@link SetLineStyle SetLineStyle}.</li>
+		*	 <li>0 to (n - 1): Line style of each side. Array like for [@link SetLineStyle SetLineStyle].</li>
 		* </ul>
 		* If a key is not present or is null, not draws the side. Default value is default line style (empty array).
 		* @param array $fill_color Fill color. Format: array(red, green, blue). Default value: default color (empty array).
@@ -6679,7 +6679,7 @@ if (!class_exists('TCPDF')) {
 		*	 <li>CNZ: Clipping mode (using the even-odd rule to determine which regions lie inside the clipping path).</li>
 		*	 <li>CEO: Clipping mode (using the nonzero winding number rule to determine which regions lie inside the clipping path).</li>
 		* </ul>
-		* @param array $circle_outLine_style Line style of inscribed circle (if draws). Array like for {@link SetLineStyle SetLineStyle}. Default value: default line style (empty array).
+		* @param array $circle_outLine_style Line style of inscribed circle (if draws). Array like for [@link SetLineStyle SetLineStyle]. Default value: default line style (empty array).
 		* @param array $circle_fill_color Fill color of inscribed circle (if draws). Format: array(red, green, blue). Default value: default color (empty array).
 		* @access public
 		* @since 2.1.000 (2008-01-08)
@@ -6728,7 +6728,7 @@ if (!class_exists('TCPDF')) {
 		*	 <li>CNZ: Clipping mode (using the even-odd rule to determine which regions lie inside the clipping path).</li>
 		*	 <li>CEO: Clipping mode (using the nonzero winding number rule to determine which regions lie inside the clipping path).</li>
 		* </ul>
-		* @param array $border_style Border style of rectangle. Array like for {@link SetLineStyle SetLineStyle}. Default value: default line style (empty array).
+		* @param array $border_style Border style of rectangle. Array like for [@link SetLineStyle SetLineStyle]. Default value: default line style (empty array).
 		* @param array $fill_color Fill color. Format: array(GREY) or array(R,G,B) or array(C,M,Y,K). Default value: default color (empty array).
 		* @access public
 		* @since 2.1.000 (2008-01-08)
@@ -6831,6 +6831,9 @@ if (!class_exists('TCPDF')) {
 		*/
 		protected function utf8Bidi($ta, $forcertl=false) {
 			global $unicode, $unicode_mirror, $unicode_arlet, $laa_array, $diacritics;
+			if (!is_array($unicode)) {
+				return $ta;
+			}
 			// paragraph embedding level
 			$pel = 0;
 			// max level
@@ -6971,7 +6974,7 @@ if (!class_exists('TCPDF')) {
 			
 			// X8. All explicit directional embeddings and overrides are completely terminated at the end of each paragraph. Paragraph separators are not included in the embedding.
 			// X9. Remove all RLE, LRE, RLO, LRO, PDF, and BN codes.
-			// X10. The remaining rules are applied to each run of characters at the same level. For each run, determine the start-of-level-run (sor) and end-of-level-run (eor) type, either L or R. This depends on the higher of the two levels on either side of the boundary (at the start or end of the paragraph, the level of the “other” run is the base embedding level). If the higher level is odd, the type is R; otherwise, it is L.
+			// X10. The remaining rules are applied to each run of characters at the same level. For each run, determine the start-of-level-run (sor) and end-of-level-run (eor) type, either L or R. This depends on the higher of the two levels on either side of the boundary (at the start or end of the paragraph, the level of the ï¿½otherï¿½ run is the base embedding level). If the higher level is odd, the type is R; otherwise, it is L.
 			
 			// 3.3.3 Resolving Weak Types
 			// Weak types are now resolved one level run at a time. At level run boundaries where the type of the character on the other side of the boundary is required, the type assigned to sor or eor is used.
@@ -7470,7 +7473,7 @@ if (!class_exists('TCPDF')) {
 		/*
 		* Adds a javascript
 		* @access public
-		* @author Johannes Güntert, Nicola Asuni
+		* @author Johannes Gï¿½ntert, Nicola Asuni
 		* @since 2.1.002 (2008-02-12)
 		*/
 		public function IncludeJS($script) {
@@ -7480,7 +7483,7 @@ if (!class_exists('TCPDF')) {
 		/*
 		* Create a javascript PDF string.
 		* @access protected
-		* @author Johannes Güntert, Nicola Asuni
+		* @author Johannes Gï¿½ntert, Nicola Asuni
 		* @since 2.1.002 (2008-02-12)
 		*/
 		protected function _putjavascript() {
@@ -7536,7 +7539,7 @@ if (!class_exists('TCPDF')) {
 			$k = $this->k;
 			$this->javascript .= sprintf("f".$name."=this.addField('%s','%s',%d,[%.2f,%.2f,%.2f,%.2f]);", $name, $type, $this->PageNo()-1, $x*$k, ($this->h-$y)*$k+1, ($x+$w)*$k, ($this->h-$y-$h)*$k+1)."\n";
 			$this->javascript .= "f".$name.".textSize=".$this->FontSizePt.";\n";
-			while (list($key, $val) = each($prop)) {
+			foreach ($prop as $key => $val) {
 				if (strcmp(substr($key,-5),"Color") == 0) {
 					$val = $this->_JScolor($val);
 				} else {
@@ -7971,7 +7974,7 @@ if (!class_exists('TCPDF')) {
 		* @param array $col1 first color (RGB components).
 		* @param array $col2 second color (RGB components).
 		* @param array $coords array of the form (x1, y1, x2, y2) which defines the gradient vector (see linear_gradient_coords.jpg). The default value is from left to right (x1=0, y1=0, x2=1, y2=0).
-		* @author Andreas Würmser, Nicola Asuni
+		* @author Andreas Wï¿½rmser, Nicola Asuni
 		* @since 3.1.000 (2008-06-09)
 		* @access public
 		*/
@@ -7989,7 +7992,7 @@ if (!class_exists('TCPDF')) {
 		* @param array $col1 first color (RGB components).
 		* @param array $col2 second color (RGB components).
 		* @param array $coords array of the form (fx, fy, cx, cy, r) where (fx, fy) is the starting point of the gradient with color1, (cx, cy) is the center of the circle with color2, and r is the radius of the circle (see radial_gradient_coords.jpg). (fx, fy) should be inside the circle, otherwise some areas will not be defined.
-		* @author Andreas Würmser, Nicola Asuni
+		* @author Andreas Wï¿½rmser, Nicola Asuni
 		* @since 3.1.000 (2008-06-09)
 		* @access public
 		*/
@@ -8008,10 +8011,10 @@ if (!class_exists('TCPDF')) {
 		* @param array $col2 second color (lower right corner) (RGB components).
 		* @param array $col3 third color (upper right corner) (RGB components).
 		* @param array $col4 fourth color (upper left corner) (RGB components).
-		* @param array $coords <ul><li>for one patch mesh: array(float x1, float y1, .... float x12, float y12): 12 pairs of coordinates (normally from 0 to 1) which specify the Bézier control points that define the patch. First pair is the lower left edge point, next is its right control point (control point 2). Then the other points are defined in the order: control point 1, edge point, control point 2 going counter-clockwise around the patch. Last (x12, y12) is the first edge point's left control point (control point 1).</li><li>for two or more patch meshes: array[number of patches]: arrays with the following keys for each patch: f: where to put that patch (0 = first patch, 1, 2, 3 = right, top and left of precedent patch - I didn't figure this out completely - just try and error ;-) points: 12 pairs of coordinates of the Bézier control points as above for the first patch, 8 pairs of coordinates for the following patches, ignoring the coordinates already defined by the precedent patch (I also didn't figure out the order of these - also: try and see what's happening) colors: must be 4 colors for the first patch, 2 colors for the following patches</li></ul>
+		* @param array $coords <ul><li>for one patch mesh: array(float x1, float y1, .... float x12, float y12): 12 pairs of coordinates (normally from 0 to 1) which specify the Bï¿½zier control points that define the patch. First pair is the lower left edge point, next is its right control point (control point 2). Then the other points are defined in the order: control point 1, edge point, control point 2 going counter-clockwise around the patch. Last (x12, y12) is the first edge point's left control point (control point 1).</li><li>for two or more patch meshes: array[number of patches]: arrays with the following keys for each patch: f: where to put that patch (0 = first patch, 1, 2, 3 = right, top and left of precedent patch - I didn't figure this out completely - just try and error ;-) points: 12 pairs of coordinates of the Bï¿½zier control points as above for the first patch, 8 pairs of coordinates for the following patches, ignoring the coordinates already defined by the precedent patch (I also didn't figure out the order of these - also: try and see what's happening) colors: must be 4 colors for the first patch, 2 colors for the following patches</li></ul>
 		* @param array $coords_min minimum value used by the coordinates. If a coordinate's value is smaller than this it will be cut to coords_min. default: 0
 		* @param array $coords_max maximum value used by the coordinates. If a coordinate's value is greater than this it will be cut to coords_max. default: 1
-		* @author Andreas Würmser, Nicola Asuni
+		* @author Andreas Wï¿½rmser, Nicola Asuni
 		* @since 3.1.000 (2008-06-09)
 		* @access public
 		*/
@@ -8088,7 +8091,7 @@ if (!class_exists('TCPDF')) {
 		* @param float $y ordinate of the top left corner of the rectangle.
 		* @param float $w width of the rectangle.
 		* @param float $h height of the rectangle.
-		* @author Andreas Würmser, Nicola Asuni
+		* @author Andreas Wï¿½rmser, Nicola Asuni
 		* @since 3.1.000 (2008-06-09)
 		* @access protected
 		*/
@@ -8111,7 +8114,7 @@ if (!class_exists('TCPDF')) {
 		* @param array $col1 first color (RGB components).
 		* @param array $col2 second color (RGB components).
 		* @param array $coords array of coordinates.
-		* @author Andreas Würmser, Nicola Asuni
+		* @author Andreas Wï¿½rmser, Nicola Asuni
 		* @since 3.1.000 (2008-06-09)
 		* @access protected
 		*/
@@ -8135,7 +8138,7 @@ if (!class_exists('TCPDF')) {
 		
 		/**
 		* Output shaders.
-		* @author Andreas Würmser, Nicola Asuni
+		* @author Andreas Wï¿½rmser, Nicola Asuni
 		* @since 3.1.000 (2008-06-09)
 		* @access protected
 		*/
@@ -8405,12 +8408,12 @@ if (!class_exists('TCPDF')) {
 				$this->_out(sprintf('%.3F %.3F %.3F %.3F %.3F %.3F cm', $scale_x, 0, 0, $scale_y, $x1*(1-$scale_x), $y2*(1-$scale_y)));
 			}
 			// handle pc/unix/mac line endings
-			$lines = split("\r\n|[\r\n]", $data);
+			$lines = preg_split("\r\n|[\r\n]", $data);
 			$u=0;
 			$cnt = count($lines);
 			for ($i=0; $i < $cnt; $i++) {
 				$line = $lines[$i];
-				if (($line == '') OR ($line{0} == '%')) {
+				if (($line == '') OR ($line[0] == '%')) {
 					continue;
 				}
 				$len = strlen($line);
@@ -8461,7 +8464,7 @@ if (!class_exists('TCPDF')) {
 					case 'V':
 					case 'L':
 					case 'C': {
-						$line{$len-1} = strtolower($cmd);
+						$line[$len-1] = strtolower($cmd);
 						$this->_out($line);
 						break;
 					}
@@ -8563,6 +8566,9 @@ if (!class_exists('TCPDF')) {
 		public function write1DBarcode($code, $type, $x='', $y='', $w='', $h='', $xres=0.4, $style='', $align='') {
 			if (empty($code)) {
 				return;
+			}
+			if (empty($style)) {
+				$style = array();
 			}
 			$barcodeobj = new TCPDFbarcode($code, $type);
 			$arrcode = $barcodeobj->getBarcodeArray();
@@ -8957,7 +8963,7 @@ if (!class_exists('TCPDF')) {
 					// get tag name
 					preg_match('/[\/]?([a-zA-Z0-9]*)/', $element, $tag);
 					$dom[$key]['value'] = strtolower($tag[1]);
-					if ($element{0} == '/') {
+					if ($element[0] == '/') {
 						// closing html tag
 						$dom[$key]['opening'] = false;
 						$dom[$key]['parent'] = end($level);
@@ -9002,7 +9008,7 @@ if (!class_exists('TCPDF')) {
 						// get attributes
 						preg_match_all('/([^=\s]*)=["\']?([^"\']*)["\']?/', $element, $attr_array, PREG_PATTERN_ORDER);
 						$dom[$key]['attribute'] = array(); // reset attribute array
-						while (list($id, $name) = each($attr_array[1])) {
+						foreach ($attr_array[1] as $id => $name) {
 							$dom[$key]['attribute'][strtolower($name)] = $attr_array[2][$id];
 						}
 						// split style attributes
@@ -9010,14 +9016,14 @@ if (!class_exists('TCPDF')) {
 							// get style attributes
 							preg_match_all('/([^:\s]*):([^;]*)/', $dom[$key]['attribute']['style'], $style_array, PREG_PATTERN_ORDER);
 							$dom[$key]['style'] = array(); // reset style attribute array
-							while (list($id, $name) = each($style_array[1])) {
+							foreach ($style_array[1] as $id => $name) {
 								$dom[$key]['style'][strtolower($name)] = $style_array[2][$id];
 							}
 							// --- get some style attributes ---
 							if (isset($dom[$key]['style']['font-family'])) {
 								// font family
 								if (isset($dom[$key]['style']['font-family'])) {
-									$fontslist = split(",", strtolower($dom[$key]['style']['font-family']));
+									$fontslist = explode(",", strtolower($dom[$key]['style']['font-family']));
 									foreach($fontslist as $font) {
 										$font = trim(strtolower($font));
 										if (in_array($font, $this->fontlist)){
@@ -9033,10 +9039,10 @@ if (!class_exists('TCPDF')) {
 							}
 							// font style
 							$dom[$key]['fontstyle'] = "";
-							if (isset($dom[$key]['style']['font-weight']) AND (strtolower($dom[$key]['style']['font-weight']{0}) == "b")) {
+							if (isset($dom[$key]['style']['font-weight']) AND (strtolower($dom[$key]['style']['font-weight'][0]) == "b")) {
 								$dom[$key]['fontstyle'] .= "B";
 							}
-							if (isset($dom[$key]['style']['font-style']) AND (strtolower($dom[$key]['style']['font-style']{0}) == "i")) {
+							if (isset($dom[$key]['style']['font-style']) AND (strtolower($dom[$key]['style']['font-style'][0]) == "i")) {
 								$dom[$key]['fontstyle'] .= "I";
 							}
 							// check for width attribute
@@ -9049,14 +9055,14 @@ if (!class_exists('TCPDF')) {
 							}
 							// check for text alignment
 							if (isset($dom[$key]['style']['text-align'])) {
-								$dom[$key]['align'] = strtoupper($dom[$key]['style']['text-align']{0});
+								$dom[$key]['align'] = strtoupper($dom[$key]['style']['text-align'][0]);
 							}
 						}
 						// check for font tag
 						if ($dom[$key]['value'] == "font") {
 							// font family
 							if (isset($dom[$key]['attribute']['face'])) {
-								$fontslist = split(",", strtolower($dom[$key]['attribute']['face']));
+								$fontslist = explode(",", strtolower($dom[$key]['attribute']['face']));
 								foreach($fontslist as $font) {
 									$font = trim(strtolower($font));
 									if (in_array($font, $this->fontlist)){
@@ -9068,9 +9074,9 @@ if (!class_exists('TCPDF')) {
 							// font size
 							if (isset($dom[$key]['attribute']['size'])) {
 								if ($key > 0) {
-									if ($dom[$key]['attribute']['size']{0} == "+") {
+									if ($dom[$key]['attribute']['size'][0] == "+") {
 										$dom[$key]['fontsize'] = $dom[($dom[$key]['parent'])]['fontsize'] + intval(substr($dom[$key]['attribute']['size'], 1));
-									} elseif ($dom[$key]['attribute']['size']{0} == "-") {
+									} elseif ($dom[$key]['attribute']['size'][0] == "-") {
 										$dom[$key]['fontsize'] = $dom[($dom[$key]['parent'])]['fontsize'] - intval(substr($dom[$key]['attribute']['size'], 1));
 									} else {
 										$dom[$key]['fontsize'] = intval($dom[$key]['attribute']['size']);
@@ -9097,8 +9103,8 @@ if (!class_exists('TCPDF')) {
 						if (($dom[$key]['value'] == "em") OR ($dom[$key]['value'] == "i")) {
 							$dom[$key]['fontstyle'] .= "I";
 						}
-						if (($dom[$key]['value']{0} == "h") AND (intval($dom[$key]['value']{1}) > 0) AND (intval($dom[$key]['value']{1}) < 7)) {
-							$headsize = (4 - intval($dom[$key]['value']{1})) * 2;
+						if (($dom[$key]['value'][0] == "h") AND (intval($dom[$key]['value'][1]) > 0) AND (intval($dom[$key]['value'][1]) < 7)) {
+							$headsize = (4 - intval($dom[$key]['value'][1])) * 2;
 							$dom[$key]['fontsize'] = $dom[0]['fontsize'] + $headsize;
 							$dom[$key]['fontstyle'] .= "B";
 						}
@@ -9140,7 +9146,7 @@ if (!class_exists('TCPDF')) {
 						}
 						// check for text alignment
 						if (isset($dom[$key]['attribute']['align']) AND (!empty($dom[$key]['attribute']['align'])) AND ($dom[$key]['value'] !== 'img')) {
-							$dom[$key]['align'] = strtoupper($dom[$key]['attribute']['align']{0});
+							$dom[$key]['align'] = strtoupper($dom[$key]['attribute']['align'][0]);
 						}
 					} // end opening tag
 				} else {
@@ -9527,7 +9533,7 @@ if (!class_exists('TCPDF')) {
 						$strrest = $this->Write($this->lasth, $dom[$key]['value'], '', $wfill, "", false, 0, true);
 						$this->cMargin = $ctmpmargin;
 					}
-					if (strlen($strrest) > 0) {
+					if (strlen((string) $strrest) > 0) {
 						// store the remaining string on the previous $key position
 						$this->newline = true;
 						if ($cell) {
@@ -10053,4 +10059,4 @@ if (!class_exists('TCPDF')) {
 //============================================================+
 // END OF FILE
 //============================================================+
-?>
+?>

@@ -137,6 +137,9 @@ class principalComponents extends sfComponents
        $c->addJoin(AsignaturaPeer::PROFESOR_ID,ProfesorPeer::ID);
        $c->add(AsignaturaPeer::ID,$this->asignatura);
        $profesor = ProfesorPeer::doSelectOne($c);
+    if (!$profesor) {
+      $profesor = new Profesor();
+    }
 
    }
    else
@@ -149,6 +152,9 @@ class principalComponents extends sfComponents
     {
         $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
         $profesor = ProfesorPeer::doSelectOne($c);
+    if (!$profesor) {
+      $profesor = new Profesor();
+    }
     }
    }
 

@@ -117,11 +117,12 @@ class principalActions extends sfActions
   
   public function executeError()
   {
-    $this->mensaje = $this->getRequestParameter('mensaje');  
+    $this->mensaje = (string) $this->getRequestParameter('mensaje');  
   }
   
   public function executeWarning()
   {
+    $this->mensaje = '';
     $error = $this->getRequestParameter('error');
     
     if ($error == 1)

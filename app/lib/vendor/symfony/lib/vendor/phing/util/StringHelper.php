@@ -51,7 +51,7 @@ class StringHelper {
     /** 
      * Converts a string to an indexed array of chars
      * There's really no reason for this to be used in PHP, since strings
-     * are all accessible using the $string{0} notation.
+     * are all accessible using the $string[0] notation.
      * @param string $string
      * @return array
      * @deprecated
@@ -60,7 +60,7 @@ class StringHelper {
         $ret=array();
         $len=strlen($str);
         for ($i=0; $i < $len; $i++) {
-            $ret[] = $str{$i};
+            $ret[] = $str[$i];
         }
         return $ret;
     }
@@ -118,7 +118,7 @@ class StringHelper {
         }
         // otherwise assume it's something like "true" or "t"
         $trimmed = strtolower(trim($s));
-        return (boolean) in_array($trimmed, self::$TRUE_VALUES);
+        return (bool) in_array($trimmed, self::$TRUE_VALUES);
     }
 
     /** tests if a string is a representative of a boolean */
@@ -133,7 +133,7 @@ class StringHelper {
         }
 
         $test = trim(strtolower($s));
-        return (boolean) in_array($test, array_merge(self::$FALSE_VALUES, self::$TRUE_VALUES));
+        return (bool) in_array($test, array_merge(self::$FALSE_VALUES, self::$TRUE_VALUES));
     }
         
     /**
@@ -177,7 +177,7 @@ class StringHelper {
             trigger_error("substring(), Endindex out of bounds must be $startpos<n<".($len-1), E_USER_ERROR);
         }
         if ($startpos === $endpos) {
-            return (string) $string{$startpos};
+            return (string) $string[$startpos];
         } else {
             $len = $endpos-$startpos;
         }

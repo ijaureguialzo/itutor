@@ -38,7 +38,7 @@ class sfException extends Exception
       $this->setName('sfException');
     }
 
-    parent::__construct($message, $code);
+    parent::__construct((string) $message, $code);
 
     if (sfConfig::get('sf_logging_enabled') && $this->getName() != 'sfStopException')
     {
@@ -103,7 +103,8 @@ class sfException extends Exception
       // clean current output buffer
       while (@ob_end_clean());
 
-      ob_start(sfConfig::get('sf_compressed') ? 'ob_gzhandler' : '');
+      $handler = sfConfig::get('sf_compressed') ? 'ob_gzhandler' : '';
+      ob_start($handler === '' ? null : $handler);
     }
 
     // send an error 500 if not in debug mode

@@ -103,6 +103,7 @@ class ODBCResultSet extends ODBCResultSetCommon implements ResultSet
     /**
      * @see ResultSet::next()
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         $this->cursorPos++;

@@ -64,6 +64,9 @@ class profesorActions extends sfActions
     $c = new Criteria();
     $c->add(ProfesorPeer::CODIGO,$this->getRequestParameter('codigo'));
     $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     if ($this->profesor)
     {

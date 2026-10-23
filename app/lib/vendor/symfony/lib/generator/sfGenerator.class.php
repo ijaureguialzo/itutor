@@ -92,9 +92,14 @@ abstract class sfGenerator
     $templateFile = sfLoader::getGeneratorTemplate($this->getGeneratorClass(), $this->getTheme(), $templateFile);
 
     // eval template file
+    // disable display_errors while the template runs so that no
+    // warning/notice output can be captured into the generated source
+    $display_errors = ini_get('display_errors');
+    ini_set('display_errors', '0');
     ob_start();
     require($templateFile);
     $content = ob_get_clean();
+    ini_set('display_errors', $display_errors);
 
     // replace [?php and ?]
     $content = $this->replacePhpMarks($content);

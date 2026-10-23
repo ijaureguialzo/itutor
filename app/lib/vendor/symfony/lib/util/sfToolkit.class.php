@@ -281,6 +281,11 @@ class sfToolkit
 
   public static function stringToArray($string)
   {
+    if (!is_string($string))
+    {
+      return array();
+    }
+
     preg_match_all('/
       \s*(\w+)              # key                               \\1
       \s*=\s*               # =
@@ -353,7 +358,7 @@ class sfToolkit
    */
   public static function replaceConstants($value)
   {
-    return is_string($value) ? preg_replace_callback('/%(.+?)%/', create_function('$v', 'return sfConfig::has(strtolower($v[1])) ? sfConfig::get(strtolower($v[1])) : "%{$v[1]}%";'), $value) : $value;
+    return is_string($value) ? preg_replace_callback('/%(.+?)%/', function ($v) { return sfConfig::has(strtolower($v[1])) ? sfConfig::get(strtolower($v[1])) : "%{$v[1]}%"; }, $value) : $value;
   }
 
   /**

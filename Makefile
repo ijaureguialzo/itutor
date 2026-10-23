@@ -4,10 +4,12 @@ help: _header
 	${info }
 	@echo Opciones:
 	@echo ------------------------
+	@echo build
 	@echo start / stop / restart
 	@echo start-traefik
 	@echo ------------------------
 	@echo stats / logs / workspace
+	@echo test / sweep
 	@echo clean
 	@echo ------------------------
 
@@ -34,6 +36,9 @@ _header:
 	@echo iTutor en Docker
 	@echo ----------------
 
+build:
+	@docker compose build --pull
+
 _start-command:
 	@docker compose up -d --remove-orphans
 
@@ -48,6 +53,14 @@ stop:
 	@docker compose stop
 
 restart: stop start
+
+test: _start-command
+	@docker compose --profile tools run --rm tests
+
+# Recorrido exhaustivo de rutas: detecta deprecated/warning/notice/fatal
+# en cada respuesta (usa el front controller de debug)
+sweep: _start-command
+	@php tests/route_sweep.php --base=http://localhost --pass=all
 
 stats:
 	@docker stats

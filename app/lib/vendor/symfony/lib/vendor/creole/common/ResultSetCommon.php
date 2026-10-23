@@ -123,6 +123,7 @@ abstract class ResultSetCommon {
     /**
      * @see ResultSet::getIterator()
      */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         require_once 'creole/ResultSetIterator.php';
@@ -312,7 +313,7 @@ abstract class ResultSetCommon {
         $idx = (is_int($column) ? $column - 1 : $column);
         if (!array_key_exists($idx, $this->fields)) { throw new SQLException("Invalid resultset column: " . $column); }
         if ($this->fields[$idx] === null) { return null; }
-        return (boolean) $this->fields[$idx];
+        return (bool) $this->fields[$idx];
     }
             
     /**

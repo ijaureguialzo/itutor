@@ -1,7 +1,7 @@
 services:
 
   bd:
-    image: mariadb:latest
+    image: mariadb:${MARIADB_VERSION:-12.3}
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE:-itutor}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-12345Abcde}
@@ -10,35 +10,61 @@ services:
     volumes:
       - mariadb:/var/lib/mysql
       - ./config/sql:/docker-entrypoint-initdb.d:ro
-    expose:
-      - 3306
+    ports:
+      - "127.0.0.1:3306:3306"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-12345Abcde}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
   web:
-    platform: linux/amd64
     build:
       context: ./config
       dockerfile: Dockerfile.web
+      args:
+        - PHP_VERSION=${PHP_VERSION:-8.5}
     depends_on:
-      - bd
+      bd:
+        condition: service_healthy
     volumes:
       - ./app:/var/www
       - ./app/web:/var/www/html
       - ./app/lib/vendor/symfony/data/web/sf:/var/www/html/sf
       - symfony_cache:/var/www/cache
       - symfony_log:/var/www/log
-    expose:
-      - 80
+    ports:
+      - "80:80"
     restart: unless-stopped
 
   phpmyadmin:
-    image: phpmyadmin:latest
+    image: phpmyadmin:${PHPMYADMIN_VERSION:-latest}
     depends_on:
       - bd
     environment:
       - PMA_HOST=bd
       - PMA_PORT=3306
+    ports:
+      - "8080:80"
     restart: unless-stopped
+
+  tests:
+    build: ./tests
+    profiles: ["tools"]
+    volumes:
+      - ./app:/var/www:ro
+    environment:
+      - ITUTOR_URL=${ITUTOR_URL:-http://web}
+      - MYSQL_HOST=${MYSQL_HOST:-bd}
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-itutor}
+      - MYSQL_USER=${MYSQL_USER:-itutor}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-12345Abcde}
+      - APP_USER=${APP_USER:-admin}
+      - APP_PASSWORD=${APP_PASSWORD:-12345Abcde}
+    depends_on:
+      - web
+    restart: "no"
 
 volumes:
   mariadb:

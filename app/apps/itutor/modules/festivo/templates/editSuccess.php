@@ -58,7 +58,7 @@
 <tbody>
 <tr>
   <td class="nombres"><label><?php echo __('Evaluacion') ?>: </label></td>
-  <td><?php echo $evaluacion->getTitulo()?></td>
+  <td><?php echo $evaluacion ? $evaluacion->getTitulo() : ''?></td>
 </tr>
 <tr>
   <td class="nombres"><label><?php echo __('Fecha') ?>: </label></td>

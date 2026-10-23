@@ -57,7 +57,7 @@
  */
 function MakeFont($fontfile, $fmfile, $embedded=true, $enc="cp1252", $patch=array()) {
 	//Generate a font definition file
-	set_magic_quotes_runtime(0);
+	
 	ini_set('auto_detect_line_endings','1');
 	if (!file_exists($fontfile)) {
 		die('Error: file not found: '.$fontfile);
@@ -131,7 +131,7 @@ function MakeFont($fontfile, $fmfile, $embedded=true, $enc="cp1252", $patch=arra
 		fclose($f);
 		if ($type == 'Type1') {
 			//Find first two sections and discard third one
-			$header = (ord($file{0}) == 128);
+			$header = (ord($file[0]) == 128);
 			if ($header) {
 				//Strip first binary header
 				$file = substr($file, 6);
@@ -141,7 +141,7 @@ function MakeFont($fontfile, $fmfile, $embedded=true, $enc="cp1252", $patch=arra
 				die('Error: font file does not seem to be valid Type1');
 			}
 			$size1 = $pos+6;
-			if ($header AND (ord($file{$size1}) == 128)) {
+			if ($header AND (ord($file[$size1]) == 128)) {
 				//Strip second binary header
 				$file = substr($file, 0, $size1).substr($file, $size1+6);
 			}
@@ -203,7 +203,7 @@ function ReadMap($enc) {
 	}
 	$cc2gn = array();
 	foreach ($a as $l) {
-		if ($l{0} == '!') {
+		if ($l[0] == '!') {
 			$e = preg_split('/[ \\t]+/',rtrim($l));
 			$cc = hexdec(substr($e[0],1));
 			$gn = $e[2];
@@ -252,8 +252,8 @@ function ReadUFM($file, &$cidtogidmap) {
 			}
 			// Set GID
 			if ($cc >= 0 && $cc < 0xFFFF && $glyph) {
-				$cidtogidmap{$cc*2} = chr($glyph >> 8);
-				$cidtogidmap{$cc*2 + 1} = chr($glyph & 0xFF);
+				$cidtogidmap[$cc*2] = chr($glyph >> 8);
+				$cidtogidmap[$cc*2 + 1] = chr($glyph & 0xFF);
 			}
 			}
 			if(($gn == '.notdef') AND (!isset($fm['MissingWidth']))) {
@@ -438,7 +438,7 @@ function MakeFontDescriptor($fm, $symbolic = false) {
 	//StemV
 	if (isset($fm['StdVW'])) {
 		$stemv = $fm['StdVW'];
-	} elseif (isset($fm['Weight']) and eregi('(bold|black)',$fm['Weight'])) {
+	} elseif (isset($fm['Weight']) and preg_match('/(bold|black)/i',$fm['Weight'])) {
 		$stemv=120;
 	} else {
 		$stemv = 70;

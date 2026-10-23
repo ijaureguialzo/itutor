@@ -18,10 +18,12 @@ require_once(dirname(__FILE__).'/testAutoloader.class.php');
 
 testAutoloader::initialize();
 
-function __autoload($class)
+function sfSymfonyTestAutoload($class)
 {
   return testAutoloader::__autoload($class);
 }
+
+spl_autoload_register('sfSymfonyTestAutoload');
 
 class sfException extends Exception
 {

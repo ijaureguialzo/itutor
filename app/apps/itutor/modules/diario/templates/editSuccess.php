@@ -63,19 +63,19 @@
 <tbody>
 <tr>
   <td class="nombres"><label><?php echo __('Profesor') ?>: </label></td>
-  <td><?php echo $profesor->getNombre()?></td>
+  <td><?php if (isset($profesor) && $profesor) { echo $profesor->getNombre(); }?></td>
 </tr>
 <tr>
   <td class="nombres"><label><?php echo __('Evaluacion') ?>: </label></td>
-  <td><?php echo $evaluacion->getTitulo()?></td>
+  <td><?php if (isset($evaluacion) && $evaluacion) { echo $evaluacion->getTitulo(); }?></td>
 </tr>
 <tr>
   <td class="nombres"><label><?php echo __('Asignatura') ?>: </label></td>
-  <td><?php echo $asignatura->getNombre()?></td>
+  <td><?php if (isset($asignatura) && $asignatura) { echo $asignatura->getNombre(); }?></td>
 </tr>
 <tr>
   <td class="nombres"><label><?php echo __('Grupo') ?>: </label></td>
-  <td><?php echo $grupo->getNombre()?></td>
+  <td><?php if (isset($grupo) && $grupo) { echo $grupo->getNombre(); }?></td>
 </tr>
 <tr>
   <td class="nombres"><label><?php echo __('Fecha') ?>: </label></td>
@@ -89,7 +89,7 @@
       $formato = 'Y-m-d';   
    }  
    
-   echo date($formato,strtotime($diario->getFecha()))?></td>
+   echo date($formato, strtotime((string) $diario->getFecha()) ?: time())?></td>
 </tr>
 <tr>
   <td class="nombres"><label><?php echo __('Actividad') ?>: </label></td>
@@ -107,7 +107,7 @@
   <div class="delete"><?php echo link_to(__('Eliminar'), 'diario/delete?id='.$diario->getId(), 'post=true&confirm='.__('Are you sure?')) ?></div>
   <div class="cancel"><?php echo link_to(__('Cancelar'), 'diario/show?id='.$diario->getId()) ?></div>
 <?php else: ?>
-  <div class="cancel"><?php echo link_to(__('Cancelar'), 'diario/index?fecha='.strtotime($diario->getFecha())) ?></div>
+  <div class="cancel"><?php echo link_to(__('Cancelar'), 'diario/index?fecha=' . (strtotime((string) $diario->getFecha()) ?: time())) ?></div>
 <?php endif; ?>
 </form>
 </div>

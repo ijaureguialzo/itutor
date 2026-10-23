@@ -66,6 +66,9 @@
   $fest = array();
   $p = 0;
   foreach ($festivos as $festivo):
+    if (!$festivo->getFecha()) {
+      continue;
+    }
     $date = getdate(strtotime($festivo->getFecha()));
     if ($date['mon'] == $fecha['mon'])
     {

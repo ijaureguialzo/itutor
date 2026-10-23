@@ -20,6 +20,8 @@ class YAMLNode
   public $data;
   public $indent;
   public $children = false;
+  public $ref;
+  public $refKey;
 
   static protected $lastNodeId = 0;
 
@@ -31,6 +33,8 @@ class YAMLNode
   public function __construct()
   {
     $this->id = ++self::$lastNodeId;
+    $this->ref = null;
+    $this->refKey = null;
   }
 }
 
@@ -157,7 +161,7 @@ class Spyc
         $last =& $this->_allNodes[$this->_lastNode];
         $last->data[key($last->data)] .= "\n";
       }
-      else if ($ifchk{0} != '#' && substr($ifchk, 0, 3) != '---')
+      else if ($ifchk[0] != '#' && substr($ifchk, 0, 3) != '---')
       {
         // Create a new node and get its indent
         $node         = new YAMLNode();
@@ -364,6 +368,9 @@ class Spyc
   protected $_isInline;
   protected $_dumpIndent;
   protected $_dumpWordWrap;
+  protected $_indentSort;
+  protected $_blockEnd;
+  public $ref;
 
   /**
    * Attempts to convert a key / value array item to YAML
@@ -995,10 +1002,12 @@ class Spyc
 
     $keys  = array_merge(array_keys($arr1), array_keys($arr2));
     $vals  = array_merge(array_values($arr1), array_values($arr2));
+    reset($vals);
     $ret   = array();
     foreach ($keys as $key)
     {
-      list($unused, $val) = each($vals);
+      $val = current($vals);
+      next($vals);
       if (isset($ret[$key]) && is_int($key))
       {
         $ret[] = $val;

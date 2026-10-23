@@ -1,5 +1,67 @@
-FROM nimmis/apache-php5:latest
+ARG PHP_VERSION=8.5.12
+FROM php:${PHP_VERSION}-apache
 
-RUN mkdir /var/www/cache && mkdir /var/www/log && chmod 777 /var/www/cache && chmod 777 /var/www/log
+# ---------------------------------------------------------------------------
+# System dependencies for the PHP extensions the application needs:
+#   - mysqli:  Creole/Propel database driver (replaces the removed mysql_*)
+#   - intl:    sfNumberFormat / sfMessageFormat (i18n)
+#   - gd:      image handling (student photos, TCPDF raster images)
+#   - zip:     file imports/exports
+#   - curl:    outbound HTTP requests
+# ---------------------------------------------------------------------------
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+        libicu-dev \
+        libfreetype-dev \
+        libpng-dev \
+        libjpeg-dev \
+        libzip-dev \
+        libcurl4-openssl-dev \
+    ; \
+    docker-php-ext-install mysqli intl gd zip curl; \
+    apt-get purge -y --auto-remove -o APT::AutoRemove::Recommends=false -o APT::AutoRemove::Suggests=false; \
+    rm -rf /var/lib/apt/lists/*
+
+# ---------------------------------------------------------------------------
+# PHP tuning for this legacy application.
+# The codebase has been ported to PHP 8.x; E_DEPRECATED is left out of the
+# error log so that harmless deprecations in vendored 2009-era libraries
+# don't drown the log, and display_errors is off so users only see pages.
+# ---------------------------------------------------------------------------
+RUN { \
+        echo "memory_limit = 256M"; \
+        echo "post_max_size = 32M"; \
+        echo "upload_max_filesize = 16M"; \
+        echo "max_execution_time = 120"; \
+        echo "expose_php = Off"; \
+        echo "error_reporting = E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED"; \
+        echo "display_errors = Off"; \
+        echo "log_errors = On"; \
+        echo "opcache.enable = 1"; \
+        echo "opcache.enable_cli = 0"; \
+        echo "opcache.memory_consumption = 128"; \
+        echo "opcache.max_accelerated_files = 20000"; \
+        echo "opcache.validate_timestamps = 1"; \
+        echo "opcache.revalidate_freq = 0"; \
+        echo "date.timezone = UTC"; \
+    } > /usr/local/etc/php/conf.d/99-itutor.ini
+
+# ---------------------------------------------------------------------------
+# Apache: serve /var/www/html (the app/web directory) and accept PHP files
+# as index documents.
+# ---------------------------------------------------------------------------
+RUN { \
+        echo "<Directory /var/www/>"; \
+        echo "    AllowOverride All"; \
+        echo "    Require all granted"; \
+        echo "    DirectoryIndex index.php itutor_dev.php"; \
+        echo "</Directory>"; \
+    } > /etc/apache2/conf-available/itutor.conf; \
+    a2enconf itutor; \
+    a2enmod rewrite
+
+# Writable cache and log directories (Symfony 1 config cache, logs, fixtures)
+RUN mkdir -p /var/www/cache /var/www/log && chmod 777 /var/www/cache /var/www/log
 
 WORKDIR /var/www
