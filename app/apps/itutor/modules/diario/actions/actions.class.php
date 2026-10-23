@@ -96,6 +96,9 @@ class diarioActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
         
     $c = new Criteria();
     $c->add(DiarioPeer::PROFESOR_ID,$this->profesor->getId());
@@ -242,6 +245,9 @@ class diarioActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(HorarioPeer::PROFESOR_ID,$this->profesor->getId());
@@ -346,6 +352,9 @@ class diarioActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $date = date('Y-m-d',$this->fecha[0]);
     
@@ -471,6 +480,9 @@ class diarioActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
 
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $c = new Criteria();
     $c->add(DiarioPeer::PROFESOR_ID,$this->profesor->getId());
@@ -614,6 +626,9 @@ class diarioActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(HorarioPeer::PROFESOR_ID,$this->profesor->getId());

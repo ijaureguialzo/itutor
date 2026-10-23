@@ -47,6 +47,9 @@ class asignaturaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(AsignaturaPeer::PROFESOR_ID,$this->profesor->getId());
@@ -62,6 +65,9 @@ class asignaturaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $this->forward404Unless($this->asignatura);
   }
@@ -73,6 +79,9 @@ class asignaturaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $this->setTemplate('edit');
   }
@@ -85,6 +94,9 @@ class asignaturaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->forward404Unless($this->asignatura);
   }
@@ -146,6 +158,9 @@ class asignaturaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(AsignaturaPeer::PROFESOR_ID,$this->profesor->getId());

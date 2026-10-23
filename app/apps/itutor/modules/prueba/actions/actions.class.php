@@ -42,6 +42,9 @@ class pruebaActions extends sfActions
     $c= new Criteria();
     $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
     $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $d = new Criteria();
    $d->add(HoraperfilPeer::PERFIL_ID,$this->profesor->getPerfilId());
@@ -70,6 +73,9 @@ class pruebaActions extends sfActions
   $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
   $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
   $c = new Criteria();
   $c->add(PruebaPeer::ASIGNATURA_ID,$this->getRequestParameter('asignatura'));
@@ -136,6 +142,9 @@ class pruebaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
 
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $f = new Criteria();
     $f->addAscendingOrderByColumn(PruebaPeer::EVALUACION_ID);
@@ -172,6 +181,9 @@ class pruebaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     
     $this->evaluaciones = EvaluacionPeer::doSelect(new Criteria());
@@ -203,6 +215,9 @@ class pruebaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     $this->prueba = PruebaPeer::retrieveByPk($this->getRequestParameter('prueba'));
     
     $this->fecha = $this->getRequestParameter('fecha');
@@ -257,6 +272,9 @@ class pruebaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $d = new Criteria();
     $d->add(AlumnoPeer::GRUPO_ID, $this->getRequestParameter('grupo')); 
@@ -344,6 +362,9 @@ class pruebaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->add(AsignaturaPeer::PROFESOR_ID,$this->profesor->getId());
@@ -367,6 +388,9 @@ class pruebaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(AsignaturaPeer::PROFESOR_ID,$this->profesor->getId());

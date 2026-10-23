@@ -25,7 +25,10 @@ class pdfActions extends sfActions
   public function executeTest()
   {
     
-    define ("PDF_HEADER_LOGO", "logo2.png");
+    if (!defined("PDF_HEADER_LOGO"))
+    {
+        define ("PDF_HEADER_LOGO", "logo2.png");
+    }
 
     // pdf object
     $pdf = new sfTCPDF();
@@ -59,7 +62,10 @@ class pdfActions extends sfActions
 
     require_once(sfConfig::get('sf_tcpdf_dir').'/config/lang/eng.php');
     
-    define ("PDF_HEADER_LOGO", "logo2.png");
+    if (!defined("PDF_HEADER_LOGO"))
+    {
+        define ("PDF_HEADER_LOGO", "logo2.png");
+    }
     
     $doc_title = "test title";
     $doc_subject = "test description";

@@ -42,6 +42,9 @@ class faltaActions extends sfActions
     $c= new Criteria();
     $c->add(ProfesorPeer::CODIGO, $this->getUser()->getAttribute('codigo'));
     $this->profesor = ProfesorPeer::doSelectOne($c);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $d = new Criteria();
    $d->add(HoraperfilPeer::PERFIL_ID,$this->profesor->getPerfilId());
@@ -69,6 +72,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -109,6 +115,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
 
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -528,6 +537,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -544,6 +556,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -562,6 +577,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -583,6 +601,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $fecha = strtotime("now");
     
@@ -617,6 +638,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(FaltaPeer::EVALUACION_ID,$this->getRequestParameter('evaluacion_id'));
@@ -654,6 +678,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -675,6 +702,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $fecha = strtotime("now");
     
@@ -713,6 +743,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(FaltaPeer::EVALUACION_ID,$this->getRequestParameter('evaluacion_id'));
@@ -741,6 +774,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -757,6 +793,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -773,6 +812,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -817,6 +859,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -870,6 +915,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -897,6 +945,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->add(AlumnoPeer::ID, $this->getRequestParameter('alumno_id'));
@@ -957,6 +1008,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
 
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $c = new Criteria();
     $c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -1005,6 +1059,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria(); 
 
@@ -1059,6 +1116,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria(); 
 
@@ -1103,6 +1163,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
       
     $g = new Criteria();
@@ -1141,6 +1204,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -1177,6 +1243,9 @@ class faltaActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $c = new Criteria();
     $c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);

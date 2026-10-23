@@ -45,6 +45,9 @@ class comportamientoActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
     
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
     
     $this->c = new Criteria();
     $this->c->addJoin(HorarioPeer::GRUPO_ID, GrupoPeer::ID);
@@ -65,6 +68,9 @@ class comportamientoActions extends sfActions
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
 
     $this->profesor = ProfesorPeer::doSelectOne($d);
+    if (!$this->profesor) {
+      $this->profesor = new Profesor();
+    }
 
     $this->g = new Criteria();
     $this->g->add(AsignaturaPeer::PROFESOR_ID,$this->profesor->getId());
