@@ -38,7 +38,7 @@ class diarioActions extends sfActions
 {
   public function executeIndex()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     switch($this->fecha['mon'])
     {
@@ -237,7 +237,7 @@ class diarioActions extends sfActions
   
   public function executeGrupodia()
   {
-    $this->fecha = getdate($this->getRequestParameter('dia'));
+    $this->fecha = getdate($this->getRequestParameter('dia', time()));
     
     $dia = $this->fecha['wday'];
     
@@ -338,15 +338,22 @@ class diarioActions extends sfActions
    }
    else
    {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $opcion = $this->getRequestParameter('opcion');
     
     $horario = HorarioPeer::retrieveByPk($opcion);
+    if (!$horario) {
+      $mensaje = 'No se encuentra la opción seleccionada.';
+      return $this->redirect('principal/error?mensaje='.$mensaje);
+    }
     
     $this->grupo = GrupoPeer::retrieveByPk($horario->getGrupoId());
-    
     $this->asignatura = AsignaturaPeer::retrieveByPk($horario->getAsignaturaId());
+    if (!$this->grupo || !$this->asignatura) {
+      $mensaje = 'No se puede crear la entrada del diario para esa opción.';
+      return $this->redirect('principal/error?mensaje='.$mensaje);
+    }
     
     $d = new Criteria();
     $d->add(ProfesorPeer::CODIGO,$this->getUser()->getAttribute('codigo'));
@@ -385,7 +392,9 @@ class diarioActions extends sfActions
       
       $this->evaluacion = EvaluacionPeer::doSelectOne($c);
       
-      $this->diario->setEvaluacionId($this->evaluacion->getId());
+      if ($this->evaluacion) {
+        $this->diario->setEvaluacionId($this->evaluacion->getId());
+      }
       
       $this->setTemplate('edit');
     }
@@ -420,7 +429,7 @@ class diarioActions extends sfActions
     
     
     
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
 
     $fe = $this->getRequestParameter('fecha');
 
@@ -704,7 +713,7 @@ class diarioActions extends sfActions
    //Genera todas las entradas del diario
   public function executeGenerar()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->opcion = $this->getRequestParameter('opcion');
     
@@ -799,7 +808,7 @@ class diarioActions extends sfActions
 
   public function executeRegenerar()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->opcion = $this->getRequestParameter('opcion');
 
@@ -908,7 +917,7 @@ class diarioActions extends sfActions
 
   public function executeImprimir()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
 
 
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo'));
@@ -969,7 +978,7 @@ class diarioActions extends sfActions
 
   public function executeImprimirud()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
 
 
     $this->grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('grupo'));
@@ -1030,7 +1039,7 @@ class diarioActions extends sfActions
   
   public function executeListado()
   {
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->opcion = $this->getRequestParameter('opcion');
     

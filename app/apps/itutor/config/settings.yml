@@ -113,6 +113,8 @@ all:
 all:
   .settings:
     enabled_modules: [ sfGuardAuth, sfGuardGroup, sfGuardPermission, sfGuardUser, sfTCPDF ]
+    error_404_module:       principal
+    error_404_action:       error
     i18n: on
   .actions:    
     login_module:           sfGuardAuth

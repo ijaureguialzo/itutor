@@ -46,7 +46,7 @@
 </tr>
 <tr>
 <th><?php echo __('Evaluacion') ?>: </th>
-<td class="p"><?php echo $evaluacion->getTitulo() ?></td>
+<td class="p"><?php echo $evaluacion ? $evaluacion->getTitulo() : '' ?></td>
 </tr>
 <tr>
 <th><?php echo __('Fecha') ?>: </th>
@@ -62,7 +62,7 @@
       $formato = 'Y/m/d';   
    }  
    
-   echo date($formato,strtotime($festivo->getFecha()))
+   echo $festivo->getFecha() ? date($formato, strtotime($festivo->getFecha())) : ''
    
    ?></td>
 </tr>

@@ -82,8 +82,10 @@
   }
   else
   {
-    echo input_hidden_tag('grupo_id', $grupo->getId()); 
-    echo $grupo->getNombre();
+    if ($grupo) {
+      echo input_hidden_tag('grupo_id', $grupo->getId()); 
+      echo $grupo->getNombre();
+    }
   }?></td>
 </tr>
 <tr>

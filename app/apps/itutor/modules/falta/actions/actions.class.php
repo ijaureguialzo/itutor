@@ -60,7 +60,7 @@ class faltaActions extends sfActions
     $this->asignaturas = AsignaturaPeer::doSelect(new Criteria());
     $this->grupos = GrupoPeer::doSelect (new Criteria());
     
-    $this->fecha = getdate($this->getRequestParameter('fecha'));
+    $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->festivos = FestivoPeer::doSelect(new Criteria());
    
