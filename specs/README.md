@@ -45,6 +45,14 @@ Especificación del modelo de dominio y módulos de negocio de iTutor.
 - `design.md` — mapa de módulos, rutas, acciones y plantillas por módulo.
 - `tasks.md` — tareas pendientes de negocio.
 
+### [003 — auditoria-de-seguridad](./003-auditoria-seguridad/)
+
+Especificación de la auditoría de seguridad y lista priorizada de problemas.
+
+- `spec.md` — hallazgos (P0/P1/P2), lista priorizada y criterios de aceptación.
+- `design.md` — decisiones de remediación propuestas.
+- `tasks.md` — tareas priorizadas de corrección.
+
 ## Proceso SDD aplicado en iTutor
 
 1. **Descubrimiento / propuesta**: el agente propone un spec para el cambio.
