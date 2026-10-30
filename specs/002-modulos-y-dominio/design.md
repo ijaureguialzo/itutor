@@ -21,6 +21,7 @@ El dominio se organiza en módulos Symfony 1 bajo `app/apps/itutor/modules/`.
 | `evaluacion` | CRUD | evaluacion, grupo, asignatura |
 | `falta` | Muy numerosos flows: `listado, grupolisteval, grupoev, tabla, tablalist, tablafaltas, salvartodo, salvar, limpiar, l imp, total*, asig*, totalalumn*, alumnolisteval, ...` | falta, retraso, evaluacion, alumno, asignatura, grupo |
 | `prueba` | CRUD + `nuevo, listado, alumnolist, notasedit, notasupdate, error` | prueba, evaluacion, asignatura, alumno, nota |
+| `prueba_viejo` | **ELIMINADO** (módulo legacy huérfano, sin referencias activas) | — |
 | `comportamiento` | CRUD + `generar, regenerar, updateall` | comportamiento, evaluacion, alumno, nota |
 | `grupoevaluacion` | CRUD | grupo, evaluacion |
 | `listados` | `index, grupoev, alasiglist, guardarnota, grupoasiglist, grupoasigresumenlist, alresumenlist, alresumenlistpdf, algrupolist` | notas, medias |

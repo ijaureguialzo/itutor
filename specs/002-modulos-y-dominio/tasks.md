@@ -7,6 +7,7 @@
 
 ## Pendiente
 
+- [x] Eliminar el módulo `prueba_viejo` (legacy huérfano) y limpiar su entrada en `tests/route_sweep.php`.
 - [ ] Estandarizar actions de faltas/pruebas/diario (flujo único por caso de uso).
 - [ ] Centralizar cálculo de medias ponderadas en componente de negocio.
 - [ ] Añadir specs por módulo individual (p. ej. `specs/003-modulo-falta/`) si el

@@ -130,7 +130,8 @@ Cada módulo vive en `app/apps/itutor/modules/<module>/`:
 Módulos de aplicación: `principal, alumno, asignatura, profesor, grupo, horario,
 hora, perfil, festivo, diario, evaluacion, falta, prueba, comportamiento,
 grupoevaluacion, listados, pdf`. Plugins activados: `sfGuardAuth, sfGuardGroup,
-sfGuardPermission, sfGuardUser, sfTCPDF`. Legacy: `prueba_viejo`.
+sfGuardPermission, sfGuardUser, sfTCPDF`. Legacy: `prueba_viejo` (**eliminado**;
+módulo huérfano no referenciado).
 
 ### 5.2 Convenciones en acciones
 
@@ -217,7 +218,7 @@ sfGuardPermission, sfGuardUser, sfTCPDF`. Legacy: `prueba_viejo`.
 - No refactorizar el framework vendoreado salvo con spec y parches justificados.
 - No tocar código generado (`app/lib/model/om`, `map`, `app/config/generated-*`,
   `sfGuardPlugin/lib/model` generado) salvo regeneración planificada.
-- No eliminar funcionalidades legacy (`prueba_viejo`) sin spec.
+- No eliminar funcionalidades legacy salvo decisión registrada en un spec (p. ej. el módulo `prueba_viejo`, ya eliminado).
 - No introducir APIs obsoletas (`each`, `create_function`, `split`, `ereg`,
   `mysql_*`, `strftime`) — el lint y el sweep los penalizan.
 - No mezclar idiomas: comentarios y mensajes en español, identificadores en

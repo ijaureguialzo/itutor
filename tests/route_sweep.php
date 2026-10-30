@@ -71,7 +71,6 @@ $routes = array(
     'principal'        => array('actions' => array('index', 'error', 'warning', 'logout')),
     'profesor'         => array('actions' => array('index', 'list', 'show', 'create', 'edit', 'update', 'delete')),
     'prueba'           => array('actions' => array('index', 'nuevo', 'list', 'listado', 'alumnolist', 'notasedit', 'show', 'create', 'edit', 'update', 'error', 'notasupdate', 'delete')),
-    'prueba_viejo'     => array('actions' => array('index', 'nuevo', 'list', 'listado', 'alumnolist', 'notasedit', 'show', 'create', 'edit', 'update', 'error', 'notasupdate', 'delete')),
     'sfGuardUser'      => array('actions' => array('index', 'list', 'create', 'edit', 'delete', 'save')),
     'sfGuardGroup'     => array('actions' => array('index', 'list', 'create', 'edit', 'delete', 'save')),
     'sfGuardPermission' => array('actions' => array('index', 'list', 'create', 'edit', 'delete', 'save')),
