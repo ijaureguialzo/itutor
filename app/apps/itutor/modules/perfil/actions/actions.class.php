@@ -107,6 +107,16 @@ class perfilActions extends sfActions
   
    public function executePerfilhoraupdate()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     if (!$this->getRequestParameter('id'))
     {
       $horaperfil = new Horaperfil();
@@ -129,6 +139,16 @@ class perfilActions extends sfActions
   }
   public function executePerfilhoradelete()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $horaperfil = HoraperfilPeer::retrieveByPk($this->getRequestParameter('id'));
 
     $this->forward404Unless($horaperfil);
@@ -142,6 +162,16 @@ class perfilActions extends sfActions
 
   public function executeUpdate()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     if (!$this->getRequestParameter('id'))
     {
       $perfil = new Perfil();
@@ -169,6 +199,16 @@ class perfilActions extends sfActions
 
   public function executeDelete()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $perfil = PerfilPeer::retrieveByPk($this->getRequestParameter('id'));
     $this->forward404Unless($perfil);
 

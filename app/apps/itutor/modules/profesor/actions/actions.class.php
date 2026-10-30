@@ -92,6 +92,16 @@ class profesorActions extends sfActions
 
   public function executeUpdate()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
   if (!$this->getRequestParameter('codigo'))
    {
       $mensaje = 'No se puede crear un profesor sin código.';     
@@ -132,6 +142,16 @@ class profesorActions extends sfActions
 
   public function executeDelete()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $profesor = ProfesorPeer::retrieveByPk($this->getRequestParameter('id'));
     
     $c = new Criteria();

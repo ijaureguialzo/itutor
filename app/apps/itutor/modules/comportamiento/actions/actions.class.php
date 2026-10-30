@@ -164,6 +164,16 @@ class comportamientoActions extends sfActions
   
   public function executeGenerar()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $c = new Criteria();
     $c->add(AlumnoPeer::GRUPO_ID,$this->getRequestParameter('grupo'));
     $this->alumnos = AlumnoPeer::doSelect($c);
@@ -184,6 +194,16 @@ class comportamientoActions extends sfActions
 
   public function executeRegenerar()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $c = new Criteria();
     $c->add(AlumnoPeer::GRUPO_ID,$this->getRequestParameter('grupo'));
     $this->alumnos = AlumnoPeer::doSelect($c);
@@ -228,6 +248,16 @@ class comportamientoActions extends sfActions
 
   public function executeUpdate()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     if (!$this->getRequestParameter('id'))
     {
       $comportamiento = new Comportamiento();
@@ -254,6 +284,16 @@ class comportamientoActions extends sfActions
   
   public function executeUpdateall()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $c = new Criteria();
     $c->addJoin(ComportamientoPeer::ALUMNO_ID,AlumnoPeer::ID);
     $c->add(AlumnoPeer::GRUPO_ID,$this->getRequestParameter('grupoid'));
@@ -284,6 +324,16 @@ class comportamientoActions extends sfActions
 
   public function executeDelete()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $comportamiento = ComportamientoPeer::retrieveByPk($this->getRequestParameter('id'));
 
     $this->forward404Unless($comportamiento);

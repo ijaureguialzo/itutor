@@ -253,6 +253,16 @@ class faltaActions extends sfActions
   
   public function executeSalvartodo()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
       $grupo = $this->getRequestParameter('grupo');
       $dia = $this->getRequestParameter('dia');
       $evaluacion = $this->getRequestParameter('evaluacion');
@@ -407,6 +417,16 @@ class faltaActions extends sfActions
   
   public function executeSalvar()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $d = new Criteria();
     $d->add(AlumnoPeer::GRUPO_ID, $this->getRequestParameter('grupo')); 
     $d->addAscendingOrderByColumn(AlumnoPeer::NOMBRE);   
@@ -1518,6 +1538,16 @@ class faltaActions extends sfActions
 
   public function executeUpdate()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     if (!$this->getRequestParameter('id'))
     {
       if (!$this->getRequestParameter('alumno_id'))
@@ -1583,6 +1613,16 @@ class faltaActions extends sfActions
 
   public function executeDelete()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $falta = FaltaPeer::retrieveByPk($this->getRequestParameter('id'));
 
     $this->forward404Unless($falta);

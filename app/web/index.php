@@ -20,6 +20,13 @@ if (defined('SF_ENVIRONMENT') && SF_ENVIRONMENT === 'prod')
     }
 }
 
+// Security: session cookie hardening (P3-H8).
+session_set_cookie_params(array(
+    'httponly' => true,
+    'secure'   => (defined('SF_ENVIRONMENT') && SF_ENVIRONMENT === 'prod'),
+    'samesite' => 'Strict',
+));
+
 require_once(SF_ROOT_DIR.DIRECTORY_SEPARATOR.'apps'.DIRECTORY_SEPARATOR.SF_APP.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'config.php');
 
 sfContext::getInstance()->getController()->dispatch();

@@ -74,6 +74,16 @@ class grupoActions extends sfActions
 
   public function executeUpdate()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
    if (!$this->getRequestParameter('profesor_id'))
    {
       $mensaje = 'Se debe asignar un tutor al grupo.';     
@@ -95,7 +105,7 @@ class grupoActions extends sfActions
       $grupo->save();
 
       $dir = "images/grupos/".$grupo->getId();
-      mkdir($dir,0777);
+      mkdir($dir,0755);
     }
     else
     {
@@ -121,6 +131,16 @@ class grupoActions extends sfActions
 
   public function executeDelete()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $grupo = GrupoPeer::retrieveByPk($this->getRequestParameter('id'));
 
     $this->forward404Unless($grupo);

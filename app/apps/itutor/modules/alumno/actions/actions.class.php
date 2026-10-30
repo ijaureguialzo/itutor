@@ -296,6 +296,16 @@ class alumnoActions extends sfActions
 
   public function executeUpdate()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
   if (!$this->getRequestParameter('grupo_id'))
    {
       $mensaje = 'Un alumno debe estar asociado a un grupo.';      
@@ -326,11 +336,34 @@ class alumnoActions extends sfActions
 
     
     //guardamos la foto
-    $dir = "images/grupos/".$this->getRequestParameter('grupo_id');
+    $dir = "images/grupos/".(int) $this->getRequestParameter('grupo_id');
 
     $x = 1;
 
     $nombre = $_FILES['foto']['tmp_name'];
+
+    //P2-H7: validacion del upload de foto (tipo, tamano y error)
+    if (isset($_FILES['foto']['error']) && $_FILES['foto']['error'] != 0)
+    {
+      $mensaje = 'Error al subir la foto.';
+      return $this->redirect('principal/error?mensaje='.$mensaje);
+    }
+
+    if (isset($_FILES['foto']['size']) && (int) $_FILES['foto']['size'] > 2097152)
+    {
+      $mensaje = 'La foto supera el tamano maximo permitido (2MB).';
+      return $this->redirect('principal/error?mensaje='.$mensaje);
+    }
+
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mime = finfo_file($finfo, $nombre);
+    finfo_close($finfo);
+
+    if (!in_array($mime, array('image/gif', 'image/jpeg', 'image/png')))
+    {
+      $mensaje = 'Formato de imagen no permitido. Solo GIF, JPG o PNG.';
+      return $this->redirect('principal/error?mensaje='.$mensaje);
+    }
 
     if ($nombre)
     {
@@ -463,6 +496,16 @@ class alumnoActions extends sfActions
 
   public function executeDelete()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $alumno = AlumnoPeer::retrieveByPk($this->getRequestParameter('id'));
     $this->forward404Unless($this->alumno);
 

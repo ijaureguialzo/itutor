@@ -187,6 +187,16 @@ class horarioActions extends sfActions
 
   public function executeUpdate()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
   if (!$this->getRequestParameter('asignatura_id') || !$this->getRequestParameter('grupo_id'))
    {
       $mensaje = 'No se puede crear el registro sin elegir asignatura y grupo.';     
@@ -256,6 +266,16 @@ class horarioActions extends sfActions
   
   public function executeUpdatedia()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
   
     $horario = HorarioPeer::retrieveByPk($this->getRequestParameter('id'));
     $this->forward404Unless($horario);
@@ -299,6 +319,16 @@ class horarioActions extends sfActions
 
   public function executeDelete()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $horario = HorarioPeer::retrieveByPk($this->getRequestParameter('id'));
 
     $this->forward404Unless($horario);

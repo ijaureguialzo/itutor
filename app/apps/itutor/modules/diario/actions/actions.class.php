@@ -715,6 +715,16 @@ class diarioActions extends sfActions
    //Genera todas las entradas del diario
   public function executeGenerar()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->opcion = $this->getRequestParameter('opcion');
@@ -813,6 +823,16 @@ class diarioActions extends sfActions
 
   public function executeRegenerar()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $this->fecha = getdate($this->getRequestParameter('fecha', time()));
     
     $this->opcion = $this->getRequestParameter('opcion');
@@ -1152,6 +1172,16 @@ class diarioActions extends sfActions
   public function executeUpdateall()
   {
 
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
+
     $c = new Criteria();
     $c->add(DiarioPeer::GRUPO_ID,$this->getRequestParameter('grupoid'));
     $c->add(DiarioPeer::ASIGNATURA_ID,$this->getRequestParameter('asignaturaid'));
@@ -1180,6 +1210,16 @@ class diarioActions extends sfActions
   
   public function executeUpdate()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     if (!$this->getRequestParameter('id'))
     {
       $diario = new Diario();
@@ -1214,6 +1254,16 @@ class diarioActions extends sfActions
 
   public function executeDelete()
   {
+
+    // P1-H3: validacion CSRF en accion mutante
+    if ($this->getRequest()->getMethod() == sfRequest::POST)
+    {
+      if (!$this->getUser()->getAttribute('csrf_token') || $this->getRequest()->getParameter('form_token') != $this->getUser()->getAttribute('csrf_token'))
+      {
+        $this->getResponse()->setStatusCode(403);
+        return sfView::NONE;
+      }
+    }
     $diario = DiarioPeer::retrieveByPk($this->getRequestParameter('id'));
 
     $this->forward404Unless($diario);
