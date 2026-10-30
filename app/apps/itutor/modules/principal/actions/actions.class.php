@@ -50,7 +50,12 @@ class principalActions extends sfActions
    }
    else
    {
-   
+       // Security: CSRF token generation for state-changing forms (P1-H3).
+       if (!$this->getUser()->getAttribute('csrf_token'))
+       {
+           $this->getUser()->setAttribute('csrf_token', bin2hex(random_bytes(32)));
+       }
+
        $permisos=$this->getUser()->getPermissions();
        $this->admin = false; 
        foreach ($permisos as $permiso):

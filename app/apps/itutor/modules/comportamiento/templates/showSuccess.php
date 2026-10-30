@@ -84,6 +84,7 @@
 <?php echo link_to(__('Editar'), 'comportamiento/edit?id='.$comportamiento->getId().'&grupo='.$grupo) ?>
 </div>
 <?php echo form_tag('comportamiento/list', 'name=formulario') ?>
+<?php echo input_hidden_tag('form_token', $sf_user->getAttribute('csrf_token')) ?>
 <?php echo input_hidden_tag('grupo', $grupo) ?>
 <?php echo input_hidden_tag('asignatura', $comportamiento->getAsignaturaId()) ?>
 <?php echo input_hidden_tag('evaluacion', $comportamiento->getEvaluacionId()) ?>

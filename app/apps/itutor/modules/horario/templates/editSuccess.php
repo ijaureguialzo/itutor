@@ -44,6 +44,7 @@
 <?php use_helper('Object') ?>
 
 <?php echo form_tag('horario/update', 'name = formulario') ?>
+<?php echo input_hidden_tag('form_token', $sf_user->getAttribute('csrf_token')) ?>
 
 <?php echo object_input_hidden_tag($horario, 'getId') ?>
 <?php echo input_hidden_tag('dia', $horario->getDia()) ?>

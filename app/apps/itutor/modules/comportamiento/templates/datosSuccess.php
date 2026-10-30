@@ -36,6 +36,7 @@
 <?php use_helper('Object') ?>
 
 <?php echo form_tag('comportamiento/list', 'name=formulario1') ?>
+<?php echo input_hidden_tag('form_token', $sf_user->getAttribute('csrf_token')) ?>
 <?php echo input_hidden_tag('fecha', $fecha);?>
 <?php echo input_hidden_tag('grupo', $grupo);?>
 

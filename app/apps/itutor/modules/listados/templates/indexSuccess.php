@@ -54,6 +54,7 @@
 <?php use_helper('Object') ?>
 
 <?php echo form_tag('listados/algrupolist', 'name=formulario1') ?>
+<?php echo input_hidden_tag('form_token', $sf_user->getAttribute('csrf_token')) ?>
 <table cellspacing="0">
 <thead>
 <tr>

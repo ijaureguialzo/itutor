@@ -42,6 +42,7 @@
 <?php use_helper('Object') ?>
 
 <?php echo form_tag('prueba/notasupdate', 'name=formulario') ?>
+<?php echo input_hidden_tag('form_token', $sf_user->getAttribute('csrf_token')) ?>
 
 <?php echo input_hidden_tag('grupo', $grupo->getId()) ?>  
 <?php echo input_hidden_tag('prueba', $prueba->getId()) ?> 

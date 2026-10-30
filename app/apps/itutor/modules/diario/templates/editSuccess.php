@@ -42,6 +42,7 @@
 <?php use_helper('Object') ?>
 
 <?php echo form_tag('diario/update','name=formulario') ?>
+<?php echo input_hidden_tag('form_token', $sf_user->getAttribute('csrf_token')) ?>
 
 <?php echo object_input_hidden_tag($diario, 'getId') ?>
 <?php echo object_input_hidden_tag($diario, 'getProfesorId') ?>

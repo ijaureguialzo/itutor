@@ -41,4 +41,41 @@ require_once(sfConfig::get('sf_plugins_dir').'/sfGuardPlugin/modules/sfGuardAuth
  */ 
 class sfGuardAuthActions extends BasesfGuardAuthActions
 {
+    /**
+     * Executes signin action with brute-force rate limiting (P1-H4).
+     *
+     * Limits the number of sign-in attempts per session to mitigate
+     * brute-force attacks against the credentials.
+     */
+    public function executeSignin()
+    {
+        if ($this->getRequest()->getMethod() == sfRequest::POST)
+        {
+            $user = $this->getUser();
+            $attempts = (int) $user->getAttribute('login_attempts', 0);
+            $last = (int) $user->getAttribute('login_last', 0);
+            $now = time();
+
+            if ($now - $last < 300)
+            {
+                $attempts = $attempts + 1;
+                $user->setAttribute('login_attempts', $attempts);
+
+                if ($attempts > 5)
+                {
+                    // Too many attempts: throttle (P1-H4).
+                    $this->getResponse()->setStatusCode(429);
+                    return sfView::NONE;
+                }
+            }
+            else
+            {
+                $user->setAttribute('login_attempts', 1);
+            }
+
+            $user->setAttribute('login_last', $now);
+        }
+
+        return parent::executeSignin();
+    }
 }

@@ -48,6 +48,7 @@ endforeach;
 ?>
 
 <?php echo form_tag('falta/salvar', 'name = formulario' ) ?>
+<?php echo input_hidden_tag('form_token', $sf_user->getAttribute('csrf_token')) ?>
 
 <?php echo input_hidden_tag('grupo', $grupo) ?>
 <?php echo input_hidden_tag('dia', $dia) ?>

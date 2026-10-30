@@ -247,6 +247,7 @@
 <?php use_helper('Object') ?>
 
 <?php echo form_tag('diario/listado', 'name=formulario') ?>
+<?php echo input_hidden_tag('form_token', $sf_user->getAttribute('csrf_token')) ?>
 
 <?php echo input_hidden_tag('fecha',$fecha[0]) ?>
 

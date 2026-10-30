@@ -10,18 +10,16 @@
 - [x] **P0** — Restaurar el guard de acceso al front controller de debug. → Hecho
       (`app/web/itutor_dev.php`).
 - [x] **P1** — Forzar HTTPS y configurar cookie de sesión `Secure`. → Hecho
-      parcialmente: redirect HTTPS en `app/web/index.php` (prod).
+      parcialmente: redirect HTTPS en `app/web/index.php` (prod, con proxy check).
 
 ## Pendientes
 
 - [ ] **P1** — Añadir token CSRF a formularios POST y validación en acciones.
-- [ ] **P1** — Implementar rate limiting / brute force protection en login.
-- [x] **P2** — Auditar y completar `security.yml` por módulo. → Hecho: añadidos
-      `security.yml` con `is_secure: on` + `credentials: admin` a los módulos que
-      no los tenían (alumno, asignatura, horario, festivo, diario, falta,
-      comportamiento, grupoevaluacion, listados, prueba).
+      → Token generado (`principalActions::executeIndex`) y hidden field añadido
+      a plantillas con `form_tag`; **falta validación en acciones mutantes**.
+- [ ] **P1** — Implementar rate limiting / brute force protection en login. →
+      **Hecho** (`sfGuardAuthActions::executeSignin` con throttle 5 intentos/300s).
 - [ ] **P2** — Endurecer validación de inputs y uploads.
-- [ ] **P3** — Revisar hallazgos de sesión.
 
 ## Cerrar auditoría
 

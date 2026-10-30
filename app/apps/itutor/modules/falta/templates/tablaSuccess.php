@@ -59,6 +59,7 @@
 if ($grupos)
 {?>
 <?php echo form_tag('falta/tablalist', 'name=formulario') ?>
+<?php echo input_hidden_tag('form_token', $sf_user->getAttribute('csrf_token')) ?>
 <?php echo input_hidden_tag('fecha', $fecha);?>
 <?php echo input_hidden_tag('dia', $dia);?>
 <?php echo input_hidden_tag('tutor', false);?>
