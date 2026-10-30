@@ -31,6 +31,6 @@
 <h1><?php echo __('Error') ?></h1>
 </div>
 <div id="mensaje">
-<?php echo $mensaje ?>
+<?php echo esc_entities($mensaje) ?>
 </div>
 </div>

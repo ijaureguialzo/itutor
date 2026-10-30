@@ -27,6 +27,6 @@
 <?php use_helper('Date') ?>
 <?php use_helper('I18N') ?> 
 
-<?php echo __($mensaje) ?>
+<?php echo esc_entities(__($mensaje)) ?>
 
 
