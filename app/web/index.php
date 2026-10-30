@@ -12,7 +12,7 @@ if (defined('SF_ENVIRONMENT') && SF_ENVIRONMENT === 'prod')
     {
         $_SERVER['HTTPS'] = 'on';
     }
-    if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off')
+    elseif (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] !== 'https')
     {
         $httpsUrl = 'https://'.(isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost').$_SERVER['REQUEST_URI'];
         header('Location: '.$httpsUrl);
