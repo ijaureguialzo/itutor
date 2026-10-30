@@ -50,7 +50,7 @@ start: _start-command _urls
 start-traefik: _start-traefik-command _urls-traefik
 
 stop:
-	@docker compose stop
+	@docker compose down
 
 restart: stop start
 
